@@ -1,3 +1,4 @@
+package valentinFoot;
 
 import java.util.*;
 
@@ -15,12 +16,12 @@ public class Admin extends Utilisateur {
     /**
      * 
      */
-    private void Attribute1;
+   
 
     /**
      * @param Client client
      */
-    public void supprimerCompte(void Client client) {
+    public void supprimerCompte(Client client) {
         // TODO implement here
     }
 

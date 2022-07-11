@@ -1,3 +1,4 @@
+package valentinFoot;
 
 import java.util.*;
 
@@ -30,12 +31,12 @@ public class Paiement {
     /**
      * 
      */
-    private HashSet<Marchendise> produitsAchetes;
+    private HashSet<Marchandise> produitsAchetes;
 
     /**
      * 
      */
-    public void Attribute1;
+  
 
     /**
      * 

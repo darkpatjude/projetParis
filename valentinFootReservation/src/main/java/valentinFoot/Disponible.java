@@ -1,4 +1,6 @@
+package valentinFoot;
 
+import java.sql.Time;
 import java.util.*;
 
 /**
@@ -20,7 +22,7 @@ public class Disponible {
     /**
      * 
      */
-    public Heure heure;
+    public Time heure;
 
     /**
      * 
@@ -31,7 +33,7 @@ public class Disponible {
      * @param date 
      * @param heure
      */
-    public void isAvailable(void date, void heure) {
+    public void isAvailable(Date date, Time heure) {
         // TODO implement here
     }
 

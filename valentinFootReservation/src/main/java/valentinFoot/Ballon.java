@@ -1,9 +1,5 @@
+package valentinFoot;
 
-import java.util.*;
-
-/**
- * 
- */
 public class Ballon extends Marchandise {
 
     /**

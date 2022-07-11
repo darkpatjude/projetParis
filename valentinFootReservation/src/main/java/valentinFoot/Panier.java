@@ -1,3 +1,4 @@
+package valentinFoot;
 
 import java.util.*;
 
@@ -25,12 +26,12 @@ public class Panier {
     /**
      * 
      */
-    public void Attribute1;
+    
 
     /**
      * 
      */
-    public void Attribute2;
+  
 
     /**
      * 

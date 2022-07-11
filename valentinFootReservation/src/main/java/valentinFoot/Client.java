@@ -1,3 +1,4 @@
+package valentinFoot;
 
 import java.util.*;
 
@@ -9,7 +10,7 @@ public class Client extends Utilisateur {
     /**
      * Default constructor
      */
-    public Client() {
+    public void Client() {
     }
 
     /**
@@ -22,10 +23,7 @@ public class Client extends Utilisateur {
      */
     public HashSet<Marchandise> historiqueAchat;
 
-    /**
-     * 
-     */
-    private final Date dateCreation;
+    private final Date dateCreation = new Date();
 
     /**
      * 

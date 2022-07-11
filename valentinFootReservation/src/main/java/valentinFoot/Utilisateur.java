@@ -1,3 +1,4 @@
+package valentinFoot;
 
 import java.util.*;
 
@@ -9,7 +10,7 @@ public class Utilisateur {
     /**
      * Default constructor
      */
-    public Utilisateur() {
+    public void Utilisateur() {
     }
 
     /**
@@ -42,10 +43,7 @@ public class Utilisateur {
      */
     private String adresse;
 
-    /**
-     * 
-     */
-    public final Date dateCreation;
+    public final Date dateCreation = new Date();
 
     /**
      * 
