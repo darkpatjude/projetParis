@@ -4,49 +4,43 @@ import java.util.*;
 /**
  * 
  */
-public class Compte {
+public class Paiement {
 
     /**
      * Default constructor
      */
-    public Compte() {
+    public Paiement() {
     }
 
     /**
      * 
      */
-    private Utilisateur user;
+    private Date date;
 
     /**
      * 
      */
-    public HashSet<Reservation> historiqueReservation;
+    private Long id_paiement;
 
     /**
      * 
      */
-    public void creerCompte() {
-        // TODO implement here
-    }
+    private double prix;
 
     /**
      * 
      */
-    public void supprimerCompte() {
-        // TODO implement here
-    }
+    private HashSet<Marchendise> produitsAchetes;
 
     /**
      * 
      */
-    public void getHistorique() {
-        // TODO implement here
-    }
+    public void Attribute1;
 
     /**
      * 
      */
-    public void getInfos() {
+    public void debiter() {
         // TODO implement here
     }
 

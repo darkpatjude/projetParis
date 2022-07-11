@@ -4,56 +4,52 @@ import java.util.*;
 /**
  * 
  */
-public class Compte {
+public class Marchandise {
 
     /**
      * Default constructor
      */
-    public Compte() {
+    public Marchandise() {
     }
 
     /**
      * 
      */
-    private Utilisateur user;
+    private String nom;
 
     /**
      * 
      */
-    public HashSet<Reservation> historiqueReservation;
+    private int stock;
 
     /**
      * 
      */
-    public void creerCompte() {
+    private double prix;
+
+    /**
+     * 
+     */
+    private Long id_marchandise;
+
+    /**
+     * 
+     */
+    public void remplirStock() {
         // TODO implement here
     }
 
     /**
      * 
      */
-    public void supprimerCompte() {
+    public void acheter() {
         // TODO implement here
     }
 
     /**
      * 
      */
-    public void getHistorique() {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
-    public void getInfos() {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
-    public void authentification() {
+    public void getStock() {
         // TODO implement here
     }
 

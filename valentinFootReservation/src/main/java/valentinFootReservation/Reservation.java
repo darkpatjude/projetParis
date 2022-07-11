@@ -4,56 +4,66 @@ import java.util.*;
 /**
  * 
  */
-public class Compte {
+public class Reservation {
 
     /**
      * Default constructor
      */
-    public Compte() {
+    public Reservation() {
     }
 
     /**
      * 
      */
-    private Utilisateur user;
+    private Date date;
 
     /**
      * 
      */
-    public HashSet<Reservation> historiqueReservation;
+    private Long id_reservation;
 
     /**
      * 
      */
-    public void creerCompte() {
+    private Terrain terrain;
+
+    /**
+     * 
+     */
+    private double prix;
+
+    /**
+     * 
+     */
+    public void reserver() {
         // TODO implement here
     }
 
     /**
      * 
      */
-    public void supprimerCompte() {
+    public void consulter() {
         // TODO implement here
     }
 
     /**
      * 
      */
-    public void getHistorique() {
+    public void modifier() {
         // TODO implement here
     }
 
     /**
      * 
      */
-    public void getInfos() {
+    public void annuler() {
         // TODO implement here
     }
 
     /**
      * 
      */
-    public void authentification() {
+    public void Operation1() {
         // TODO implement here
     }
 

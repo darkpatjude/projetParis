@@ -4,23 +4,28 @@ import java.util.*;
 /**
  * 
  */
-public class Compte {
+public class Client extends Utilisateur {
 
     /**
      * Default constructor
      */
-    public Compte() {
+    public Client() {
     }
 
     /**
      * 
      */
-    private Utilisateur user;
+    private HashSet<Reservation> historiqueReservation;
 
     /**
      * 
      */
-    public HashSet<Reservation> historiqueReservation;
+    public HashSet<Marchandise> historiqueAchat;
+
+    /**
+     * 
+     */
+    private final Date dateCreation;
 
     /**
      * 
@@ -46,14 +51,7 @@ public class Compte {
     /**
      * 
      */
-    public void getInfos() {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
-    public void authentification() {
+    public void updateCompte() {
         // TODO implement here
     }
 
