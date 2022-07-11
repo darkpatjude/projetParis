@@ -1,7 +1,4 @@
 # projetParis
 
 Authors:
-Julian Assad
-Mohamed Coulibaly
-Valentin Dumas
-Yassine Omarah
+Julian Assad, Mohamed Coulibaly, Valentin Dumas, Yassine Omarah
