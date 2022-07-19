@@ -6,8 +6,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="maillots")
-@SequenceGenerator(name = "seqMarchandise", sequenceName = "seq_maillot", allocationSize = 1, initialValue = 100)
 @DiscriminatorValue("M")
 public class Maillot extends Marchandise {
 

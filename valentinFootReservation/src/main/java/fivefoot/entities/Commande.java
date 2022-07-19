@@ -5,11 +5,15 @@ import java.util.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 @Entity
@@ -25,8 +29,12 @@ public class Commande {
     private Long id_commande;
     private LocalDate date;
     private double prix;
+    @ManyToOne
+	@JoinColumn(name = "commande_id_client", foreignKey = @ForeignKey(name = "commande_commande_id_client_fk"))
+    private Client client;
+    @OneToMany(mappedBy = "id.commande")
     private Set<LigneDeCommande> lignes;
-
+    
     public Commande() {
     }
 

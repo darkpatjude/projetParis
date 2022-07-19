@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -19,7 +20,8 @@ public class Client extends Utilisateur {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqClient")
     private Long id_client;
-    private Set<Commande> commande;
+	@OneToMany(mappedBy ="client")
+    private Set<Commande> commandes;
 
     public Client() {
     }
@@ -33,11 +35,11 @@ public class Client extends Utilisateur {
 	}
 
 	public Set<Commande> getCommande() {
-		return commande;
+		return commandes;
 	}
 
 	public void setCommande(Set<Commande> commande) {
-		this.commande = commande;
+		this.commandes = commande;
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package fivefoot.entities;
 
 
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -9,7 +10,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name="articles")
@@ -20,6 +24,8 @@ public class Article {
 	@Id
 	private Long id;
     private double prix;
+    @OneToMany(mappedBy = "id.article")
+	private Set<LigneDeCommande> lignes;
     
     public Article() {
     }

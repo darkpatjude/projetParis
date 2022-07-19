@@ -11,6 +11,7 @@ public abstract class Utilisateur {
 
     private String prenom;
     private String nom;
+    private Civilite civilite;
     private String email;
     private String motDePasse;
     private String telephone;
@@ -30,7 +31,14 @@ public abstract class Utilisateur {
 		this.adresse = adresse;
 	}
 
+	public Civilite getCivilite() {
+		return civilite;
+	}
 
+	public void setCivilite(Civilite civilite) {
+		this.civilite = civilite;
+	}
+	
 	public String getPrenom() {
 		return prenom;
 	}

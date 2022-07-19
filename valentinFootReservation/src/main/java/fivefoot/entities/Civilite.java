@@ -1,4 +1,4 @@
-package formationJpaJulian.entities;
+package fivefoot.entities;
 
 public enum Civilite {
 	
