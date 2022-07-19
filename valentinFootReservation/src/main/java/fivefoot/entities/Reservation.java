@@ -1,11 +1,11 @@
-package valentinFoot;
+package fivefoot.entities;
 
 import java.util.*;
 
 /**
  * 
  */
-public class Reservation {
+public class Reservation extends Article {
 
     /**
      * Default constructor
@@ -17,6 +17,11 @@ public class Reservation {
      * 
      */
     private Date date;
+
+    /**
+     * 
+     */
+    private Time heure;
 
     /**
      * 
@@ -65,6 +70,13 @@ public class Reservation {
      * 
      */
     public void Operation1() {
+        // TODO implement here
+    }
+
+    /**
+     * 
+     */
+    public void getDisponibilite() {
         // TODO implement here
     }
 

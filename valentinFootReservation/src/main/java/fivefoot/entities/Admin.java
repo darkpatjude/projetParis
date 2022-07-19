@@ -1,4 +1,4 @@
-package valentinFoot;
+package fivefoot.entities;
 
 import java.util.*;
 
@@ -13,15 +13,17 @@ public class Admin extends Utilisateur {
     public Admin() {
     }
 
+
+
     /**
      * 
      */
-   
+    private Long id_admin;
 
     /**
      * @param Client client
      */
-    public void supprimerCompte(Client client) {
+    public void supprimerCompte(void Client client) {
         // TODO implement here
     }
 
@@ -64,6 +66,13 @@ public class Admin extends Utilisateur {
      * 
      */
     public void getStock() {
+        // TODO implement here
+    }
+
+    /**
+     * 
+     */
+    public void Operation2() {
         // TODO implement here
     }
 

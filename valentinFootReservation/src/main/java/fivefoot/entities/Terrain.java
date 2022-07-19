@@ -1,49 +1,47 @@
-package valentinFoot;
+package fivefoot.entities;
 
 import java.util.*;
 
 /**
  * 
  */
-public class Panier {
+public class Terrain {
 
     /**
      * Default constructor
      */
-    public Panier() {
+    public Terrain() {
     }
 
     /**
      * 
      */
-    private Long id_panier;
+    private String nom;
 
     /**
      * 
      */
-    private Double prix;
+    private Long id_terrain;
 
     /**
      * 
      */
-    
+    private String couleur;
 
     /**
      * 
      */
-  
+    private final Time heureOuverture;
 
     /**
      * 
      */
-    public void getReservation() {
-        // TODO implement here
-    }
+    private final Time heureFermeture;
 
     /**
      * 
      */
-    public void getMarchandise() {
+    public void getDisponibilite() {
         // TODO implement here
     }
 

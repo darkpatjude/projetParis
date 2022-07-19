@@ -1,29 +1,27 @@
-package valentinFoot;
+package fivefoot.entities;
 
 import java.util.*;
 
 /**
  * 
  */
-public class Client extends Utilisateur {
+public class Compte {
 
     /**
      * Default constructor
      */
-    public void Client() {
+    public Compte() {
     }
 
     /**
      * 
      */
-    private HashSet<Reservation> historiqueReservation;
+    private Utilisateur user;
 
     /**
      * 
      */
-    public HashSet<Marchandise> historiqueAchat;
-
-    private final Date dateCreation = new Date();
+    public HashSet<Reservation> historiqueReservation;
 
     /**
      * 
@@ -49,7 +47,14 @@ public class Client extends Utilisateur {
     /**
      * 
      */
-    public void updateCompte() {
+    public void getInfos() {
+        // TODO implement here
+    }
+
+    /**
+     * 
+     */
+    public void authentification() {
         // TODO implement here
     }
 

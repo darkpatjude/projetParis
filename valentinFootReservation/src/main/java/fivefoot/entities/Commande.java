@@ -1,16 +1,16 @@
-package valentinFoot;
+package fivefoot.entities;
 
 import java.util.*;
 
 /**
  * 
  */
-public class Paiement {
+public class Commande {
 
     /**
      * Default constructor
      */
-    public Paiement() {
+    public Commande() {
     }
 
     /**
@@ -21,7 +21,7 @@ public class Paiement {
     /**
      * 
      */
-    private Long id_paiement;
+    private Long id_commande;
 
     /**
      * 
@@ -31,24 +31,24 @@ public class Paiement {
     /**
      * 
      */
-    private HashSet<Marchandise> produitsAchetes;
+    private Set<LigneDeCommande> lignes;
 
     /**
      * 
      */
-  
+    public Set<Reservation> reservationsEffectuee;
 
     /**
      * 
      */
-    public void debiter() {
+    public void infos() {
         // TODO implement here
     }
 
     /**
      * 
      */
-    public void authentification() {
+    public void recommander() {
         // TODO implement here
     }
 

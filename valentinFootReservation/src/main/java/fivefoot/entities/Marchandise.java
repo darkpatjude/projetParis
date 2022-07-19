@@ -1,17 +1,22 @@
-package valentinFoot;
+package fivefoot.entities;
 
 import java.util.*;
 
 /**
  * 
  */
-public class Marchandise {
+public class Marchandise extends Article {
 
     /**
      * Default constructor
      */
     public Marchandise() {
     }
+
+    /**
+     * 
+     */
+    private Long id_marchandise;
 
     /**
      * 
@@ -26,12 +31,12 @@ public class Marchandise {
     /**
      * 
      */
-    private double prix;
+    private double prixUnitaire;
 
     /**
      * 
      */
-    private Long id_marchandise;
+    private String description;
 
     /**
      * 
@@ -51,6 +56,13 @@ public class Marchandise {
      * 
      */
     public void getStock() {
+        // TODO implement here
+    }
+
+    /**
+     * 
+     */
+    public void descritpion() {
         // TODO implement here
     }
 

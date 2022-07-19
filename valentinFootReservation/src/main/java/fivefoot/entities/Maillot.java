@@ -1,17 +1,22 @@
-package valentinFoot;
+package fivefoot.entities;
 
-public class Ballon extends Marchandise {
+import java.util.*;
+
+/**
+ * 
+ */
+public class Maillot extends Marchandise {
 
     /**
      * Default constructor
      */
-    public Ballon() {
+    public Maillot() {
     }
 
     /**
      * 
      */
-    private String couleur;
+    private String equipe;
 
     /**
      * 
