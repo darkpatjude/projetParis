@@ -2,20 +2,21 @@ package fivefoot.entities;
 
 import java.util.*;
 
-/**
- * 
- */
+
 public class Article {
 
-    /**
-     * Default constructor
-     */
+    private double prix;
+    
     public Article() {
     }
 
-    /**
-     * 
-     */
-    private double prix;
+	public double getPrix() {
+		return prix;
+	}
+
+	public void setPrix(double prix) {
+		this.prix = prix;
+	}
+    
 
 }

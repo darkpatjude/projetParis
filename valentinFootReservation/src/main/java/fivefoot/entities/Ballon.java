@@ -1,31 +1,39 @@
 package fivefoot.entities;
 
-import java.util.*;
 
-/**
- * 
- */
 public class Ballon extends Marchandise {
 
-    /**
-     * Default constructor
-     */
+
+    private String couleur;
+    private String taille;
+    
     public Ballon() {
     }
+    
+	public Ballon(String couleur, String taille) {
+		super();
+		this.couleur = couleur;
+		this.taille = taille;
+	}
 
-    /**
-     * 
-     */
-    private String couleur;
+	public String getCouleur() {
+		return couleur;
+	}
 
-    /**
-     * 
-     */
-    private String taille;
+	public void setCouleur(String couleur) {
+		this.couleur = couleur;
+	}
 
-    /**
-     * 
-     */
-    private double prix;
+	public String getTaille() {
+		return taille;
+	}
+
+	public void setTaille(String taille) {
+		this.taille = taille;
+	}
+    
+	
+    
+    
 
 }

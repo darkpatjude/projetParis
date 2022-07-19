@@ -2,82 +2,45 @@ package fivefoot.entities;
 
 import java.util.*;
 
-/**
- * 
- */
 public class Client extends Utilisateur {
 
-    /**
-     * Default constructor
-     */
+    private Long id_client;
+    private Set<Commande> commande;
+
     public Client() {
     }
 
-    /**
-     * 
-     */
-    private Long id_client;
+	public Long getId_client() {
+		return id_client;
+	}
 
-    /**
-     * 
-     */
-    private Set<Commande> commande;
+	public void setId_client(Long id_client) {
+		this.id_client = id_client;
+	}
 
-    /**
-     * 
-     */
-    public HashSet<Marchandise> historiqueAchat;
+	public Set<Commande> getCommande() {
+		return commande;
+	}
 
-    /**
-     * 
-     */
-    private final Date dateCreation;
+	public void setCommande(Set<Commande> commande) {
+		this.commande = commande;
+	}
 
-    /**
-     * 
-     */
-    private HashSet<Commande> Commande;
+	@Override
+	public int hashCode() {
+		return Objects.hash(id_client);
+	}
 
-    /**
-     * 
-     */
-    public void creerCompte() {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
-    public void supprimerCompteClient() {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
-    public void updateCompteClient() {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
-    public void getHistoriqueCommande() {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
-    public void getHistoriqueAchat() {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
-    public void authentification() {
-        // TODO implement here
-    }
-
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Client other = (Client) obj;
+		return Objects.equals(id_client, other.id_client);
+	}
+    
 }
