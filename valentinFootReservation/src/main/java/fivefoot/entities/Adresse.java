@@ -1,6 +1,9 @@
 package fivefoot.entities;
 
+import javax.persistence.Embeddable;
 
+
+@Embeddable
 
 
 public class Adresse {

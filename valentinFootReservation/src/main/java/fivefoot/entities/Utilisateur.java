@@ -1,6 +1,12 @@
 package fivefoot.entities;
 
 
+import javax.persistence.Embedded;
+import javax.persistence.MappedSuperclass;
+
+
+@MappedSuperclass
+
 public abstract class Utilisateur {
 
     private String prenom;
@@ -8,7 +14,8 @@ public abstract class Utilisateur {
     private String email;
     private String motDePasse;
     private String telephone;
-    private Adresse adresse;
+    @Embedded
+	private Adresse adresse;
     
     public Utilisateur() {
     }

@@ -1,7 +1,14 @@
 package fivefoot.entities;
 
-import java.util.*;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="maillots")
+@SequenceGenerator(name = "seqMarchandise", sequenceName = "seq_maillot", allocationSize = 1, initialValue = 100)
+@DiscriminatorValue("M")
 public class Maillot extends Marchandise {
 
     private String equipe;

@@ -2,8 +2,22 @@ package fivefoot.entities;
 
 import java.util.*;
 
-public class Client extends Utilisateur {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="clients")
+@SequenceGenerator(sequenceName = "seq_client", name = "seqClient", initialValue = 1, allocationSize = 100)
+
+public class Client extends Utilisateur {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqClient")
     private Long id_client;
     private Set<Commande> commande;
 

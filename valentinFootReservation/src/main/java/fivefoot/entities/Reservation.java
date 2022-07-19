@@ -4,8 +4,23 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.util.*;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="reservations")
+@SequenceGenerator(sequenceName = "seq_reservation", name = "seqReservation", initialValue = 1, allocationSize = 100)
+@DiscriminatorValue("R")
 public class Reservation extends Article {
 	
+	
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqReservation")
+	@Id
 	 private Long id_reservation;
 	 private LocalDate date;
 	 private Time heure;

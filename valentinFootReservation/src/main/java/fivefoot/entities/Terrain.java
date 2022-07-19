@@ -3,12 +3,22 @@ package fivefoot.entities;
 import java.sql.Time;
 import java.util.*;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="terrains")
+@SequenceGenerator(sequenceName = "seq_terrain", name = "seqTerrain", initialValue = 1, allocationSize = 100)
+
 public class Terrain {
-
-
-
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqTerrain")
+	@Id
+	private Long id_terrain;
     private String nom;
-    private Long id_terrain;
     private Time heureFermeture;
     private Time heureOuverture;
     

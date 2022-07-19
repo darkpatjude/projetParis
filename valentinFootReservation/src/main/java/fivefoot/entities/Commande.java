@@ -3,10 +3,25 @@ package fivefoot.entities;
 import java.time.LocalDate;
 import java.util.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+@Entity
+@Table(name = "commandes")
+@SequenceGenerator(name = "seqCommande", sequenceName = "seq_commande", initialValue = 100, allocationSize = 1)
+
 
 public class Commande {
 
-   
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqCommande")
+	
     private Long id_commande;
     private LocalDate date;
     private double prix;
