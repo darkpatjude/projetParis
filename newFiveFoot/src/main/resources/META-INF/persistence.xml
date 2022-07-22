@@ -15,7 +15,7 @@
 		<!-- implementation jdbc -->
 			<property name = "hibernate.connection.url" value= "jdbc:postgresql://localhost:5432/newFiveFoot"/>
 			<property name = "hibernate.connection.user" value= "postgres"/>
-			<property name = "hibernate.connection.password" value= "0000"/>
+			<property name = "hibernate.connection.password" value= "postgres"/>
 			<!-- dialect hibernate -->
 			<property name ="hibernate.dialect"
 					value="org.hibernate.dialect.PostgreSQL10Dialect"/>
