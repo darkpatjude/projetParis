@@ -9,7 +9,7 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 
-public class Marchandise extends Article {
+public abstract class Marchandise extends Article {
 
   
 //	@Id

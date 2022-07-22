@@ -7,10 +7,15 @@ import java.util.Set;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
@@ -18,10 +23,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name="articles")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length =1 )
+@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length =1)
+@SequenceGenerator(sequenceName = "seq_article", name = "seqArticle", initialValue = 100, allocationSize = 100)
+@NamedQueries({
+	@NamedQuery(name = "Article.findByKey", query = "select a from Article a where a.id=:id"),
+	@NamedQuery(name = "Article.findByNomContaining", query = "select a from Article a where a.nom like :texte ")})
+
 public class Article {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqArticle")
 	private Long id;
     private double prix;
     @OneToMany(mappedBy = "id.article")
