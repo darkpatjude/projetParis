@@ -25,7 +25,6 @@ public class Commande {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqCommande")
-	
     private Long id_commande;
     private LocalDate date;
     private double prix;
@@ -76,6 +75,16 @@ public class Commande {
 
 	public void setLignes(Set<LigneDeCommande> lignes) {
 		this.lignes = lignes;
+	}
+	
+	
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	@Override

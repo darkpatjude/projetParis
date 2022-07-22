@@ -10,7 +10,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="ligne_de_commande")
-
 public class LigneDeCommande {
 	@EmbeddedId
 	private LigneCommandeKey id;

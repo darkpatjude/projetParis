@@ -2,6 +2,7 @@ package fivefoot.repositories;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -11,15 +12,28 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fivefoot.entities.Adresse;
 import fivefoot.entities.Client;
+import fivefoot.entities.Commande;
 
 public interface ClientRepository extends JpaRepository<Client, Long> {
+	
+	
 	List<Client> findByPrenom(String prenom);
-	List<Client> findByPrenomContaining(String prenom);
 	List<Client> findByPrenomOrNom(String prenom,String nom);
-	List<Client> findByPrenomContainingOrNomContaining(String prenom,String nom);
-//	Optional<Client> findByKeyWithCommandes(@Param("id_client") Long id);
+	
+	Optional<Client> findByEmail(String email);
+	Optional<Client> findByTelephone(String tel);
+
+	
+	Optional<Client> findByKeyWithCommandes(@Param("id") Long id_client);
+	Optional<Client> findByIdWithCommandesDetails(@Param("id") Long id_client);
+	
 	@Transactional
 	@Modifying
 	@Query("delete from Client c where c.adresse=:adresse")
 	void deleteByAdresse(@Param("adresse") Adresse adresse);
+	
+	
 }
+
+
+		
