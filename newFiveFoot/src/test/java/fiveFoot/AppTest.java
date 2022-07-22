@@ -2,27 +2,23 @@ package fiveFoot;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import fivefoot.util.Context;
+import fivefoot.config.AppConfig;
 import fivefoot.entities.Adresse;
 import fivefoot.entities.Article;
 import fivefoot.entities.Ballon;
 import fivefoot.entities.Client;
-import fivefoot.entities.Marchandise;
-import fivefoot.entities.Utilisateur;
+import fivefoot.repositories.ClientRepository;
 
 public class AppTest {
 
 	public static void main(String[] args) {
-		//Context.getEntityManagerFactory();
 		
-		EntityManager em = Context.getEntityManagerFactory().createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+		ClientRepository clientRepo = ctx.getBean(ClientRepository.class);
 		
 		Article b=new Ballon();
 		//b.setId(1L);
@@ -38,28 +34,16 @@ public class AppTest {
 		Client client= new Client();
 		client.setAdresse(new Adresse("2", "rue,", "00000", "paris"));
 		
-		
-		tx.begin();
-		em.persist(b);
-		em.persist(b2);		
-		em.persist(b3);
-		tx.commit();
-		//em.close();
-		
-		TypedQuery<Article> query = em.createNamedQuery("Article.findByNomContaining", Article.class);
-		query.setParameter("texte", "%" + "b" + "%");
-		List<Article> list = query.getResultList();
-		em.close();
-		System.out.println("--------------------------------");
-		
-		
-		for ( int i=1; i<3; i++) {
-			System.out.println(" --> " +list.size());//+list.get(i).getPrix());
-			
-		}
+
 
 		System.out.println("--------------------------------");
-		Context.destroy();
+		
+
+
+		System.out.println("--------------------------------");
+		
+		ctx.close();
+
 		
 		//afficher les commandes pour un client
 		// afficher les reservations d'une journée/semaine - d'une date 1 à une date 2; par l'admin
