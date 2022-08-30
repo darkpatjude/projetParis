@@ -16,6 +16,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import fivefoot.entities.Client;
 @Entity
 @Table(name = "commandes")
 @SequenceGenerator(name = "seqCommande", sequenceName = "seq_commande", initialValue = 100, allocationSize = 1)
@@ -49,6 +51,11 @@ public class Commande {
 		return id_commande;
 	}
 
+	public Commande(Client client) {
+		this.client = client;
+		this.date = LocalDate.now();
+	}
+	
 	public void setId_commande(Long id_commande) {
 		this.id_commande = id_commande;
 	}
