@@ -15,12 +15,8 @@ public class ArticleService {
 	private ArticleRepository articleRepo;
 
 
-	public Article create(Article Article) {
-		Fournisseur fournisseur = article.getFournisseur();
-		if (fournisseur != null) {
-			fournisseur = fournisseurService.getById(fournisseur.getId());
-			article.setFournisseur(fournisseur);
-		}
+	public Article create(Article article) {
+
 		return articleRepo.save(article);
 	}
 
@@ -30,9 +26,7 @@ public class ArticleService {
 
 	public Article update(Article article) {
 		Article articleEnBase = getById(article.getId());
-		articleEnBase.setLibelle(article.getLibelle());
-		articleEnBase.setPrixUnitaire(article.getPrixUnitaire());
-		articleEnBase.setDescription(article.getDescription());
+		articleEnBase.setPrix(article.getPrix());
 
 
 		return articleRepo.save(articleEnBase);

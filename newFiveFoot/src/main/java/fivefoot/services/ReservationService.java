@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import fivefoot.Exception.ReservationException;
 import fivefoot.entities.Reservation;
 import fivefoot.repositories.ReservationRepository;
 
@@ -26,9 +27,9 @@ public class ReservationService {
 
 	public Reservation update(Reservation reservation) {
 		Reservation reservationEnBase = getById(reservation.getId());
-		reservationEnBase.setNom(reservation.getNom());
+		reservationEnBase.setDate(reservation.getDate());
 		reservationEnBase.setPrix(reservation.getPrix());
-		reservationEnBase.setDescription(reservation.getDescription());
+		reservationEnBase.setHeure(reservation.getHeure());
 		return reservationRepo.save(reservationEnBase);
 	}
 

@@ -2,15 +2,20 @@ package fivefoot.entities;
 
 import javax.persistence.Embeddable;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 
 @Embeddable
 
 
 public class Adresse {
-	
+	@JsonView(JsonViews.Base.class)
 	private String numero;
+	@JsonView(JsonViews.Base.class)
 	private String rue;
+	@JsonView(JsonViews.Base.class)
 	private String codePostal;
+	@JsonView(JsonViews.Base.class)
 	private String ville;
 
 	public Adresse() {

@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @MappedSuperclass
 
 public abstract class Marchandise extends Article {
@@ -15,8 +17,11 @@ public abstract class Marchandise extends Article {
 //	@Id
 //	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqMarchandise")
 //    private Long id_marchandise;
+	@JsonView(JsonViews.Base.class)
     private String nom;
+	@JsonView(JsonViews.Base.class)
     private int stock;
+	@JsonView(JsonViews.Base.class)
 
     private String description;
 

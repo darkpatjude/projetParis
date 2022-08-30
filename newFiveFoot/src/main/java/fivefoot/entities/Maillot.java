@@ -5,11 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @DiscriminatorValue("M")
 public class Maillot extends Marchandise {
 
+	@JsonView(JsonViews.Base.class)
     private String equipe;
+	@JsonView(JsonViews.Base.class)
     private String taille;
 
     public Maillot() {

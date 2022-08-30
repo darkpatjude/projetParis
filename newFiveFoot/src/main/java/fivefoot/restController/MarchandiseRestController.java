@@ -1,5 +1,7 @@
 package fivefoot.restController;
 
+
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -20,51 +22,53 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import fivefoot.entities.Article;
+import fivefoot.entities.Marchandise;
 import fivefoot.entities.JsonViews;
-import fivefoot.services.ArticleService;
+import fivefoot.services.MarchandiseService;
 
 @RestController
-@RequestMapping("/api/produit")
-public class ProduitRestController {
+@RequestMapping("/api/marchandise")
+public class MarchandiseRestController  {
 
 	@Autowired
-	private ArticleService produitService;
+	private MarchandiseService marchandiseService;
 
 	@GetMapping("/{id}")
-	@JsonView(JsonViews.ProduitWithFournisseur.class)
-	public Article getById(@PathVariable Long id) {
-		return produitService.getById(id);
+	@JsonView(JsonViews.Base.class)
+	public Marchandise getById(@PathVariable Long id) {
+		return marchandiseService.getById(id);
 	}
 
 	@GetMapping("")
-	@JsonView(JsonViews.ProduitWithFournisseur.class)
-	public List<Article> getAll() {
-		return produitService.getAll();
+	@JsonView(JsonViews.Base.class)
+	public List<Marchandise> getAll() {
+		return marchandiseService.getAll();
 	}
 
-	@JsonView(JsonViews.ProduitWithFournisseur.class)
+	@JsonView(JsonViews.Base.class)
 	@PostMapping("")
-	public Article create(@Valid @RequestBody Article produit, BindingResult br) {
+	public Marchandise create(@Valid @RequestBody Marchandise produit, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		return produitService.create(produit);
+		return marchandiseService.create(produit);
 	}
 
 	@PutMapping("/{id}")
-	@JsonView(JsonViews.ProduitWithFournisseur.class)
-	public Article update(@PathVariable Long id, @Valid @RequestBody Article produit, BindingResult br) {
+	@JsonView(JsonViews.Base.class)
+	public Marchandise update(@PathVariable Long id, @Valid @RequestBody Marchandise produit, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 		produit.setId(id);
-		return produitService.update(produit);
+		return marchandiseService.update(produit);
 	}
 
 	@DeleteMapping("/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
-		produitService.deleteById(id);
+		marchandiseService.deleteById(id);
 	}
+	
+	
 }

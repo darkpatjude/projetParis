@@ -9,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+
+
 @Entity
 @Table(name="admins")
 @SequenceGenerator(sequenceName = "seq_admin", name = "seqAdmin", initialValue = 1, allocationSize = 100)
@@ -16,13 +20,14 @@ import javax.persistence.Table;
 
 public class Admin extends Utilisateur {
 
+	@JsonView(JsonViews.Base.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqAdmin")
     private Long id_admin;
-    
+	
     public Admin() {
     }
-
+	
 	public Long getId_admin() {
 		return id_admin;
 	}

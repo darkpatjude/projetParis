@@ -4,17 +4,25 @@ package fivefoot.entities;
 import javax.persistence.Embedded;
 import javax.persistence.MappedSuperclass;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 
 @MappedSuperclass
 
 public abstract class Utilisateur {
-
+	@JsonView(JsonViews.Base.class)
     private String prenom;
+	@JsonView(JsonViews.Base.class)
     private String nom;
+	@JsonView(JsonViews.Base.class)
     private Civilite civilite;
+	@JsonView(JsonViews.Base.class)
     private String email;
+	@JsonView(JsonViews.Base.class)
     private String motDePasse;
+	@JsonView(JsonViews.Base.class)
     private String telephone;
+	@JsonView(JsonViews.Base.class)
     @Embedded
 	private Adresse adresse;
     

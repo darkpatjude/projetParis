@@ -18,6 +18,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 
 
 @Entity
@@ -30,11 +32,13 @@ import javax.persistence.Table;
 	@NamedQuery(name = "Article.findByNomContaining", query = "select a from Article a where a.nom like :texte ")})
 
 public class Article {
-	
+	@JsonView(JsonViews.Base.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqArticle")
 	private Long id;
+	@JsonView(JsonViews.Base.class)
     private double prix;
+	 // @JsonView(JsonViews.LigneDeCommande.class)
     @OneToMany(mappedBy = "id.article")
 	private Set<LigneDeCommande> lignes;
     

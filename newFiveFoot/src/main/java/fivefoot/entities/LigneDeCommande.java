@@ -7,12 +7,16 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 
 @Entity
 @Table(name="ligne_de_commande")
 public class LigneDeCommande {
-	@EmbeddedId
+	@Embeddedid
+	@JsonView(JsonViews.CommandeDetails.class)
 	private LigneCommandeKey id;
+	@JsonView(JsonViews.CommandeDetails.class)
 	private int quantite;
 	
 	

@@ -30,6 +30,7 @@ public class MarchandiseService {
 		Marchandise marchandiseEnBase = getById(marchandise.getId());
 		marchandiseEnBase.setNom(marchandise.getNom());
 		marchandiseEnBase.setPrix(marchandise.getPrix());
+		marchandiseEnBase.setStock(marchandise.getStock());
 		marchandiseEnBase.setDescription(marchandise.getDescription());
 
 

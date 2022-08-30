@@ -16,6 +16,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 //@Table(name="reservations")
 //@SequenceGenerator(sequenceName = "seq_reservation", name = "seqArticle", initialValue = 1, allocationSize = 100)
@@ -27,10 +29,13 @@ public class Reservation extends Article {
 //	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqReservation")
 //	@Id
 //	 private Long id_reservation;
+	@JsonView(JsonViews.Base.class)
 	 private LocalDate date;
+	@JsonView(JsonViews.Base.class)
 	 private Time heure;
 		@OneToOne
 		@JoinColumn(name = "terrain_id")
+	@JsonView(JsonViews.Base.class)
 	 private Terrain terrainReserve;
 	public Reservation( LocalDate date, Time heure) {
 

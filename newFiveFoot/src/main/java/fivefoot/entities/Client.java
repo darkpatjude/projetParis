@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name="clients")
 @SequenceGenerator(sequenceName = "seq_client", name = "seqClient", initialValue = 1, allocationSize = 100)
@@ -25,10 +27,12 @@ import javax.persistence.Table;
 
 public class Client extends Utilisateur {
 	
+	@JsonView(JsonViews.Base.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqClient")
     private Long id_client;
 	@OneToMany(mappedBy ="client")
+	@JsonView(JsonViews.ClientWithCommandes.class)
     private Set<Commande> commandes;
 
     public Client() {

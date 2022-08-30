@@ -11,17 +11,24 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name="terrains")
 @SequenceGenerator(sequenceName = "seq_terrain", name = "seqTerrain", initialValue = 1, allocationSize = 100)
 
 public class Terrain {
+	@JsonView(JsonViews.Base.class)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqTerrain")
 	@Id
 	private Long id_terrain;
+	@JsonView(JsonViews.Base.class)
     private String nom;
+	@JsonView(JsonViews.Base.class)
     private Time heureFermeture;
+	@JsonView(JsonViews.Base.class)
     private Time heureOuverture;
+	@JsonView(JsonViews.Base.class)
     @OneToOne(mappedBy = "terrainReserve")
     private Reservation reservation;
     

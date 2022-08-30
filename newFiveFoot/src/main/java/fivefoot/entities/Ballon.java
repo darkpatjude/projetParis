@@ -5,12 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @DiscriminatorValue("B")
 public class Ballon extends Marchandise {
 
-
+	@JsonView(JsonViews.Base.class)
     private String couleur;
+	@JsonView(JsonViews.Base.class)
     private String taille;
     
     public Ballon() {

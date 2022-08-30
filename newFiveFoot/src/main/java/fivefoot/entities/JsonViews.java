@@ -5,13 +5,7 @@ public class JsonViews {
 
 	}
 
-	public static class ProduitWithFournisseur extends Base {
 
-	}
-
-	public static class FournisseurWithProduits extends Base {
-
-	}
 
 	public static class Commande extends Base {
 
@@ -20,4 +14,13 @@ public class JsonViews {
 	public static class CommandeDetails extends Commande {
 
 	}
+	
+	public static class ClientWithCommandes extends Base{
+		
+	}
+	public static class LigneDeCommande extends Base{
+		
+	}
+	
+	
 }

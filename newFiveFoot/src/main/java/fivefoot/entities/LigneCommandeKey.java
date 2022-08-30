@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 
 
 @Embeddable
@@ -18,7 +20,7 @@ public class LigneCommandeKey implements Serializable{
 	private Commande commande;
 	@ManyToOne
 	@JoinColumn(name="ligne_commande_article_id",foreignKey = @ForeignKey(name="ligne_commande_ligne_commande_article_id_fk"))
-	
+	@JsonView(JsonViews.CommandeDetails.class)
 	private Article article; // le meme nom utilise dans classe Article dans OneToMany(mappedBy = "id.article")
 	
 	public LigneCommandeKey(Commande commande, Article article) {
