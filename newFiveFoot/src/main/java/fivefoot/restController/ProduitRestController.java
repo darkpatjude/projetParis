@@ -20,9 +20,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import eshop.entities.JsonViews;
-import eshop.entities.Produit;
-import eshop.services.ProduitService;
+import fivefoot.entities.Article;
+import fivefoot.entities.JsonViews;
+import fivefoot.services.ArticleService;
 
 @RestController
 @RequestMapping("/api/produit")
@@ -33,19 +33,19 @@ public class ProduitRestController {
 
 	@GetMapping("/{id}")
 	@JsonView(JsonViews.ProduitWithFournisseur.class)
-	public Produit getById(@PathVariable Long id) {
+	public Article getById(@PathVariable Long id) {
 		return produitService.getById(id);
 	}
 
 	@GetMapping("")
 	@JsonView(JsonViews.ProduitWithFournisseur.class)
-	public List<Produit> getAll() {
+	public List<Article> getAll() {
 		return produitService.getAll();
 	}
 
 	@JsonView(JsonViews.ProduitWithFournisseur.class)
 	@PostMapping("")
-	public Produit create(@Valid @RequestBody Produit produit, BindingResult br) {
+	public Article create(@Valid @RequestBody Article produit, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
@@ -54,7 +54,7 @@ public class ProduitRestController {
 
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.ProduitWithFournisseur.class)
-	public Produit update(@PathVariable Long id, @Valid @RequestBody Produit produit, BindingResult br) {
+	public Article update(@PathVariable Long id, @Valid @RequestBody Article produit, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}

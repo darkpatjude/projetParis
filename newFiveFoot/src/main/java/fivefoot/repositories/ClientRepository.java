@@ -17,7 +17,6 @@ import fivefoot.entities.Commande;
 public interface ClientRepository extends JpaRepository<Client, Long> {
 	
 	
-	List<Client> findByPrenom(String prenom);
 	List<Client> findByPrenomOrNom(String prenom,String nom);
 	
 	Optional<Client> findByEmail(String email);
@@ -27,13 +26,8 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 	Optional<Client> findByKeyWithCommandes(@Param("id") Long id_client);
 	Optional<Client> findByIdWithCommandesDetails(@Param("id") Long id_client);
 	
-	@Transactional
-	@Modifying
-	@Query("delete from Client c where c.adresse=:adresse")
-	void deleteByAdresse(@Param("adresse") Adresse adresse);
-	
-	
 }
+
 
 
 		
