@@ -56,6 +56,7 @@ public class ClientService {
 	public List<Client>getAll(){
 		return clientRepo.findAll();
 	}
+	
 	public void delete(Client client) {
 		commandeRepo.setClientToNullByClient(client);
 		clientRepo.delete(client);

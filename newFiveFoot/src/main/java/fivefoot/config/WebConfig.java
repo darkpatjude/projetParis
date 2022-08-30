@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({ "formationSpringMvc.controller","formationSpringMvc.restController" })
+@ComponentScan({ "fivefoot.restController" })
 @Import(AppConfig.class)
 public class WebConfig implements WebMvcConfigurer {
 

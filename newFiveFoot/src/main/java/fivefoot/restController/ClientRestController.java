@@ -1,5 +1,7 @@
 package fivefoot.restController;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,12 @@ public class ClientRestController {
     private ClientService clientService;
 
 
+	@GetMapping("")
+	public String hello() {
+		return "hello world";
+	}
+	
+	
 //    @GetMapping("")
 //    @JsonView(JsonViews.Base.class)
 //    public List<Client> getAll() {

@@ -1,5 +1,7 @@
 package fivefoot.restController;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +33,11 @@ public class AdminRestController {
     private AdminService adminService;
 
 
-//    @GetMapping("")
-//    @JsonView(JsonViews.Base.class)
-//    public List<Admin> getAll() {
-//        return adminService.getAll();
-//    }
+    @GetMapping("")
+    @JsonView(JsonViews.Base.class)
+    public List<Admin> getAll() {
+        return adminService.getAll();
+    }
 
     @GetMapping("/{id}")
     @JsonView(Base.class)

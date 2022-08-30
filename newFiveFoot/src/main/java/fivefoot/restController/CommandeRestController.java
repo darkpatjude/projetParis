@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import fivefoot.entities.Commande;
 import fivefoot.entities.JsonViews;
+import fivefoot.models.CommandeRestModel;
 import fivefoot.services.ClientService;
 import fivefoot.services.CommandeService;
 
@@ -33,9 +34,9 @@ public class CommandeRestController {
 
 	@PostMapping("")
 	@JsonView(JsonViews.Commande.class)
-	public Commande create(@RequestBody Commande commande) {
+	public Commande create(@RequestBody CommandeRestModel commande) {
 		return commandeService.create(
-				commande.getPanier().stream().collect(Collectors.toMap(e -> e.getProduit(), e -> e.getQuantite())),
+				commande.getPanier().stream().collect(Collectors.toMap(e -> e.getArticle(), e -> e.getQuantite())),
 				commande.getClient());
 	}
 

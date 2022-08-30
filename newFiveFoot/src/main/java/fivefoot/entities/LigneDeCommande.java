@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 @Table(name="ligne_de_commande")
 public class LigneDeCommande {
-	@Embeddedid
+	@EmbeddedId
 	@JsonView(JsonViews.CommandeDetails.class)
 	private LigneCommandeKey id;
 	@JsonView(JsonViews.CommandeDetails.class)

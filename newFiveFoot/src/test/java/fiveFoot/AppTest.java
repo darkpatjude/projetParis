@@ -61,7 +61,7 @@ public class AppTest {
 		commande2.setClient(olive);
 		commRepo.save(commande2);
 		
-		System.out.println(commRepo.findByIdClient(1L));
+		//System.out.println(commRepo.findByIdClient(1L));
 		
 		System.out.println(commRepo.findById(100L));
 		
