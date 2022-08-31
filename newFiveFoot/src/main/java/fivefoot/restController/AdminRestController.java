@@ -28,46 +28,46 @@ import fivefoot.services.AdminService;
 @RestController
 @RequestMapping("/api/admin")
 public class AdminRestController {
-//
-//	@Autowired
-//    private AdminService adminService;
-//
-//
-//    @GetMapping("")
-//    @JsonView(JsonViews.Base.class)
-//    public List<Admin> getAll() {
-//        return adminService.getAll();
-//    }
-//
-//    @GetMapping("/{id}")
-//    @JsonView(Base.class)
-//    public Admin getById(@PathVariable Long id) {
-//        return adminService.getById(id);
-//    }
-//
-//
-//    @JsonView(JsonViews.Base.class)
-//    @PostMapping("")
-//    public Admin create(@Valid @RequestBody Admin admin, BindingResult br) {
-//        if (br.hasErrors()) {
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-//        }
-//        return adminService.create(admin);
-//    }
-//
-//    @PutMapping("/{id}")
-//    @JsonView(JsonViews.Base.class)
-//    public Admin update(@PathVariable Long id, @Valid @RequestBody Admin admin, BindingResult br) {
-//        if (br.hasErrors()) {
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-//        }
-//        admin.setId_admin(id);
-//        return adminService.update(admin);
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    @ResponseStatus(code = HttpStatus.NO_CONTENT)
-//    public void delete(@PathVariable Long id) {
-//        adminService.deleteById(id);
-//    }
+
+	@Autowired
+    private AdminService adminService;
+
+
+    @GetMapping("")
+    @JsonView(JsonViews.Base.class)
+    public List<Admin> getAll() {
+        return adminService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    @JsonView(Base.class)
+    public Admin getById(@PathVariable Long id) {
+        return adminService.getById(id);
+    }
+
+
+    @JsonView(JsonViews.Base.class)
+    @PostMapping("")
+    public Admin create(@Valid @RequestBody Admin admin, BindingResult br) {
+        if (br.hasErrors()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        return adminService.create(admin);
+    }
+
+    @PutMapping("/{id}")
+    @JsonView(JsonViews.Base.class)
+    public Admin update(@PathVariable Long id, @Valid @RequestBody Admin admin, BindingResult br) {
+        if (br.hasErrors()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+        admin.setId_admin(id);
+        return adminService.update(admin);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
+        adminService.deleteById(id);
+    }
 }

@@ -38,12 +38,6 @@ public class ClientRestController {
 	@Autowired
     private ClientService clientService;
 
-
-	@GetMapping("")
-	public String hello() {
-		return "hello world";
-	}
-	
 	
     @GetMapping("")
     @JsonView(JsonViews.Base.class)

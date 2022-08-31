@@ -3,11 +3,12 @@ package fivefoot.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import fivefoot.Exception.AdminException;
 import fivefoot.entities.Admin;
 import fivefoot.repositories.AdminRepository;
-
+@Service
 public class AdminService {
 	@Autowired
 	private AdminRepository adminRepo;
