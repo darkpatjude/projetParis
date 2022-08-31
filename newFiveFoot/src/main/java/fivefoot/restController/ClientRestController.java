@@ -31,6 +31,10 @@ public class ClientRestController {
 
 	
 	
+	public ClientRestController(ClientService clientService) {
+		System.out.println("clientService");
+	}
+
 	@Autowired
     private ClientService clientService;
 
@@ -41,11 +45,11 @@ public class ClientRestController {
 	}
 	
 	
-//    @GetMapping("")
-//    @JsonView(JsonViews.Base.class)
-//    public List<Client> getAll() {
-//        return clientService.getAll();
-//    }
+    @GetMapping("")
+    @JsonView(JsonViews.Base.class)
+    public List<Client> getAll() {
+        return clientService.getAll();
+    }
 
     @GetMapping("/{id}")
     @JsonView(Base.class)

@@ -18,7 +18,7 @@ public interface CommandeRepository extends JpaRepository<Commande, Long> {
 	void setClientToNullByClient(@Param("client") Client client);
 	
 	
-	@Query("select c from Commande c left join fetch c.lignes l left join fetch l.id.produit where c.id=:id")
+	@Query("select c from Commande c left join fetch c.lignes l left join fetch l.id.article where c.id=:id")
 	Optional<Commande>findByIdWithLignes(@Param("id")Long id);
 	
 //	@Transactional
