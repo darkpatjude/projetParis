@@ -7,6 +7,7 @@
       <th>prenom:</th>
       <th>nom:</th>
       <th>mail:</th>
+      <th>telephone:</th>
       <th>adresse:</th>
     </tr>
   </thead>
@@ -16,7 +17,20 @@
       <td>{{ client.prenom }}</td>
       <td>{{ client.nom }}</td>
       <td>{{ client.mail }}</td>
+      <td>{{ client.telephone }}</td>
       <td>{{ client.adresse?.adresse}}</td>
     </tr>
   </tbody>
 </table>
+<td>
+<a
+routerLink="/client/edit/{{ client.id }}"
+class="btn btn-outline-primary"
+>editer</a
+>
+</td>
+<td>
+<button (click)="delete(client.id_client!)" class="btn btn-outline-danger">
+supprimer
+</button>
+</td>

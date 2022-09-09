@@ -1,1 +1,73 @@
-<p>edit works!</p>
+<h1>edition client</h1>
+<div class="form-group">
+  <label for="id">id:</label>
+  <input id="id" class="form-control" [(ngModel)]="client.id_client" readonly />
+</div>
+<div class="form-group">
+  <label for="nom">nom:</label>
+  <input id="nom" class="form-control" [(ngModel)]="client.nom" />
+</div>
+<div class="form-group">
+  <label for="client.prenom">prenom:</label>
+  <input
+    id="client.prenom"
+    class="form-control"
+    [(ngModel)]="client.prenom"
+  />
+</div>
+<div class="form-group">
+  <label for="client.mail">mail:</label>
+  <input
+    id="client.mail"
+    class="form-control"
+    [(ngModel)]="client.mail"
+  />
+  <div class="form-group">
+    <label for="client.telephone">telephone:</label>
+    <input
+      id="client.telephone"
+      class="form-control"
+      [(ngModel)]="client.telephone"
+    />
+</div>
+<div class="form-group">
+  <label for="adresse.numero">numero:</label>
+  <input
+    id="adresse.numero"
+    class="form-control"
+    [(ngModel)]="client.adresse!.numero"
+  />
+</div>
+<div class="form-group">
+  <label for="adresse.rue">rue:</label>
+  <input
+    id="adresse.rue"
+    class="form-control"
+    [(ngModel)]="client.adresse!.rue"
+  />
+</div>
+<div class="form-group">
+  <label for="adresse.codePostal">code postal:</label>
+  <input
+    id="adresse.codePostal"
+    class="form-control"
+    [(ngModel)]="client.adresse!.codePostal"
+  />
+</div>
+<div class="form-group">
+  <label for="adresse.ville">ville:</label>
+  <input
+    id="adresse.ville"
+    class="form-control"
+    [(ngModel)]="client.adresse!.ville"
+  />
+</div>
+<div class="form-group">
+  <button class="btn btn-outline-success" (click)="save()">enregistrer</button>
+  <a
+    routerLink="/client"
+    routerLinkActive="active"
+    class="btn btn-outline-warning"
+    >annuler</a
+  >
+</div>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Client } from 'src/app/model/client';
 import { ClientService } from 'src/app/services/client.service';
@@ -13,6 +12,7 @@ export class ListComponent implements OnInit {
   observableClients: Observable<Client[]>;
   message = '';
   showMessage = false;
+client: any;
   constructor(
     private clientService: ClientService,
 
