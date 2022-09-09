@@ -4,7 +4,7 @@ export class Client {
   constructor(
     private _prenom?: string,
     private _nom?: string,
-    private _mail?: string,
+    private _email?: string,
     private _telephone?: string,
     private _adresse?: Adresse,
     private _id_client?: number
@@ -24,11 +24,11 @@ export class Client {
     this._nom = value;
   }
 
-  public get mail(): string | undefined {
-    return this._mail;
+  public get email(): string | undefined {
+    return this._email;
   }
-  public set mail(value: string | undefined) {
-    this._mail = value;
+  public set email(value: string | undefined) {
+    this._email = value;
   }
 
   public get telephone(): string | undefined {

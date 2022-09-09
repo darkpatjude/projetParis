@@ -1,16 +1,16 @@
 export class Adresse {
   constructor(
-    private _numero?: string,
+    private _numero?: number,
     private _rue?: string,
     private _codePostal?: string,
     private _ville?: string
   ) {}
 
-  public get numero(): string | undefined {
+  public get numero(): number | undefined {
     return this._numero;
   }
 
-  public set numero(value: string | undefined) {
+  public set numero(value: number | undefined) {
     this._numero = value;
   }
   public get rue(): string | undefined {
@@ -37,14 +37,7 @@ export class Adresse {
 
   public get adresse(): string {
     return (
-      'methode:' +
-      this.numero +
-      ' ' +
-      this.rue +
-      ' ' +
-      this.codePostal +
-      ' ' +
-      this.ville
+      this.numero + ' ' + this.rue + ' ' + this.codePostal + ' ' + this.ville
     );
   }
 }

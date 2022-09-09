@@ -12,7 +12,7 @@ export class ConvertService {
     let obj = {
       id: client.id_client,
       nom: client.nom,
-      mail: client.mail,
+      email: client.email,
       prenom: client.prenom,
       telephone: client.telephone,
     };
@@ -34,7 +34,7 @@ export class ConvertService {
     let obj = {
       id: admin.id_admin,
       nom: admin.nom,
-      mail: admin.mail,
+      email: admin.email,
       prenom: admin.prenom,
       telephone: admin.telephone,
     };

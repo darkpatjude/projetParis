@@ -6,28 +6,22 @@ import { ClientService } from 'src/app/services/client.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
   observableClients: Observable<Client[]>;
   message = '';
   showMessage = false;
-client: any;
-  constructor(
-    private clientService: ClientService,
 
-  ) {
+  constructor(private clientService: ClientService) {
     this.observableClients = this.clientService.getAll();
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  delete(id: number) {
+    this.clientService.deleteById(id).subscribe(() => {
+      this.observableClients = this.clientService.getAll();
+    });
   }
-
-
-delete(id: number) {
-  this.clientService.deleteById(id).subscribe(() => {
-    this.observableClients = this.clientService.getAll();
-  });
 }
-}
-
