@@ -1,22 +1,21 @@
 <table class="table">
-<thead>
-<tr>
-  <th>id:</th>
-  <th>prenom:</th>
-  <th>nom:</th>
-  <th>mail:</th>
-  <th>adresse:</th>
-</tr>
-</thead>
-<tbody>
-  <tr *ngFor="let client of observableClients | async">
-  <tr>
-    <td>{{client.id_client}}</td>
-    <td>{{client.prenom}}</td>
-    <td>{{client.nom}}</td>
-    <td>{{client.mail}}</td>
-    <td>{{client.adresse.adresse}}</td>
-  </tr>
-
-</tbody>
+  <thead>
+    <tr>
+      <th>id:</th>
+      <th>prenom:</th>
+      <th>nom:</th>
+      <th>mail:</th>
+      <th>adresse:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of observableClients | async"></tr>
+    <tr>
+      <td>{{ client.id_client }}</td>
+      <td>{{ client.prenom }}</td>
+      <td>{{ client.nom }}</td>
+      <td>{{ client.mail }}</td>
+      <td>{{ client.adresse.adresse }}</td>
+    </tr>
+  </tbody>
 </table>
