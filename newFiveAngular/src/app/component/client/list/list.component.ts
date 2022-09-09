@@ -15,7 +15,7 @@ export class ListComponent implements OnInit {
   showMessage = false;
   constructor(
     private clientService: ClientService,
-    private activatedRoute: ActivatedRoute
+
   ) {
     this.observableClients = this.clientService.getAll();
   }

@@ -359,3 +359,34 @@ This generated password is for development use only. Your security configuration
 2022-09-09 11:25:58.618  INFO 1732 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/five]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-09-09 11:25:58.619  INFO 1732 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2022-09-09 11:25:58.620  INFO 1732 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-09-09 15:11:22.835  INFO 8928 --- [main] f.p.newFive.NewFiveApplication           : Starting NewFiveApplication using Java 17.0.3 on DESKTOP-89I8MO4 with PID 8928 (C:\Users\Valentin\Documents\AJC-Sopra\projetParis\newFive\target\classes started by Valentin in C:\Users\Valentin\Documents\AJC-Sopra\projetParis\newFive)
+2022-09-09 15:11:22.839  INFO 8928 --- [main] f.p.newFive.NewFiveApplication           : No active profile set, falling back to 1 default profile: "default"
+2022-09-09 15:11:23.713  INFO 8928 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-09 15:11:23.805  INFO 8928 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77 ms. Found 8 JPA repository interfaces.
+2022-09-09 15:11:24.649  INFO 8928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-09 15:11:24.665  INFO 8928 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-09 15:11:24.665  INFO 8928 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-09 15:11:24.921  INFO 8928 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-09-09 15:11:24.933  INFO 8928 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/five]   : Initializing Spring embedded WebApplicationContext
+2022-09-09 15:11:24.934  INFO 8928 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2032 ms
+2022-09-09 15:11:25.117  INFO 8928 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-09 15:11:25.174  INFO 8928 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-09 15:11:25.384  INFO 8928 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-09 15:11:25.520  INFO 8928 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-09 15:11:25.712  INFO 8928 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-09 15:11:25.740  INFO 8928 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-09-09 15:11:26.759  INFO 8928 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-09 15:11:26.926  INFO 8928 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-09 15:11:27.546  WARN 8928 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: a8017cd3-020d-41fc-978c-b59cebc13674
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-09-09 15:11:27.728  INFO 8928 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/**'] with [org.springframework.security.web.session.DisableEncodeUrlFilter@72092d90, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@67f8e620, org.springframework.security.web.context.SecurityContextPersistenceFilter@216bd7cb, org.springframework.security.web.header.HeaderWriterFilter@4468f64c, org.springframework.security.web.authentication.logout.LogoutFilter@6b5d148c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@8bb9305, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2bb4b203, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@27407cd2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5b803fff, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@246b40f5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@18237d3b, org.springframework.security.web.session.SessionManagementFilter@3d1e2b3c, org.springframework.security.web.access.ExceptionTranslationFilter@5e25a95a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1564d5de]
+2022-09-09 15:11:27.771  WARN 8928 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-09 15:11:28.199  INFO 8928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/five'
+2022-09-09 15:11:28.208  INFO 8928 --- [main] f.p.newFive.NewFiveApplication           : Started NewFiveApplication in 6.06 seconds (JVM running for 6.757)
+2022-09-09 15:12:00.404  INFO 8928 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/five]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-09 15:12:00.404  INFO 8928 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-09 15:12:00.405  INFO 8928 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms

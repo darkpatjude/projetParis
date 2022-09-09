@@ -1,3 +1,5 @@
+
+
 <table class="table">
   <thead>
     <tr>
@@ -9,13 +11,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let client of observableClients | async"></tr>
-    <tr>
+    <tr *ngFor="let client of observableClients | async">
       <td>{{ client.id_client }}</td>
       <td>{{ client.prenom }}</td>
       <td>{{ client.nom }}</td>
       <td>{{ client.mail }}</td>
-      <td>{{ client.adresse.adresse }}</td>
+      <td>{{ client.adresse?.adresse}}</td>
     </tr>
   </tbody>
 </table>
