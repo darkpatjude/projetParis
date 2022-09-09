@@ -34,4 +34,5 @@ public class SecurityConfig { // esta clase es para administrar la config de sec
 		return new BCryptPasswordEncoder();
 	}
 	
+	
 }
