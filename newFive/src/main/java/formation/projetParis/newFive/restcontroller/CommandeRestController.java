@@ -3,6 +3,7 @@ package formation.projetParis.newFive.restcontroller;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ import formation.projetParis.newFive.services.CommandeService;
 
 @RestController
 @RequestMapping("/api/commande")
+@CrossOrigin(origins="*")
 public class CommandeRestController {
 
 	@Autowired

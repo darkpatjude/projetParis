@@ -291,3 +291,71 @@ This generated password is for development use only. Your security configuration
 2022-09-09 10:35:05.440  WARN 32308 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2022-09-09 10:35:06.167  INFO 32308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/five'
 2022-09-09 10:35:06.198  INFO 32308 --- [main] f.p.newFive.NewFiveApplication           : Started NewFiveApplication in 10.504 seconds (JVM running for 12.206)
+2022-09-09 11:17:32.706  INFO 5320 --- [main] f.p.newFive.NewFiveApplication           : Starting NewFiveApplication using Java 17.0.3 on MSI with PID 5320 (D:\sopra\projetParis\newFive\target\classes started by jude_ in D:\sopra\projetParis\newFive)
+2022-09-09 11:17:32.710  INFO 5320 --- [main] f.p.newFive.NewFiveApplication           : No active profile set, falling back to 1 default profile: "default"
+2022-09-09 11:17:33.849  INFO 5320 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-09 11:17:33.967  INFO 5320 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 106 ms. Found 8 JPA repository interfaces.
+2022-09-09 11:17:34.653  INFO 5320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-09 11:17:34.665  INFO 5320 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-09 11:17:34.666  INFO 5320 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-09 11:17:35.034  INFO 5320 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-09-09 11:17:35.049  INFO 5320 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/five]   : Initializing Spring embedded WebApplicationContext
+2022-09-09 11:17:35.050  INFO 5320 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2256 ms
+2022-09-09 11:17:35.251  INFO 5320 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-09 11:17:35.321  INFO 5320 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-09 11:17:35.538  INFO 5320 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-09 11:17:35.687  INFO 5320 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-09 11:17:36.030  INFO 5320 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-09 11:17:36.053  INFO 5320 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-09-09 11:17:37.518  INFO 5320 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-09 11:17:37.663  INFO 5320 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-09 11:17:38.411  WARN 5320 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 5139f9d2-b5ed-480a-b9b3-212b5ffd4e8e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-09-09 11:17:38.598  INFO 5320 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/**'] with [org.springframework.security.web.session.DisableEncodeUrlFilter@47cf65f1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@156f0281, org.springframework.security.web.context.SecurityContextPersistenceFilter@5e643402, org.springframework.security.web.header.HeaderWriterFilter@4fc84c92, org.springframework.security.web.authentication.logout.LogoutFilter@39a09c0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@62fbefad, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@8ad182c, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1e041848, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@78141c58, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@9863ed5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7097ead6, org.springframework.security.web.session.SessionManagementFilter@6406b84d, org.springframework.security.web.access.ExceptionTranslationFilter@15a5cc6e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4f72078d]
+2022-09-09 11:17:38.644  WARN 5320 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-09 11:17:39.125  INFO 5320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/five'
+2022-09-09 11:17:39.137  INFO 5320 --- [main] f.p.newFive.NewFiveApplication           : Started NewFiveApplication in 7.127 seconds (JVM running for 8.362)
+2022-09-09 11:17:59.371  INFO 5320 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/five]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-09 11:17:59.371  INFO 5320 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-09 11:17:59.372  INFO 5320 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-09-09 11:23:37.008  INFO 5320 --- [RMI TCP Connection(14)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-09-09 11:23:37.027  INFO 5320 --- [RMI TCP Connection(14)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-09-09 11:23:37.030  INFO 5320 --- [RMI TCP Connection(14)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/five]   : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2022-09-09 11:23:37.045  INFO 5320 --- [RMI TCP Connection(14)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-09 11:23:37.047  INFO 5320 --- [RMI TCP Connection(14)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-09 11:23:37.056  INFO 5320 --- [RMI TCP Connection(14)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-09 11:23:40.323  INFO 1732 --- [main] f.p.newFive.NewFiveApplication           : Starting NewFiveApplication using Java 17.0.3 on MSI with PID 1732 (D:\sopra\projetParis\newFive\target\classes started by jude_ in D:\sopra\projetParis\newFive)
+2022-09-09 11:23:40.328  INFO 1732 --- [main] f.p.newFive.NewFiveApplication           : No active profile set, falling back to 1 default profile: "default"
+2022-09-09 11:23:41.257  INFO 1732 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-09 11:23:41.360  INFO 1732 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 8 JPA repository interfaces.
+2022-09-09 11:23:42.160  INFO 1732 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-09 11:23:42.173  INFO 1732 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-09 11:23:42.174  INFO 1732 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-09 11:23:42.551  INFO 1732 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2022-09-09 11:23:42.568  INFO 1732 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/five]   : Initializing Spring embedded WebApplicationContext
+2022-09-09 11:23:42.568  INFO 1732 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2179 ms
+2022-09-09 11:23:42.779  INFO 1732 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-09 11:23:42.861  INFO 1732 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-09 11:23:43.090  INFO 1732 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-09 11:23:43.258  INFO 1732 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-09 11:23:43.503  INFO 1732 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-09 11:23:43.530  INFO 1732 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-09-09 11:23:46.171  INFO 1732 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-09 11:23:46.303  INFO 1732 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-09 11:23:46.987  WARN 1732 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 91792725-145e-49af-9fc5-8476eda4932b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-09-09 11:23:47.167  INFO 1732 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/**'] with [org.springframework.security.web.session.DisableEncodeUrlFilter@2082e0e4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@15f229e8, org.springframework.security.web.context.SecurityContextPersistenceFilter@12051d38, org.springframework.security.web.header.HeaderWriterFilter@3f5e64c9, org.springframework.security.web.authentication.logout.LogoutFilter@3da55998, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@461b38ca, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@3d195d15, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@29ce33e9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@67730dab, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@466cca41, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f86f7da, org.springframework.security.web.session.SessionManagementFilter@3d00e981, org.springframework.security.web.access.ExceptionTranslationFilter@402c415e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@729c98]
+2022-09-09 11:23:47.215  WARN 1732 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-09 11:23:47.680  INFO 1732 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/five'
+2022-09-09 11:23:47.691  INFO 1732 --- [main] f.p.newFive.NewFiveApplication           : Started NewFiveApplication in 7.913 seconds (JVM running for 9.068)
+2022-09-09 11:25:58.618  INFO 1732 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/five]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-09 11:25:58.619  INFO 1732 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-09 11:25:58.620  INFO 1732 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
