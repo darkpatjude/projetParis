@@ -22,26 +22,26 @@ export class ClientService {
   }
   public deleteById(id: number): Observable<void> {
     return this.httpClient.delete<void>(
-      'http://localhost:8080/eshop/api/fournisseur/' + id
+      'http://localhost:8080/five/api/client/' + id
     );
   }
 
   public getById(id: number): Observable<Client> {
     return this.httpClient.get<Client>(
-      'http://localhost:8080/eshop/api/fournisseur/' + id
+      'http://localhost:8080/five/api/client/' + id
     );
   }
 
-  public update(client: Client): Observable<Fournisseur> {
+  public update(client: Client): Observable<Client> {
     return this.httpClient.put<Client>(
-      'http://localhost:8080/eshop/api/fournisseur/' + fournisseur.id,
+      'http://localhost:8080/five/api/client/' + client.id_client,
       this.convert.clientToJson(client)
     );
   }
 
-  public create(fournisseur: Client): Observable<Fournisseur> {
+  public create(client: Client): Observable<Client> {
     return this.httpClient.post<Client>(
-      'http://localhost:8080/eshop/api/fournisseur',
+      'http://localhost:8080/five/api/client',
       this.convert.clientToJson(client)
     );
   }
