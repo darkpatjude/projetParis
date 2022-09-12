@@ -3,6 +3,7 @@ package formation.projetParis.newFive.entities;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,8 +22,8 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 
 @NamedQueries({
-	@NamedQuery(name = "Client.findByKeyWithCommandes", query = "select c from Client c left join fetch c.commandes where c.id_client=:id"),
-	@NamedQuery(name = "Client.findByIdWithCommandesDetails", query = "select c from Client c left join fetch c.commandes as commande left join fetch commande.lignes where c.id_client=:id"),
+	@NamedQuery(name = "Client.findByKeyWithCommandes", query = "select c from Client c left join fetch c.commandes where c.id=:id"), //@param id dans clientrepository
+	@NamedQuery(name = "Client.findByIdWithCommandesDetails", query = "select c from Client c left join fetch c.commandes as commande left join fetch commande.lignes where c.id=:id"),
 	})
 
 public class Client extends Utilisateur {
@@ -30,7 +31,8 @@ public class Client extends Utilisateur {
 	@JsonView(JsonViews.Base.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqClient")
-    private Long id_client;
+	//@Column(name = "client_id")
+    private Long id;
 	@OneToMany(mappedBy ="client")
 	@JsonView(JsonViews.ClientWithCommandes.class)
     private Set<Commande> commandes;
@@ -38,12 +40,12 @@ public class Client extends Utilisateur {
     public Client() {
     }
 
-	public Long getId_client() {
-		return id_client;
+	public Long getId() {
+		return id;
 	}
 
 	public void setId_client(Long id_client) {
-		this.id_client = id_client;
+		this.id = id_client;
 	}
 
 	public Set<Commande> getCommande() {
@@ -56,7 +58,7 @@ public class Client extends Utilisateur {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id_client);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -68,7 +70,7 @@ public class Client extends Utilisateur {
 		if (getClass() != obj.getClass())
 			return false;
 		Client other = (Client) obj;
-		return Objects.equals(id_client, other.id_client);
+		return Objects.equals(id, other.id);
 	}
     
 }

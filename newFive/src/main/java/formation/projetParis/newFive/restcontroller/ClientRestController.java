@@ -48,7 +48,7 @@ public class ClientRestController {
     }
 
     @GetMapping("/{id}")
-    @JsonView(Base.class)
+    @JsonView(JsonViews.Base.class)
     public Client getById(@PathVariable Long id) {
         return clientService.getById(id);
     }

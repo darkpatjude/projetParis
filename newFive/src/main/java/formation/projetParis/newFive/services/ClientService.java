@@ -46,7 +46,7 @@ public class ClientService {
 //	}
 
 	public Client update(Client client) {
-		Client clientEnBase= getById(client.getId_client());
+		Client clientEnBase= getById(client.getId());
 		clientEnBase.setPrenom(client.getPrenom());
 		clientEnBase.setNom(client.getNom());
 		clientEnBase.setEmail(client.getEmail());

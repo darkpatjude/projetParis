@@ -17,8 +17,8 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 	Optional<Client> findByTelephone(String tel);
 
 	
-	Optional<Client> findByKeyWithCommandes(@Param("id") Long id_client);
-	Optional<Client> findByIdWithCommandesDetails(@Param("id") Long id_client);
+	Optional<Client> findByKeyWithCommandes(@Param("id") Long id);
+	Optional<Client> findByIdWithCommandesDetails(@Param("id") Long id);
 	
 }
 
