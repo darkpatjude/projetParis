@@ -28,7 +28,18 @@ public class NewFiveApplicationTests {
 		client.setNom("gutierrez");
 		client.setAdresse(new Adresse("122","Route de la reine", "92100", "Boulogne"));
 		clientService.create(client);
-		assertNotNull(clientService.getById(client.getId_client()));
+		assertNotNull(clientService.getById(client.getId()));
+	}
+	
+	@Test
+	@Commit
+	public void creationClientTest2() {
+		Client client = new Client();
+		client.setPrenom("valentin");
+		client.setNom("dumas");
+		client.setAdresse(new Adresse("123","Route de la reine", "92100", "Boulogne"));
+		clientService.create(client);
+		assertNotNull(clientService.getById(client.getId()));
 	}
 
 

@@ -40,7 +40,7 @@ public class CommandeService {
 	}
 
 	public Commande create(Map<Article, Integer> panier, Client client) {
-		Client clientBase = clientService.getById(client.getId_client());
+		Client clientBase = clientService.getById(client.getId());
 		Commande commande = new Commande(clientBase);
 		commandeRepo.save(commande);
 		panier.forEach((k, v) -> {

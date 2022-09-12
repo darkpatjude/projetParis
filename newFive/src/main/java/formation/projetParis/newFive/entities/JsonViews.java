@@ -5,8 +5,6 @@ public class JsonViews {
 
 	}
 
-
-
 	public static class Commande extends Base {
 
 	}
