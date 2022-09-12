@@ -45,6 +45,9 @@ public class AdminService {
 		Admin adminEnBase= getById(admin.getId_admin());
 		adminEnBase.setPrenom(admin.getPrenom());
 		adminEnBase.setNom(admin.getNom());
+
+		adminEnBase.setEmail(admin.getEmail());
+		adminEnBase.setTelephone(admin.getTelephone());
 		adminEnBase.setAdresse(admin.getAdresse());
 		return adminRepo.save(adminEnBase);
 	}

@@ -1,0 +1,66 @@
+<h1>edition admin</h1>
+<div class="form-group">
+  <label for="id">id:</label>
+  <input id="id" class="form-control" [(ngModel)]="admin.id_admin" />
+</div>
+<div class="form-group">
+  <label for="nom">nom:</label>
+  <input id="nom" class="form-control" [(ngModel)]="admin.nom" />
+</div>
+<div class="form-group">
+  <label for="admin.prenom">prenom:</label>
+  <input id="admin.prenom" class="form-control" [(ngModel)]="admin.prenom" />
+</div>
+<div class="form-group">
+  <label for="admin.email">email:</label>
+  <input id="admin.email" class="form-control" [(ngModel)]="admin.email" />
+  <div class="form-group">
+    <label for="admin.telephone">telephone:</label>
+    <input
+      id="admin.telephone"
+      class="form-control"
+      [(ngModel)]="admin.telephone"
+    />
+  <!--
+  </div>
+   <div class="form-group">
+    <label for="adresse.numero">numero:</label>
+    <input
+      id="adresse.numero"
+      class="form-control"
+      [(ngModel)]="admin.adresse!.numero"
+    />
+  </div>
+  <div class="form-group">
+    <label for="adresse.rue">rue:</label>
+    <input
+      id="adresse.rue"
+      class="form-control"
+      [(ngModel)]="admin.adresse!.rue"
+    />
+  </div>
+  <div class="form-group">
+    <label for="adresse.codePostal">code postal:</label>
+    <input
+      id="adresse.codePostal"
+      class="form-control"
+      [(ngModel)]="admin.adresse!.codePostal"
+    />
+  </div>
+  <div class="form-group">
+    <label for="adresse.ville">ville:</label>
+    <input
+      id="adresse.ville"
+      class="form-control"
+      [(ngModel)]="admin.adresse!.ville"
+    />
+  </div> -->
+  <div class="form-group">
+    <button class="btn btn-outline-success" (click)="save()">
+      enregistrer
+    </button>
+    <button class="btn btn-outline-warning" (click)="annuler()">
+      Annuler
+    </button>
+  </div>
+</div>

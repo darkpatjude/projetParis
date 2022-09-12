@@ -1,0 +1,35 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>id:</th>
+      <th>prenom:</th>
+      <th>nom:</th>
+      <th>email:</th>
+      <th>telephone:</th>
+      <th>adresse:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let admin of observableAdmins | async">
+      <td>{{ admin.id_admin }}</td>
+      <td>{{ admin.prenom }}</td>
+      <td>{{ admin.nom }}</td>
+      <td>{{ admin.email }}</td>
+      <td>{{ admin.telephone }}</td>
+      <td>{{ admin.adresse?.numero }} {{ admin.adresse?.rue }} {{ admin.adresse?.codePostal }} {{ admin.adresse?.ville }}</td>
+      <td><button (click)="editAdmin(admin.id_admin)">edit</button></td>
+    </tr>
+  </tbody>
+</table>
+<!-- <td>
+  <a
+    routerLink="/admin/edit/{{ admin.id_admin }}"
+    class="btn btn-outline-primary"
+    >editer</a
+  >
+</td>
+<td>
+  <button (click)="delete(admin.id_admin!)" class="btn btn-outline-danger">
+    supprimer
+  </button>
+</td> -->

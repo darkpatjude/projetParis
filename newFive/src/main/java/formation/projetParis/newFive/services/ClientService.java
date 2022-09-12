@@ -49,6 +49,8 @@ public class ClientService {
 		Client clientEnBase= getById(client.getId_client());
 		clientEnBase.setPrenom(client.getPrenom());
 		clientEnBase.setNom(client.getNom());
+		clientEnBase.setEmail(client.getEmail());
+		clientEnBase.setTelephone(client.getTelephone());
 		clientEnBase.setAdresse(client.getAdresse());
 		return clientRepo.save(clientEnBase);
 	}

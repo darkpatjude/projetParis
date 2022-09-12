@@ -37,7 +37,7 @@ export class Adresse {
 
   public get adresse(): string {
     return (
-      this.numero + ' ' + this.rue + ' ' + this.codePostal + ' ' + this.ville
+      this._numero + ' ' + this._rue + ' ' + this._codePostal + ' ' + this._ville
     );
   }
 }

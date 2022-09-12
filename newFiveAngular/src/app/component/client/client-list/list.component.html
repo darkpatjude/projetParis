@@ -16,7 +16,13 @@
       <td>{{ client.nom }}</td>
       <td>{{ client.email }}</td>
       <td>{{ client.telephone }}</td>
-      <td>{{ client.adresse?.numero }}{{ client.adresse?.rue }}</td>
+      <td>{{ client.adresse?.numero }} {{ client.adresse?.rue }} {{ client.adresse?.codePostal }} {{ client.adresse?.ville }}</td>
+      <td><button (click)="editClient(client.id_client)">edit</button></td>
+      <td>
+        <button (click)="delete(client.id_client!)" class="btn btn-outline-danger">
+          supprimer
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -27,8 +33,4 @@
     >editer</a
   >
 </td>
-<td>
-  <button (click)="delete(client.id_client!)" class="btn btn-outline-danger">
-    supprimer
-  </button>
-</td> -->
+ -->

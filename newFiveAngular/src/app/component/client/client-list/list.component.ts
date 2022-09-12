@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Client } from 'src/app/model/client';
@@ -13,7 +14,7 @@ export class ListComponent implements OnInit {
   message = '';
   showMessage = false;
 
-  constructor(private clientService: ClientService) {
+  constructor(private clientService: ClientService, private router:Router) {
     this.observableClients = this.clientService.getAll();
   }
 
@@ -24,4 +25,7 @@ export class ListComponent implements OnInit {
       this.observableClients = this.clientService.getAll();
     });
   }
+  editClient(id:number|undefined):void{
+    this.router.navigateByUrl("client/edit/"+id)
+}
 }

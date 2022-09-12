@@ -1,0 +1,18 @@
+.header{
+  text-align: center;
+  background-color: lightblue;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.active{
+  color:blue
+}
+a{
+  margin :0 30px;
+  color: grey;
+  text-decoration: overline;
+
+}
+.snapped{
+  background-color: lightgreen;
+  }

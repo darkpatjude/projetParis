@@ -1,4 +1,5 @@
 <h1>edition client</h1>
+<h2>id = {{client.id_client}}</h2>
 <div class="form-group">
   <label for="id">id:</label>
   <input id="id" class="form-control" [(ngModel)]="client.id_client" />
@@ -14,55 +15,55 @@
 <div class="form-group">
   <label for="client.email">email:</label>
   <input id="client.email" class="form-control" [(ngModel)]="client.email" />
+  </div>
   <div class="form-group">
     <label for="client.telephone">telephone:</label>
     <input
       id="client.telephone"
       class="form-control"
-      [(ngModel)]="client.telephone"
-    />
+      [(ngModel)]="client.telephone">
   </div>
-  <!-- <div class="form-group">
-    <label for="adresse.numero">numero:</label>
+
+
+
+   <div class="form-group">
+    <label for="client.adresse.numero">numero:</label>
     <input
-      id="adresse.numero"
+      id="client.adresse.numero"
       class="form-control"
-      [(ngModel)]="client.adresse!.numero"
-    />
-  </div>
-  <div class="form-group">
-    <label for="adresse.rue">rue:</label>
-    <input
-      id="adresse.rue"
-      class="form-control"
-      [(ngModel)]="client.adresse!.rue"
+      [(ngModel)]="adresse.numero"
     />
   </div>
   <div class="form-group">
-    <label for="adresse.codePostal">code postal:</label>
+    <label for="client.adresse.rue">rue:</label>
     <input
-      id="adresse.codePostal"
+      id="client.adresse.rue"
       class="form-control"
-      [(ngModel)]="client.adresse!.codePostal"
+      [(ngModel)]="adresse.rue"
     />
   </div>
   <div class="form-group">
-    <label for="adresse.ville">ville:</label>
+    <label for="client.adresse.codePostal">code postal:</label>
     <input
-      id="adresse.ville"
+      id="client.adresse.codePostal"
       class="form-control"
-      [(ngModel)]="client.adresse!.ville"
+      [(ngModel)]="adresse.codePostal"
     />
-  </div> -->
+  </div>
+  <div class="form-group">
+    <label for="client.adresse.ville">ville:</label>
+    <input
+      id="client.adresse.ville"
+      class="form-control"
+      [(ngModel)]="adresse.ville"
+    />
+  </div>
   <div class="form-group">
     <button class="btn btn-outline-success" (click)="save()">
-      enregistrer
+      Enregistrer
     </button>
-    <a
-      routerLink="/client"
-      routerLinkActive="active"
-      class="btn btn-outline-warning"
-      >annuler</a
-    >
+    <button class="btn btn-outline-warning" (click)="annuler()">
+      Annuler
+    </button>
   </div>
-</div>
+
