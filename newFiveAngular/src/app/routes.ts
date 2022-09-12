@@ -5,6 +5,7 @@ import { EditComponent } from './component/client/client-edit/edit.component';
 import { ListComponent } from './component/client/client-list/list.component';
 import { HomeComponent } from './component/home/home.component';
 import { AdminEditComponent } from './component/admin/admin-edit/admin-edit.component';
+import { ReservationEditComponent } from './component/reservation/reservation-edit/reservation-edit.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -13,5 +14,6 @@ export const routes: Routes = [
   { path: 'admins', component: AdminListComponent },
   { path: 'client/edit/:id', component: EditComponent },
   { path: 'admin/edit/:id', component: AdminEditComponent },
+  { path: 'reservation/edit/:id', component: ReservationEditComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
