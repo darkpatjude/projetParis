@@ -1,0 +1,35 @@
+
+<table class="table">
+  <thead>
+    <th>id:</th>
+    <th>prix:</th>
+    <th>terrain:</th>
+    <th>date:</th>
+    <th>heure:</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reservation of observableReservation | async">
+      <td>{{ reservation.id }}</td>
+      <td>{{ reservation.prix }}</td>
+      <td>{{ reservation.terrainReserve}}</td>
+      <td>{{ reservation.date }}</td>
+      <td>{{ reservation.heure}}</td>
+      <td>
+        <a
+          routerLink="/reservation/edit/{{ reservation.id }}"
+          routerLink="active"
+          class="btn btn-outline-primary"
+          >editer</a
+        >
+      </td>
+      <td>
+        <button (click)="delete(reservation.id!)" class="btn btn-outline-danger">
+          supprimer
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<a routerLink="/reservation/add" routerLinkActive="active" class="btn btn-link"
+  >nouvelle reservation</a
+>
