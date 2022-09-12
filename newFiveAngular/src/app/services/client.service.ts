@@ -34,7 +34,7 @@ export class ClientService {
 
   public update(client: Client): Observable<Client> {
     return this.httpClient.put<Client>(
-      'http://localhost:8080/five/api/client/' + client.id_client,
+      'http://localhost:8080/five/api/client/' + client.id,
       this.convert.clientToJson(client)
     );
   }
@@ -45,5 +45,5 @@ export class ClientService {
       this.convert.clientToJson(client)
     );
   }
-  
+
 }

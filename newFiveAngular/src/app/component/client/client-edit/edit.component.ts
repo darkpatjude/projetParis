@@ -29,7 +29,6 @@ export class EditComponent implements OnInit {
       if (params['id']) {
         this.clientService.getById(params['id']).subscribe((result) => {
           this.client = result;
-          this.client.id_client=result.id_client;
         });
       }
     });
@@ -39,7 +38,7 @@ export class EditComponent implements OnInit {
   }
   save() {
     this.client.adresse=this.adresse;
-    if (this.client.id_client) {
+    if (this.client.id) {
       this.clientService.update(this.client).subscribe(() => {
        this.router.navigateByUrl('/clients')
        //this.router.navigateByUrl('/client?q=update&id='+this.client.id_client)
