@@ -26,7 +26,7 @@ public class Commande {
 	@JsonView(JsonViews.Base.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqCommande")
-    private Long id_commande;
+    private Long id;
 	@JsonView(JsonViews.Base.class)
     private LocalDate date;
 	@JsonView(JsonViews.Base.class)
@@ -44,14 +44,14 @@ public class Commande {
 
 	public Commande(Long id_commande, LocalDate date, double prix, Set<LigneDeCommande> lignes) {
 		super();
-		this.id_commande = id_commande;
+		this.id = id_commande;
 		this.date = date;
 		this.prix = prix;
 		this.lignes = lignes;
 	}
 
-	public Long getId_commande() {
-		return id_commande;
+	public Long getId() {
+		return id;
 	}
 
 	public Commande(Client client) {
@@ -59,8 +59,8 @@ public class Commande {
 		this.date = LocalDate.now();
 	}
 	
-	public void setId_commande(Long id_commande) {
-		this.id_commande = id_commande;
+	public void setId(Long id_commande) {
+		this.id = id_commande;
 	}
 
 	public LocalDate getDate() {
@@ -99,7 +99,7 @@ public class Commande {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id_commande);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -111,7 +111,7 @@ public class Commande {
 		if (getClass() != obj.getClass())
 			return false;
 		Commande other = (Commande) obj;
-		return Objects.equals(id_commande, other.id_commande);
+		return Objects.equals(id, other.id);
 	}
     
 	

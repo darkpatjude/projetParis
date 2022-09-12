@@ -42,7 +42,7 @@ public class AdminService {
 //	}
 
 	public Admin update(Admin admin) {
-		Admin adminEnBase= getById(admin.getId_admin());
+		Admin adminEnBase= getById(admin.getId());
 		adminEnBase.setPrenom(admin.getPrenom());
 		adminEnBase.setNom(admin.getNom());
 

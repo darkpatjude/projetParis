@@ -63,7 +63,7 @@ public class AdminRestController {
         if (br.hasErrors()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
-        admin.setId_admin(id);
+        admin.setId(id);
         return adminService.update(admin);
     }
 

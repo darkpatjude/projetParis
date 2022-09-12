@@ -15,13 +15,13 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Table(name="terrains")
-@SequenceGenerator(sequenceName = "seq_terrain", name = "seqTerrain", initialValue = 1, allocationSize = 100)
+@SequenceGenerator(sequenceName = "seq_terrain", name = "seqTerrain", initialValue = 100, allocationSize = 1)
 
 public class Terrain {
 	@JsonView(JsonViews.Base.class)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqTerrain")
 	@Id
-	private Long id_terrain;
+	private Long id;
 	@JsonView(JsonViews.Base.class)
     private String nom;
 	@JsonView(JsonViews.Base.class)
@@ -38,7 +38,7 @@ public class Terrain {
 	public Terrain(String nom, Long id_terrain, Time heureFermeture, Time heureOuverture) {
 		super();
 		this.nom = nom;
-		this.id_terrain = id_terrain;
+		this.id = id_terrain;
 		this.heureFermeture = heureFermeture;
 		this.heureOuverture = heureOuverture;
 	}
@@ -51,17 +51,17 @@ public class Terrain {
 		this.nom = nom;
 	}
 
-	public Long getId_terrain() {
-		return id_terrain;
+	public Long getId() {
+		return id;
 	}
 
-	public void setId_terrain(Long id_terrain) {
-		this.id_terrain = id_terrain;
+	public void setId(Long id_terrain) {
+		this.id = id_terrain;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id_terrain);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class Terrain {
 		if (getClass() != obj.getClass())
 			return false;
 		Terrain other = (Terrain) obj;
-		return Objects.equals(id_terrain, other.id_terrain);
+		return Objects.equals(id, other.id);
 	}
     
 	
