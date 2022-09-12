@@ -33,7 +33,7 @@ export class ConvertService {
 
   public adminToJson(admin: Admin): any {
     let obj = {
-      id: admin.id_admin,
+      id: admin.id,
       nom: admin.nom,
       email: admin.email,
       prenom: admin.prenom,
@@ -52,8 +52,7 @@ export class ConvertService {
     }
     return obj;
   }
-
-  public produitToJson(reservation: Reservation): any {
+  public reservationToJson(reservation: Reservation): any {
     let obj = {
       id: reservation.id,
       prix: reservation.prix,

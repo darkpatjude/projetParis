@@ -1,7 +1,16 @@
+import { TestBed } from '@angular/core/testing';
+
 import { InscriptionService } from './inscription.service';
 
 describe('InscriptionService', () => {
-  it('should create an instance', () => {
-    expect(new InscriptionService()).toBeTruthy();
+  let service: InscriptionService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(InscriptionService);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
   });
 });

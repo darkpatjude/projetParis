@@ -21,10 +21,16 @@ export class AdminListComponent implements OnInit {
 
   ngOnInit(): void {}
 
-
+  delete(id: number) {
+    this.adminService.deleteById(id).subscribe(() => {
+      this.observableAdmins = this.adminService.getAll();
+    });
+  }
 
   editAdmin(id:number|undefined):void{
     this.router.navigateByUrl("admin/edit/"+id)
 }
-
+newAdmin():void{
+  this.router.navigateByUrl("admin/create")
+}
 }

@@ -2,7 +2,7 @@ import { Adresse } from './adresse';
 
 export class Admin {
   constructor(
-    private _id_admin?: number,
+    private _id?: number,
     private _prenom?: string,
     private _nom?: string,
     private _email?: string,
@@ -45,10 +45,10 @@ export class Admin {
     this._adresse = value;
   }
 
-  public get id_admin(): number | undefined {
-    return this._id_admin;
+  public get id(): number | undefined {
+    return this._id;
   }
-  public set id_admin(value: number | undefined) {
-    this._id_admin = value;
+  public set id(value: number | undefined) {
+    this._id = value;
   }
 }

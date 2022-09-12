@@ -1,48 +1,37 @@
-<h1>Inscription</h1>
-<div class="form-group">
-  <label for="client.email">Email:</label>
-  <input id="client.email" class="form-control" [(ngModel)]="client.email" />
-  </div>
-  <div class="form-group">
-    <label for="client.email">Mot de passe:</label>
-    <input id="client.email" class="form-control" [(ngModel)]="client.email" />
-    </div>
-    <div class="form-group">
-      <label for="client.email">Confirmation du mot de passe:</label>
-      <input id="client.email" class="form-control" [(ngModel)]="client.email" />
-      </div>
-    <div class="form-group">
-      <button class="btn btn-outline-success" (click)="save()">
-        Enregistrer
-      </button>
-      <button class="btn btn-outline-warning" (click)="annuler()">
-        Annuler
-      </button>
-    </div>
-    <!--
-<div class="form-group">
-  <label for="id">id:</label>
-  <input id="id" class="form-control" [(ngModel)]="client.id_client" />
-</div>
-<div class="form-group">
-  <label for="nom">nom:</label>
-  <input id="nom" class="form-control" [(ngModel)]="client.nom" />
-</div>
+<h1>edition client</h1>
+
+
 <div class="form-group">
   <label for="client.prenom">prenom:</label>
   <input id="client.prenom" class="form-control" [(ngModel)]="client.prenom" />
-</div>
+  </div>
+  <div class="form-group">
+    <label for="client.nom">nom:</label>
+    <input id="client.nom" class="form-control" [(ngModel)]="client.nom" />
+    </div>
 <div class="form-group">
   <label for="client.email">email:</label>
   <input id="client.email" class="form-control" [(ngModel)]="client.email" />
   </div>
+<div class="form-group">
   <div class="form-group">
-    <label for="client.telephone">telephone:</label>
-    <input
-      id="client.telephone"
-      class="form-control"
-      [(ngModel)]="client.telephone">
+    <label for="client.mdp">Mot de passe:</label>
+    <input id="client.mdp" class="form-control" [(ngModel)]="mdp" />
+    </div>
+  <div class="form-group">
+    <div class="form-group">
+      <label for="client.mdp">Confirmation du mot de passe:</label>
+      <input id="client.mdp" class="form-control" [(ngModel)]="mdpConf" />
+      </div>
+    <div class="form-group">
+
+
+  <div class="form-group">
+    <button class="btn btn-outline-success" (click)="save()">
+      S'enregistrer
+    </button>
+    <button class="btn btn-outline-warning" (click)="annuler()">
+      Annuler
+    </button>
   </div>
 
-
--->

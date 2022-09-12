@@ -19,8 +19,7 @@ export class EditComponent implements OnInit {
     private clientService: ClientService,
     private router: Router
   ) {
-    this.client = new Client()
-   // this.client.adresse=new Adresse()
+    this.client = new Client();
    this.adresse=new Adresse();
   }
 
@@ -29,6 +28,8 @@ export class EditComponent implements OnInit {
       if (params['id']) {
         this.clientService.getById(params['id']).subscribe((result) => {
           this.client = result;
+          if(result.adresse){
+          this.adresse=result.adresse;}
         });
       }
     });
@@ -41,13 +42,13 @@ export class EditComponent implements OnInit {
     if (this.client.id) {
       this.clientService.update(this.client).subscribe(() => {
        this.router.navigateByUrl('/clients')
-       //this.router.navigateByUrl('/client?q=update&id='+this.client.id_client)
+       //this.router.navigateByUrl('/client?q=update&id='+this.client.id)
       });
     } else {
       this.clientService.create(this.client).subscribe({
         next: (result) => {
           this.router.navigateByUrl('/clients');
-          //this.router.navigateByUrl('/client?q=create&id='+result.id_client)
+          //this.router.navigateByUrl('/client?q=create&id='+result.id)
         },
         error: (err) => {
           console.log(err);

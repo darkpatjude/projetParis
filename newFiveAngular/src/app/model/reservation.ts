@@ -1,7 +1,6 @@
 import { Time } from "@angular/common";
 
 export class Reservation {
-
   constructor(
     private _id?: number,
     private _prix?: number,
@@ -35,8 +34,4 @@ export class Reservation {
   public get prix(): number | undefined {
     return this._prix;
   }
-
-
-
 }
-

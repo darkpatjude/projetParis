@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Admin } from 'src/app/model/admin';
+import { Adresse } from 'src/app/model/adresse';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { AdminService } from 'src/app/services/admin.service';
 export class AdminEditComponent implements OnInit {
 
   admin: Admin;
+  adresse: Adresse;
 
   constructor(
     private ar: ActivatedRoute,
@@ -18,6 +20,7 @@ export class AdminEditComponent implements OnInit {
     private router: Router
   ) {
     this.admin = new Admin();
+    this.adresse=new Adresse();
   }
 
   ngOnInit(): void {
@@ -25,6 +28,8 @@ export class AdminEditComponent implements OnInit {
       if (params['id']) {
         this.adminService.getById(params['id']).subscribe((result) => {
           this.admin = result;
+          if(result.adresse){
+          this.adresse=result.adresse;}
         });
       }
     });
@@ -33,14 +38,17 @@ export class AdminEditComponent implements OnInit {
     this.router.navigateByUrl('/admins');
   }
   save() {
-    if (this.admin.id_admin) {
+    this.admin.adresse=this.adresse;
+    if (this.admin.id) {
       this.adminService.update(this.admin).subscribe(() => {
-        this.router.navigateByUrl('/admin?q=update&id=' + this.admin.id_admin);
+        //this.router.navigateByUrl('/admin?q=update&id=' + this.admin.id);
+        this.router.navigateByUrl('/admins');
       });
     } else {
       this.adminService.create(this.admin).subscribe({
         next: (result) => {
-          this.router.navigateByUrl('/admin?q=create&id=' + result.id_admin);
+          //this.router.navigateByUrl('/admin?q=create&id=' + result.id);
+          this.router.navigateByUrl('/admins');
         },
         error: (err) => {
           console.log(err);

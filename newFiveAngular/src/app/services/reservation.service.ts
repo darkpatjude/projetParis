@@ -7,6 +7,7 @@ import { Reservation } from '../model/reservation';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ReservationService {
   static URL: string = 'http://localhost:8080/five/api/reservation';
 
@@ -36,9 +37,7 @@ export class ReservationService {
       public create(reservation: Reservation): Observable<Reservation> {
         return this.httpClient.post<Reservation>(
           ReservationService.URL,
-          this.convert.produitToJson(reservation)
+          this.convert.reservationToJson(reservation)
         );
       }
-
-  }
-
+}
