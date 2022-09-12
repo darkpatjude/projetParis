@@ -34,7 +34,7 @@ public class ClientRestController {
 	
 	
 	public ClientRestController(ClientService clientService) {
-		System.out.println("clientService");
+		System.out.println("clientService hello");
 	}
 
 	@Autowired
@@ -69,7 +69,7 @@ public class ClientRestController {
         if (br.hasErrors()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
-        client.setId_client(id);
+        client.setId(id);
         return clientService.update(client);
     }
 

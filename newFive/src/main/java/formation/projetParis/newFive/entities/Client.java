@@ -44,7 +44,7 @@ public class Client extends Utilisateur {
 		return id;
 	}
 
-	public void setId_client(Long id_client) {
+	public void setId(Long id_client) {
 		this.id = id_client;
 	}
 

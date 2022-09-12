@@ -42,7 +42,7 @@ public class AdminRestController {
     }
 
     @GetMapping("/{id}")
-    @JsonView(Base.class)
+    @JsonView(JsonViews.Base.class)
     public Admin getById(@PathVariable Long id) {
         return adminService.getById(id);
     }
