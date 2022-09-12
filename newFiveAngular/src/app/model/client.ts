@@ -7,7 +7,7 @@ export class Client {
     private _email?: string,
     private _telephone?: string,
     private _adresse?: Adresse,
-    private _id_client?: number
+    private _id?: number
   ) {}
   public get prenom(): string | undefined {
     return this._prenom;
@@ -45,10 +45,10 @@ export class Client {
     this._adresse = value;
   }
 
-  public get id_client(): number | undefined {
-    return this._id_client;
+  public get id(): number | undefined {
+    return this._id;
   }
-  public set id_client(value: number | undefined) {
-    this._id_client = value;
+  public set id(value: number | undefined) {
+    this._id = value;
   }
 }
