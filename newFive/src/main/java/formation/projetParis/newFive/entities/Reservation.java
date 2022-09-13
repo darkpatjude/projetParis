@@ -20,7 +20,7 @@ public class Reservation extends Article {
 	private LocalDate date;
 	@JsonView(JsonViews.Base.class)
 	private LocalTime heure;
-	@ManyToOne
+	@ManyToOne //one terrain can be in multiple reservation
 	@JoinColumn(name = "terrain_number") //nom dans la base
 	@JsonView(JsonViews.Base.class)
 	private Terrain terrainReserve;

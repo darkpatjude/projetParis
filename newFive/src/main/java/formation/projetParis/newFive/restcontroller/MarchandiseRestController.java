@@ -58,12 +58,21 @@ public class MarchandiseRestController  {
 	}
 
 	@JsonView(JsonViews.Base.class)
-	@PostMapping("")
-	public Marchandise create(@Valid @RequestBody Marchandise produit, BindingResult br) {
+	@PostMapping("/ballon")
+	public Ballon create(@Valid @RequestBody Ballon balle, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		return marchandiseService.create(produit);
+		return ballonService.create(balle);
+	}
+	
+	@JsonView(JsonViews.Base.class)
+	@PostMapping("maillot")
+	public Maillot create(@Valid @RequestBody Maillot produit, BindingResult br) {
+		if (br.hasErrors()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+		}
+		return maillotService.create(produit);
 	}
 
 	@PutMapping("/{id}")
