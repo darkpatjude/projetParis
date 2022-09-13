@@ -23,8 +23,12 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import formation.projetParis.newFive.entities.Ballon;
 import formation.projetParis.newFive.entities.JsonViews;
+import formation.projetParis.newFive.entities.Maillot;
 import formation.projetParis.newFive.entities.Marchandise;
+import formation.projetParis.newFive.services.BallonService;
+import formation.projetParis.newFive.services.MaillotService;
 import formation.projetParis.newFive.services.MarchandiseService;
 
 @RestController
@@ -34,6 +38,12 @@ public class MarchandiseRestController  {
 
 	@Autowired
 	private MarchandiseService marchandiseService;
+	
+	@Autowired
+	private BallonService ballonService;
+	
+	@Autowired
+	private MaillotService maillotService;
 
 	@GetMapping("/{id}")
 	@JsonView(JsonViews.Base.class)
@@ -70,6 +80,30 @@ public class MarchandiseRestController  {
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
 		marchandiseService.deleteById(id);
+	}
+	
+	@GetMapping("/ballon")
+	@JsonView(JsonViews.Base.class)
+	public List<Ballon> getAllBallons() {
+		return ballonService.getAll();
+	}
+	
+	@GetMapping("/ballon/{id}")
+	@JsonView(JsonViews.Base.class)
+	public Ballon getBallonById(@PathVariable Long id) {
+		return ballonService.getById(id);
+	}
+	
+	@GetMapping("/maillot")
+	@JsonView(JsonViews.Base.class)
+	public List<Maillot> getAllMaillots() {
+		return maillotService.getAll();
+	}
+	
+	@GetMapping("/maillot/{id}")
+	@JsonView(JsonViews.Base.class)
+	public Maillot getMaillotById(@PathVariable Long id) {
+		return maillotService.getById(id);
 	}
 	
 	
