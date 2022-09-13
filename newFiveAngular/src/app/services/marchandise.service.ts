@@ -40,8 +40,22 @@ export class MarchandiseService {
 
   public update(marchandise: Marchandise): Observable<Marchandise> {
     return this.httpClient.put<Marchandise>(
-      `${MarchandiseService.URL}/${marchandise.id}`,
+      `${MarchandiseService.URL}/edit/${marchandise.id}`,
       this.convert.marchandiseToJson(marchandise)
+    );
+  }
+
+  public updateBallon(marchandise: Ballon): Observable<Ballon> {
+    return this.httpClient.put<Ballon>(
+      `${MarchandiseService.URL}/ballon/edit/${marchandise.id}`,
+      this.convert.marchandiseToJson(marchandise)
+    );
+  }
+
+  public updateMaillot(maillot: Maillot): Observable<Maillot> {
+    return this.httpClient.put<Maillot>(
+      `${MarchandiseService.URL}/maillot/edit/${maillot.id}`,
+      this.convert.marchandiseToJson(maillot)
     );
   }
 

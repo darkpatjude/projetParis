@@ -38,13 +38,13 @@ export class MaillotEditComponent implements OnInit {
   save() {
     console.log(this.maillot);
     if (this.maillot.id) {
-      this.marchandiseService.update(this.maillot).subscribe(() => {
-        this.router.navigateByUrl('/marchandise' );
+      this.marchandiseService.updateMaillot(this.maillot).subscribe(() => {
+        this.router.navigateByUrl('/marchandise/maillot' );
       });
     } else {
       this.marchandiseService.createMaillot(this.maillot).subscribe({
         next: (result) => {
-          this.router.navigateByUrl('/marchandise');
+          this.router.navigateByUrl('/marchandise/maillot');
         },
         error: (err) => {
           console.log(err);

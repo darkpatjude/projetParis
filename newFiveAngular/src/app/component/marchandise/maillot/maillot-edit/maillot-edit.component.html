@@ -2,7 +2,6 @@
     nom:<input class="form-control" [(ngModel)]="maillot.nom" /><br />
     prix:<input class="form-control" [(ngModel)]="maillot.prix" /><br />
     description:<input class="form-control" [(ngModel)]="maillot.description" /><br />
-    
     stock:<input class="form-control" [(ngModel)]="maillot.stock" /><br />
     equipe:<input class="form-control" [(ngModel)]="maillot!.equipe" /><br />
     taille:<input class="form-control" [(ngModel)]="maillot!.taille" /><br />
@@ -11,7 +10,7 @@
         <button routerLink="/marchandise/maillot"
         routerLinkActive="active" class="btn btn-outline-success" (click)="save()">Ajouter</button>
         <a
-          routerLink="/maillot"
+          routerLink="/marchandise/maillot"
           routerLinkActive="active"
           class="btn btn-outline-warning"
           >annuler</a

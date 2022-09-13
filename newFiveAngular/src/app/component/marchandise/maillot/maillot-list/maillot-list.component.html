@@ -1,6 +1,7 @@
 <table class="table">
     <thead>
       <th>id:</th>
+      <th>nom:</th>
       <th>prix:</th>
       <th>description:</th>
       <th>equipe</th>
@@ -10,6 +11,7 @@
     <tbody>
       <tr *ngFor="let a of observableMaillots | async">
         <td>{{ a.id }}</td>
+        <td>{{ a.nom }}</td>
         <td>{{ a.prix }}</td>
         <td>{{ a.description }}</td>
         <td>{{ a.stock}} </td>

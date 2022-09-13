@@ -67,7 +67,7 @@ public class MarchandiseRestController  {
 	}
 	
 	@JsonView(JsonViews.Base.class)
-	@PostMapping("maillot")
+	@PostMapping("/maillot")
 	public Maillot create(@Valid @RequestBody Maillot produit, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
@@ -75,7 +75,7 @@ public class MarchandiseRestController  {
 		return maillotService.create(produit);
 	}
 
-	@PutMapping("/{id}")
+	@PutMapping("/edit/{id}")
 	@JsonView(JsonViews.Base.class)
 	public Marchandise update(@PathVariable Long id, @Valid @RequestBody Marchandise produit, BindingResult br) {
 		if (br.hasErrors()) {
@@ -83,6 +83,26 @@ public class MarchandiseRestController  {
 		}
 		produit.setId(id);
 		return marchandiseService.update(produit);
+	}
+	
+	@PutMapping("/ballon/edit/{id}")
+	@JsonView(JsonViews.Base.class)
+	public Marchandise updateBallon(@PathVariable Long id, @Valid @RequestBody Ballon ballon, BindingResult br) {
+		if (br.hasErrors()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+		}
+		ballon.setId(id);
+		return marchandiseService.update(ballon);
+	}
+	
+	@PutMapping("/maillot/edit/{id}")
+	@JsonView(JsonViews.Base.class)
+	public Marchandise updateMaillot(@PathVariable Long id, @Valid @RequestBody Maillot maillot, BindingResult br) {
+		if (br.hasErrors()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+		}
+		maillot.setId(id);
+		return marchandiseService.update(maillot);
 	}
 
 	@DeleteMapping("/{id}")

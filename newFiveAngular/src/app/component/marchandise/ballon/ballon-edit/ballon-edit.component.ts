@@ -38,13 +38,13 @@ export class BallonEditComponent implements OnInit {
   save() {
     console.log(this.ballon);
     if (this.ballon.id) {
-      this.marchandiseService.update(this.ballon).subscribe(() => {
-        this.router.navigateByUrl('/marchandise' );
+      this.marchandiseService.updateBallon(this.ballon).subscribe(() => {
+        this.router.navigateByUrl('/marchandise/ballon' );
       });
     } else {
       this.marchandiseService.createBallon(this.ballon).subscribe({
         next: (result) => {
-          this.router.navigateByUrl('/marchandise');
+          this.router.navigateByUrl('/marchandise/ballon');
         },
         error: (err) => {
           console.log(err);
