@@ -21,9 +21,16 @@ import { CarouselComponent } from './component/home/carousel/carousel.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Carousel2Component } from './component/home/carousel2/carousel2.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { BallonEditComponent } from './component/marchandise/ballon/ballon-edit/ballon-edit.component';
+import { BallonListComponent } from './component/marchandise/ballon/ballon-list/ballon-list.component';
+import { MaillotEditComponent } from './component/marchandise/maillot/maillot-edit/maillot-edit.component';
+import { MaillotListComponent } from './component/marchandise/maillot/maillot-list/maillot-list.component';
+import { MarchandiseEditComponent } from './component/marchandise/marchandise-edit/marchandise-edit.component';
+import { MarchandiseListComponent } from './component/marchandise/marchandise-list/marchandise-list.component';
 
 @NgModule({
-  declarations: [HeaderComponent, AppComponent, HomeComponent, ListComponent, EditComponent, AdminEditComponent, AdminListComponent, InscriptionComponent, NewAdminComponent, ReservationEditComponent, ReservationListComponent, ReservationCreateComponent, CarouselComponent, Carousel2Component, FooterComponent],
+  declarations: [HeaderComponent, AppComponent, HomeComponent, ListComponent, EditComponent, AdminEditComponent, AdminListComponent, InscriptionComponent, NewAdminComponent, ReservationEditComponent, ReservationListComponent, ReservationCreateComponent, CarouselComponent, Carousel2Component, BallonEditComponent, BallonListComponent,
+    MaillotListComponent, MaillotEditComponent, MarchandiseEditComponent,MarchandiseListComponent, FooterComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule,RouterModule.forRoot(routes), NgbModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,18 @@
+<div>
+  nom:<input class="form-control" [(ngModel)]="ballon.nom" /><br />
+  prix:<input class="form-control" [(ngModel)]="ballon.prix" /><br />
+  description:<input class="form-control" [(ngModel)]="ballon.description" /><br />
+  stock:<input class="form-control" [(ngModel)]="ballon.stock" /><br />
+  couleur:<input class="form-control" [(ngModel)]="ballon!.couleur" /><br />
+  taille:<input class="form-control" [(ngModel)]="ballon!.taille" /><br />
+</div>
+<div class="form-group">
+    <button  routerLink="/marchandise/ballon"
+    routerLinkActive="active" class="btn btn-outline-success" (click)="save()">Ajouter</button>
+    <a
+      routerLink="/ballon"
+      routerLinkActive="active"
+      class="btn btn-outline-warning"
+      >annuler</a
+    >
+  </div>

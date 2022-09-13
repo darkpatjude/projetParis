@@ -1,0 +1,46 @@
+<div class="form-group">
+    <label for="id">id:</label>
+    <input id="id" class="form-control" [(ngModel)]="marchandise.id" readonly />
+  </div>
+  <div class="form-group">
+    <label for="nom">nom:</label>
+    <input id="nom" class="form-control" [(ngModel)]="marchandise.nom" />
+  </div>
+ 
+  <div class="form-group">
+    <label for="prix">prix:</label>
+    <input
+      id="prix"
+      class="form-control"
+      [(ngModel)]="marchandise.prix"
+      type="number"
+    />
+    </div>
+    <div class="form-group">
+        <label for="description">description:</label>
+        <input
+          id="stock"
+          class="form-control"
+          [(ngModel)]="marchandise.description"
+          
+        />
+    </div>
+    <div class="form-group">
+      <label for="stock">stock:</label>
+      <input
+        id="stock"
+        class="form-control"
+        [(ngModel)]="marchandise.stock"
+      />
+  </div>
+<div class="form-group">
+    <button routerLink="/marchandise"
+    routerLinkActive="active" class="btn btn-outline-success" (click)="save()">Enregistrer</button>
+    <a
+      routerLink="/marchandise"
+      routerLinkActive="active"
+      class="btn btn-outline-warning"
+      >annuler</a
+    >
+</div>
+

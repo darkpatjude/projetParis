@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Admin } from '../model/admin';
+import { Article } from '../model/article';
 import { Client } from '../model/client';
+import { Marchandise } from '../model/marchandise';
 import { Reservation } from '../model/reservation';
 
 @Injectable({
@@ -72,5 +74,37 @@ export class ConvertService {
       });
     }
     return obj;
+  }
+  
+  public articleToJson(article: Article): any {
+    let obj = {
+      id: article.id,
+      prix: article.prix,
+    };
+    return obj;
+  }
+  public marchandiseToJson(marchandise: Marchandise): any {
+    let obj = {
+      nom: marchandise.nom,
+      stock: marchandise.stock,
+      description: marchandise.description
+    };
+    if (marchandise.ballon) {
+      Object.assign(obj, {
+        ballon: {
+          couleur:marchandise.ballon.couleur,
+         taille: marchandise.ballon.taille
+        },
+      });
+    } if (marchandise.maillot) {
+      Object.assign(obj, {
+        maillot: {
+          equipe:marchandise.maillot.equipe,
+         taille: marchandise.maillot.taille
+        },
+      });
+    }
+    return obj;
+  
   }
 }

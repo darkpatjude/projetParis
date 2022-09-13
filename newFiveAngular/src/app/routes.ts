@@ -10,6 +10,11 @@ import { ListComponent } from './component/client/client-list/list.component';
 import { HomeComponent } from './component/home/home.component';
 import { AdminEditComponent } from './component/admin/admin-edit/admin-edit.component';
 import { NewAdminComponent } from './component/admin/new-admin/new-admin.component';
+import { MarchandiseListComponent } from './component/marchandise/marchandise-list/marchandise-list.component';
+import { BallonEditComponent } from './component/marchandise/ballon/ballon-edit/ballon-edit.component';
+import { BallonListComponent } from './component/marchandise/ballon/ballon-list/ballon-list.component';
+import { MaillotListComponent } from './component/marchandise/maillot/maillot-list/maillot-list.component';
+import { MaillotEditComponent } from './component/marchandise/maillot/maillot-edit/maillot-edit.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,5 +27,16 @@ export const routes: Routes = [
   { path: 'admin/edit/:id', component: AdminEditComponent },
   { path: 'reservation/edit/:id', component: ReservationEditComponent },
   { path: 'admin/create', component: NewAdminComponent },
+  { path: 'marchandise', component: MarchandiseListComponent},
+  
+  { path: 'marchandise/edit/:id', component: MarchandiseListComponent},
+    { path: 'marchandise/ballon/add', component: BallonEditComponent}, 
+    { path: 'marchandise/ballon', component: BallonListComponent},
+    { path: 'marchandise/maillot', component: MaillotListComponent},
+    { path: 'marchandise/maillot/edit/:id', component: MaillotEditComponent},
+    { path: 'marchandise/ballon/edit/:id', component: BallonEditComponent},
+    { path: 'marchandise/maillot/add', component: MaillotEditComponent},
+    
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  
 ];

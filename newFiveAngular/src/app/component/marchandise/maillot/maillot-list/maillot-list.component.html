@@ -1,0 +1,42 @@
+<table class="table">
+    <thead>
+      <th>id:</th>
+      <th>prix:</th>
+      <th>description:</th>
+      <th>equipe</th>
+      <th>taille</th>
+      <th>stock:</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of observableMaillots | async">
+        <td>{{ a.id }}</td>
+        <td>{{ a.prix }}</td>
+        <td>{{ a.description }}</td>
+        <td>{{ a.stock}} </td>
+        <td>{{ a.maillot?.equipe }}</td>
+        <td>{{ a.maillot?.taille }}</td>
+        <td>
+          <a
+            routerLink="edit/{{ a.id }}"
+            routerLink="active"
+            class="btn btn-outline-primary"
+            >editer</a
+          >
+         
+        </td>
+        <td>
+        <button class="btn btn-primary btn-sm" (click)="addToCart(a)">
+          ajouter panier
+         </button>
+        </td>
+        <td>
+          <button (click)="delete(a.id!)" class="btn btn-outline-danger">
+            supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a routerLink="/marchandise/maillot/add" routerLinkActive="active" class="btn btn-link"
+    >ajouter un nouveau maillot</a
+  >

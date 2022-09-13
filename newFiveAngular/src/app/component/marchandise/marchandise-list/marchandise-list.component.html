@@ -1,0 +1,34 @@
+<div *ngIf="showMessage" class="alert alert-info">{{ message }}</div>
+<table class="table">
+  <thead>
+    <th>id:</th>
+    <th>nom:</th>
+    <th>prix:</th>
+    <th>description:</th>
+    <th>stock:</th>
+
+  </thead>
+  <tbody>
+    <tr *ngFor="let marchandise of observableMarchandises | async">
+      <td>{{ marchandise.id }}</td>
+      <td>{{ marchandise.nom }}</td>
+      <td>{{ marchandise.prix }}</td>
+      <td>{{ marchandise.description }}</td>
+      <td>{{ marchandise.stock }}</td>
+     
+      
+      <td>
+        <button (click)="delete(marchandise.id!)" class="btn btn-outline-danger">
+          supprimer
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<a routerLink="/marchandise/ballon" routerLinkActive="active" class="btn btn-link"
+  >ajouter un ballon</a
+>
+<a routerLink="/marchandise/maillot" routerLinkActive="active" class="btn btn-link"
+  >ajouter un maillot</a
+>

@@ -1,0 +1,40 @@
+<table class="table">
+    <thead>
+      <th>id:</th>
+      <th>prix:</th>
+      <th>description:</th>
+      <th>couleur:</th>
+      <th>stock:</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of observableBallons | async">
+        <td>{{ a.id }}</td>
+        <td>{{ a.prix }}</td>
+        <td>{{ a.description }}</td>
+        <td>{{ a.stock}} </td>
+        <td>{{ a.ballon?.couleur }}</td>
+        <td>{{ a.ballon?.taille }}</td>
+
+      
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="addToCart(a)">
+           ajouter panier
+          </button>
+          <a
+          routerLink="edit/{{ a.id }}"
+          routerLink="active"
+          class="btn btn-outline-primary"
+            >editer</a
+          >
+        </td>
+        <td>
+          <button (click)="delete(a.id!)" class="btn btn-outline-danger">
+            supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a routerLink="/marchandise/ballon/add" routerLinkActive="active" class="btn btn-link"
+    >ajouter un nouveau ballon</a
+  >
