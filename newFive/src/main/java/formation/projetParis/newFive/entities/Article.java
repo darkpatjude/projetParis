@@ -40,8 +40,6 @@ public class Article {
 	@OneToMany(mappedBy = "id.article")
 	private Set<LigneDeCommande> lignes;
 
-	private Set<String> imageUrl;
-
 	public Article() {
 	}
 
@@ -76,22 +74,6 @@ public class Article {
 			return false;
 		Article other = (Article) obj;
 		return Objects.equals(id, other.id);
-	}
-
-	public Set<LigneDeCommande> getLignes() {
-		return lignes;
-	}
-
-	public void setLignes(Set<LigneDeCommande> lignes) {
-		this.lignes = lignes;
-	}
-
-	public Set<String> getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(Set<String> imageUrl) {
-		this.imageUrl = imageUrl;
 	}
 
 }

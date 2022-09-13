@@ -10,13 +10,13 @@ export class InscriptionService {
   'http://localhost:8080/five/api/inscription';
 
 constructor(private httpClient: HttpClient) {}
-/*
+
 public checkUtilisateurExist(login: string): Observable<boolean> {
   return this.httpClient.get<boolean>(
     'http://localhost:8080/five/api/auth/check/' + login
   );
 }
-*/
+
 public inscription(utilisateur: any): Observable<any> {
   return this.httpClient.post<any>(InscriptionService.URL, utilisateur);
 }

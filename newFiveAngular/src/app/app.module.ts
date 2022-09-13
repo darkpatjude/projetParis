@@ -1,6 +1,6 @@
 import { HeaderComponent } from './component/header/header.component';
 import { NgModule } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -27,11 +27,12 @@ import { MaillotEditComponent } from './component/marchandise/maillot/maillot-ed
 import { MaillotListComponent } from './component/marchandise/maillot/maillot-list/maillot-list.component';
 import { MarchandiseEditComponent } from './component/marchandise/marchandise-edit/marchandise-edit.component';
 import { MarchandiseListComponent } from './component/marchandise/marchandise-list/marchandise-list.component';
+import { LoginComponent } from './component/login/login.component';
 
 @NgModule({
   declarations: [HeaderComponent, AppComponent, HomeComponent, ListComponent, EditComponent, AdminEditComponent, AdminListComponent, InscriptionComponent, NewAdminComponent, ReservationEditComponent, ReservationListComponent, ReservationCreateComponent, CarouselComponent, Carousel2Component, BallonEditComponent, BallonListComponent,
-    MaillotListComponent, MaillotEditComponent, MarchandiseEditComponent,MarchandiseListComponent, FooterComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule,RouterModule.forRoot(routes), NgbModule],
+    MaillotListComponent, MaillotEditComponent, MarchandiseEditComponent,MarchandiseListComponent, FooterComponent, LoginComponent],
+  imports: [BrowserModule, FormsModule, HttpClientModule,RouterModule.forRoot(routes), NgbModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

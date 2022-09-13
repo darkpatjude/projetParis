@@ -32,7 +32,7 @@ export class ReservationService {
 
       public update(reservation: Reservation): Observable<Reservation> {
         return this.httpClient.put<Reservation>(
-          ReservationService.URL + reservation.id,
+          ReservationService.URL +'/'+ reservation.id,
           this.convert.reservationToJson(reservation)
         );
       }
