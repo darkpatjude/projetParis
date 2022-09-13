@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Reservation } from 'src/app/model/reservation';
 import { ReservationService } from 'src/app/services/reservation.service';
 
+
 @Component({
   selector: 'app-reservation-list',
   templateUrl: './reservation-list.component.html',
@@ -19,8 +20,10 @@ reservation: any;
 
   constructor(
     private reservationService: ReservationService,
-    private activatedRoute: ActivatedRoute)
-     {    this.observableReservation = this.reservationService.getAll();}
+    private activatedRoute: ActivatedRoute,
+)
+
+     { this.observableReservation = this.reservationService.getAll();}
 
   ngOnInit(): void {   this.showMessage = false;
     this.activatedRoute.queryParams.subscribe((params) => {
@@ -35,9 +38,8 @@ reservation: any;
     });
   }
 
-
   editReservation(id:number|undefined):void{
-      this.router.navigateByUrl("reservation/edit/")
+      this.router.navigateByUrl("reservation/edit/"+id)
   }
 
   delete(id: number) {

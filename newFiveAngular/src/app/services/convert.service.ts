@@ -63,6 +63,17 @@ export class ConvertService {
       date: reservation.date,
       heure: reservation.heure
     };
+
+    if (reservation.terrain) {
+      Object.assign(obj, {
+        terrain: {
+          id: reservation.terrain.id,
+          nom: reservation.terrain.nom,
+          heureFermeture: reservation.terrain.heureFermeture,
+          heureOuverture: reservation.terrain.heureOuverture,
+        },
+      });
+    }
     return obj;
   }
 }

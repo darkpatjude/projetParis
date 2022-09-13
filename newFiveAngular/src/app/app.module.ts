@@ -17,11 +17,12 @@ import { NewAdminComponent } from './component/admin/new-admin/new-admin.compone
 import { ReservationEditComponent } from './component/reservation/reservation-edit/reservation-edit.component';
 import { ReservationListComponent } from './component/reservation/reservation-list/reservation-list.component';
 import { ReservationCreateComponent } from './component/reservation/reservation-create/reservation-create.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   declarations: [HeaderComponent, AppComponent, HomeComponent, ListComponent, EditComponent, AdminEditComponent, AdminListComponent, InscriptionComponent, NewAdminComponent, ReservationEditComponent, ReservationListComponent, ReservationCreateComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule,RouterModule.forRoot(routes)],
+  imports: [BrowserModule, FormsModule, HttpClientModule,RouterModule.forRoot(routes), NgbModule],
   providers: [],
   bootstrap: [AppComponent],
 })

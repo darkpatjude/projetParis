@@ -11,7 +11,7 @@
     <tr *ngFor="let reservation of observableReservation | async">
       <td>{{ reservation.id }}</td>
       <td>{{ reservation.prix }}</td>
-      <td>{{ reservation.terrain}}</td>
+      <td>{{ reservation.terrain?.id}}</td>
       <td>{{ reservation.date }}</td>
       <td>{{ reservation.heure}}</td>
       <td><a routerLink="/reservation/edit/{{ reservation.id}}" routerLink="active"
