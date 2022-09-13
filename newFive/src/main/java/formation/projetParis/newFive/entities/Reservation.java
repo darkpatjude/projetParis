@@ -6,7 +6,7 @@ import java.time.LocalTime;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -20,7 +20,7 @@ public class Reservation extends Article {
 	private LocalDate date;
 	@JsonView(JsonViews.Base.class)
 	private LocalTime heure;
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "terrain_number") //nom dans la base
 	@JsonView(JsonViews.Base.class)
 	private Terrain terrainReserve;

@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -29,7 +29,8 @@ public class Terrain {
 	@JsonView(JsonViews.Base.class)
     private LocalTime heureOuverture;
 	//@JsonView(JsonViews.Base.class) //Infinite loop? :(
-    @OneToOne(mappedBy = "terrainReserve") //nom dans table reservation
+   //@OneToOne(mappedBy = "terrainReserve") //nom dans table reservation
+	@ManyToOne
     private Reservation reservation;
     
     public Terrain() {
