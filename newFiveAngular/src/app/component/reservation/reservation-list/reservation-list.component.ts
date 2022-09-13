@@ -14,6 +14,7 @@ export class ReservationListComponent implements OnInit {
   message = '';
   showMessage = false;
 reservation: any;
+  router: any;
 
 
   constructor(
@@ -32,6 +33,11 @@ reservation: any;
         this.showMessage = true;
       }
     });
+  }
+
+
+  editReservation(id:number|undefined):void{
+      this.router.navigateByUrl("reservation/edit/")
   }
 
   delete(id: number) {

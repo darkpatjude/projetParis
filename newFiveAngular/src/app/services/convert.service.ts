@@ -7,6 +7,9 @@ import { Reservation } from '../model/reservation';
   providedIn: 'root',
 })
 export class ConvertService {
+  produitToJson(reservation: Reservation): any {
+    throw new Error('Method not implemented.');
+  }
   constructor() {}
 
   public clientToJson(client: Client): any {
@@ -56,7 +59,7 @@ export class ConvertService {
     let obj = {
       id: reservation.id,
       prix: reservation.prix,
-      terrainReserve: reservation.terrainReserve,
+      terrainReserve: reservation.terrain,
       date: reservation.date,
       heure: reservation.heure
     };

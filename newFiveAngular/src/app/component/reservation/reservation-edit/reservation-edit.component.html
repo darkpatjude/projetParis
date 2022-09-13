@@ -1,1 +1,50 @@
-<p>reservation-edit works!</p>
+<h1>edition reservation</h1>
+<div class="form-group">
+  <label for="id">id:</label>
+  <input id="id" class="form-control" [(ngModel)]="reservation.id" />
+</div>
+
+<div class="form-group">
+  <label for="prix">prix:</label>
+  <input
+    id="prix"
+    class="form-control"
+    [(ngModel)]="reservation.prix"
+    type="number"
+  />
+</div>
+<div class="form-group">
+  <label for="terrain"> terrain:</label>
+  <input
+    class="form-control"
+    [(ngModel)]="reservation.terrain"
+    type="string"
+  >
+</div>
+<div class="form-group">
+  <label for="date">date:</label>
+  <input
+    id="date"
+    class="form-control"
+    [(ngModel)]="reservation.date"
+    type="date"
+  />
+</div>
+<div class="form-group">
+  <label for="heure">heure:</label>
+  <input
+    id="heure"
+    class="form-control"
+    [(ngModel)]="reservation.heure"
+    type="time"
+  />
+</div>
+<div class="form-group">
+  <button class="btn btn-outline-success" (click)="save()">enregistrer</button>
+  <a
+    routerLink="/reservations"
+    routerLinkActive="active"
+    class="btn btn-outline-warning"
+    >annuler</a
+  >
+</div>

@@ -9,6 +9,7 @@ import { Reservation } from '../model/reservation';
 })
 
 export class ReservationService {
+  [x: string]: any;
   static URL: string = 'http://localhost:8080/five/api/reservation';
 
   constructor(
@@ -27,12 +28,12 @@ export class ReservationService {
         return this.httpClient.delete<void>(`${ReservationService.URL}/${id}`);
       }
 
-      // public update(reservation: Reservation): Observable<Reservation> {
-      //   return this.httpClient.put<Reservation>(
-      //     `${ReservationService.URL}/${Reservation.id}`,
-      //     this.convert.produitToJson(reservation)
-      //   );
-      //}
+      public update(reservation: Reservation): Observable<Reservation> {
+        return this.httpClient.put<Reservation>(
+          'http://localhost:8080/five/api/reservation/' + reservation.id,
+          this.convert.reservationToJson(reservation)
+        );
+      }
 
       public create(reservation: Reservation): Observable<Reservation> {
         return this.httpClient.post<Reservation>(
