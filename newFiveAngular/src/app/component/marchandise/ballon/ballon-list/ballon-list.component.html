@@ -4,8 +4,9 @@
       <th>nom:</th>
       <th>prix:</th>
       <th>description:</th>
-      <th>couleur:</th>
       <th>stock:</th>
+      <th>couleur:</th>
+      <th>taille:</th>
     </thead>
     <tbody>
       <tr *ngFor="let a of observableBallons | async">
@@ -14,8 +15,8 @@
         <td>{{ a.prix }}</td>
         <td>{{ a.description }}</td>
         <td>{{ a.stock}} </td>
-        <td>{{ a.ballon?.couleur }}</td>
-        <td>{{ a.ballon?.taille }}</td>
+        <td>{{ a.couleur }}</td>
+        <td>{{ a.taille }}</td>
 
       
         <td>

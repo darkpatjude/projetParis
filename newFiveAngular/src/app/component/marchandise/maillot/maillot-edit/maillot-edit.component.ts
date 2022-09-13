@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Maillot } from 'src/app/model/maillot';
-import { MarchandiseService } from 'src/app/services/marchandise.service';
+import { MaillotService } from 'src/app/services/maillot.service';
 
 @Component({
   selector: 'app-maillot-edit',
@@ -15,7 +15,7 @@ export class MaillotEditComponent implements OnInit {
   // @Output()
   // maillotEvent: EventEmitter<any> = new EventEmitter();
 
-  constructor(private ar: ActivatedRoute, private marchandiseService: MarchandiseService, private router: Router) {
+  constructor(private ar: ActivatedRoute, private maillotService: MaillotService,private router: Router) {
     this.maillot = new Maillot();
     console.log(this.maillot);
   }
@@ -23,7 +23,7 @@ export class MaillotEditComponent implements OnInit {
   ngOnInit(): void {
     this.ar.params.subscribe((params) => {
       if (params['id']) {
-        this.marchandiseService.getMaillotById(params['id']).subscribe((result) => {
+        this.maillotService.getMaillotById(params['id']).subscribe((result) => {
           console.log(result);
           this.maillot = result;
         });
@@ -38,11 +38,11 @@ export class MaillotEditComponent implements OnInit {
   save() {
     console.log(this.maillot);
     if (this.maillot.id) {
-      this.marchandiseService.updateMaillot(this.maillot).subscribe(() => {
+      this.maillotService.updateMaillot(this.maillot).subscribe(() => {
         this.router.navigateByUrl('/marchandise/maillot' );
       });
     } else {
-      this.marchandiseService.createMaillot(this.maillot).subscribe({
+      this.maillotService.createMaillot(this.maillot).subscribe({
         next: (result) => {
           this.router.navigateByUrl('/marchandise/maillot');
         },

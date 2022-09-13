@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Ballon } from 'src/app/model/ballon';
-import { MarchandiseService } from 'src/app/services/marchandise.service';
+import { BallonService } from 'src/app/services/ballon.service';
 
 @Component({
   selector: 'app-ballon-edit',
@@ -15,7 +15,7 @@ export class BallonEditComponent implements OnInit {
   // @Output()
   // ballonEvent: EventEmitter<any> = new EventEmitter();
 
-  constructor(private ar: ActivatedRoute, private marchandiseService: MarchandiseService, private router: Router) {
+  constructor(private ar: ActivatedRoute, private ballonService: BallonService, private router: Router) {
     this.ballon = new Ballon();
     console.log(this.ballon);
   }
@@ -23,7 +23,7 @@ export class BallonEditComponent implements OnInit {
   ngOnInit(): void {
     this.ar.params.subscribe((params) => {
       if (params['id']) {
-        this.marchandiseService.getBallonById(params['id']).subscribe((result) => {
+        this.ballonService.getBallonById(params['id']).subscribe((result) => {
           console.log(result);
           this.ballon = result;
         });
@@ -38,11 +38,11 @@ export class BallonEditComponent implements OnInit {
   save() {
     console.log(this.ballon);
     if (this.ballon.id) {
-      this.marchandiseService.updateBallon(this.ballon).subscribe(() => {
-        this.router.navigateByUrl('/marchandise/ballon' );
+      this.ballonService.updateBallon(this.ballon).subscribe(() => {
+        this.router.navigateByUrl('/marchandise/ballon');
       });
     } else {
-      this.marchandiseService.createBallon(this.ballon).subscribe({
+      this.ballonService.createBallon(this.ballon).subscribe({
         next: (result) => {
           this.router.navigateByUrl('/marchandise/ballon');
         },
@@ -52,7 +52,6 @@ export class BallonEditComponent implements OnInit {
       });
     }
   }
-
  
 
 }

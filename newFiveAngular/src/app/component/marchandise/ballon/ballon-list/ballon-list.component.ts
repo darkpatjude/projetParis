@@ -1,7 +1,8 @@
-import { Component,  EventEmitter,  OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Ballon } from 'src/app/model/ballon';
+import { BallonService } from 'src/app/services/ballon.service';
 import { MarchandiseService } from 'src/app/services/marchandise.service';
 
 @Component({
@@ -13,14 +14,14 @@ export class BallonListComponent implements OnInit {
   observableBallons: Observable<Ballon[]>;
   message = '';
   showMessage = false;
-
   constructor(
     private marchandiseService: MarchandiseService,
+    private ballonService: BallonService,
     private activatedRoute: ActivatedRoute
   ) {
-    this.observableBallons = this.marchandiseService.getAllBallons();
+    this.observableBallons = this.ballonService.getAllBallons();
   }
-
+  
   @Output()
   event = new EventEmitter();
 
@@ -40,12 +41,11 @@ export class BallonListComponent implements OnInit {
 
   delete(id: number) {
     this.marchandiseService.deleteById(id).subscribe(() => {
-      this.observableBallons = this.marchandiseService.getAllBallons();
+      this.observableBallons = this.ballonService.getAllBallons();
     });
   }
 
   addToCart(observableBallons: any): void {
     this.event.emit(observableBallons);   
   }
-
 }

@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Admin } from '../model/admin';
 import { Article } from '../model/article';
+import { Ballon } from '../model/ballon';
 import { Client } from '../model/client';
+import { Maillot } from '../model/maillot';
 import { Marchandise } from '../model/marchandise';
 import { Reservation } from '../model/reservation';
 
@@ -85,26 +87,57 @@ export class ConvertService {
   }
   public marchandiseToJson(marchandise: Marchandise): any {
     let obj = {
+      prix: marchandise.prix,
       nom: marchandise.nom,
       stock: marchandise.stock,
-      description: marchandise.description
+      description: marchandise.description,
+      maillot: marchandise.maillot,
+      ballon: marchandise.ballon
     };
-    if (marchandise.ballon) {
-      Object.assign(obj, {
-        ballon: {
-          couleur:marchandise.ballon.couleur,
-         taille: marchandise.ballon.taille
-        },
-      });
-    } if (marchandise.maillot) {
-      Object.assign(obj, {
-        maillot: {
-          equipe:marchandise.maillot.equipe,
-         taille: marchandise.maillot.taille
-        },
-      });
-    }
-    return obj;
+    // if (marchandise.ballon) {
+    //   Object.assign(obj, {
+    //     ballon: {
+    //       couleur: marchandise.ballon.couleur,
+    //       taille: marchandise.ballon.taille
+    //     },
+    //   });
+    // } if (marchandise.maillot) {
+    //   Object.assign(obj, {
+    //     maillot: {
+    //       equipe: marchandise.maillot.equipe,
+    //      taille: marchandise.maillot.taille
+    //     },
+    //   });
+    // }
+     return obj;
   
   }
+
+  public ballonToJson(ballon: Ballon): any {
+    let obj = {
+      prix: ballon.prix,
+      nom: ballon.nom,
+      stock: ballon.stock,
+      description: ballon.description,
+      couleur: ballon.couleur,
+      taille: ballon.taille,
+      ballon: ballon,
+      maillot: ballon.maillot
+        };
+        return obj;
+      }
+
+      public maillotToJson(maillot: Maillot): any {
+        let obj = {
+          prix: maillot.prix,
+          nom: maillot.nom,
+          stock: maillot.stock,
+          description: maillot.description,
+          equipe: maillot.equipe, 
+          taille: maillot.taille,
+          maillot: maillot,
+          ballon: maillot.ballon
+            };
+            return obj;
+          }
 }

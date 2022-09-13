@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Marchandise } from 'src/app/model/marchandise';
+import { Maillot } from 'src/app/model/maillot';
+import { MaillotService } from 'src/app/services/maillot.service';
 import { MarchandiseService } from 'src/app/services/marchandise.service';
 
 @Component({
@@ -10,14 +11,15 @@ import { MarchandiseService } from 'src/app/services/marchandise.service';
   styleUrls: ['./maillot-list.component.css']
 })
 export class MaillotListComponent implements OnInit {
-  observableMaillots: Observable<Marchandise[]>;
+  observableMaillots: Observable<Maillot[]>;
   message = '';
   showMessage = false;
   constructor(
     private marchandiseService: MarchandiseService,
+    private maillotService: MaillotService,
     private activatedRoute: ActivatedRoute
   ) {
-    this.observableMaillots = this.marchandiseService.getAllMaillots();
+    this.observableMaillots = this.maillotService.getAllMaillots();
   }
   
   @Output()
@@ -39,7 +41,7 @@ export class MaillotListComponent implements OnInit {
 
   delete(id: number) {
     this.marchandiseService.deleteById(id).subscribe(() => {
-      this.observableMaillots = this.marchandiseService.getAllMaillots();
+      this.observableMaillots = this.maillotService.getAllMaillots();
     });
   }
 

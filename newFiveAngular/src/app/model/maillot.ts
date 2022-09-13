@@ -15,7 +15,7 @@ export class Maillot extends Marchandise{
       this._equipe = value;
     }
   
-    public get taile(): string | undefined {
+    public get taille(): string | undefined {
       return this._taille;
     }
     public set taille(value: string | undefined) {

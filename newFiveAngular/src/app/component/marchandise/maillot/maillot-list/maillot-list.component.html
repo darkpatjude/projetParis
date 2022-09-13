@@ -1,12 +1,12 @@
 <table class="table">
     <thead>
-      <th>id:</th>
-      <th>nom:</th>
-      <th>prix:</th>
+      <th>id</th>
+      <th>nom</th>
+      <th>prix</th>
       <th>description:</th>
+      <th>stock</th>
       <th>equipe</th>
       <th>taille</th>
-      <th>stock:</th>
     </thead>
     <tbody>
       <tr *ngFor="let a of observableMaillots | async">
@@ -15,8 +15,8 @@
         <td>{{ a.prix }}</td>
         <td>{{ a.description }}</td>
         <td>{{ a.stock}} </td>
-        <td>{{ a.maillot?.equipe }}</td>
-        <td>{{ a.maillot?.taille }}</td>
+        <td>{{ a.equipe }}</td>
+        <td>{{ a.taille }}</td>
         <td>
           <a
             routerLink="edit/{{ a.id }}"
