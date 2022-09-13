@@ -1,6 +1,6 @@
 .header{
   text-align: center;
-  background-color: lightblue;
+  background-color: rgba(0, 0, 1, 0.05);
   margin-bottom: 20px;
   padding: 10px;
 }
@@ -15,4 +15,9 @@ a{
 }
 .snapped{
   background-color: lightgreen;
+  }
+img.five{
+    position: absolute;
+    top:20px;
+    left:140px
   }

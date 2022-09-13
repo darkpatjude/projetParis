@@ -1,1 +1,46 @@
-<p>reservation-create worksvfdqqqqqqqqqqqqq!</p>
+<h1>Nouvelle réservation</h1>
+<div class="form-group">
+  <label for="id">id:</label>
+  <input id="id" class="form-control" [(ngModel)]="reservation.id" readonly />
+</div>
+
+<div class="form-group">
+  <label for="prix">prix:</label>
+  <input
+    id="prix"
+    class="form-control"
+    [(ngModel)]="reservation.prix"
+    type="number"
+  />
+</div>
+<div class="form-group">
+  <label for="terrainReserve"> terrainReserve:</label>
+  <input
+    class="form-control"
+    [(ngModel)]="reservation.terrainReserve"
+    type="string"
+  >
+</div>
+<div class="form-group">
+  <label for="date">date:</label>
+  <input
+    id="date"
+    class="form-control"
+    [(ngModel)]="reservation.date"
+    type="date"
+  />
+</div>
+<div class="form-group">
+  <label for="heure">heure:</label>
+  <input
+    id="heure"
+    class="form-control"
+    [(ngModel)]="reservation.heure"
+    type="time"
+  />
+</div>
+<div class="form-group">
+  <button class="btn btn-outline-success" (click)="save()">enregistrer</button>
+  <button class="btn btn-outline-success" (click)="annuler()">Annuler</button>
+</div>
+

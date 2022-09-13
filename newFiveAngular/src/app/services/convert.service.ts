@@ -7,9 +7,6 @@ import { Reservation } from '../model/reservation';
   providedIn: 'root',
 })
 export class ConvertService {
-  produitToJson(reservation: Reservation): any {
-    throw new Error('Method not implemented.');
-  }
   constructor() {}
 
   public clientToJson(client: Client): any {
@@ -59,18 +56,18 @@ export class ConvertService {
     let obj = {
       id: reservation.id,
       prix: reservation.prix,
-      terrainReserve: reservation.terrain,
+      terrainReserve: reservation.terrainReserve,
       date: reservation.date,
       heure: reservation.heure
     };
 
-    if (reservation.terrain) {
+    if (reservation.terrainReserve) {
       Object.assign(obj, {
-        terrain: {
-          id: reservation.terrain.id,
-          nom: reservation.terrain.nom,
-          heureFermeture: reservation.terrain.heureFermeture,
-          heureOuverture: reservation.terrain.heureOuverture,
+        terrainReserve: {
+          id: reservation.terrainReserve.id,
+          nom: reservation.terrainReserve.nom,
+          heureFermeture: reservation.terrainReserve.heureFermeture,
+          heureOuverture: reservation.terrainReserve.heureOuverture,
         },
       });
     }

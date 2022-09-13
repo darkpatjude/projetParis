@@ -17,11 +17,13 @@ import { NewAdminComponent } from './component/admin/new-admin/new-admin.compone
 import { ReservationEditComponent } from './component/reservation/reservation-edit/reservation-edit.component';
 import { ReservationListComponent } from './component/reservation/reservation-list/reservation-list.component';
 import { ReservationCreateComponent } from './component/reservation/reservation-create/reservation-create.component';
+import { CarouselComponent } from './component/home/carousel/carousel.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { Carousel2Component } from './component/home/carousel2/carousel2.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
-  declarations: [HeaderComponent, AppComponent, HomeComponent, ListComponent, EditComponent, AdminEditComponent, AdminListComponent, InscriptionComponent, NewAdminComponent, ReservationEditComponent, ReservationListComponent, ReservationCreateComponent],
+  declarations: [HeaderComponent, AppComponent, HomeComponent, ListComponent, EditComponent, AdminEditComponent, AdminListComponent, InscriptionComponent, NewAdminComponent, ReservationEditComponent, ReservationListComponent, ReservationCreateComponent, CarouselComponent, Carousel2Component, FooterComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule,RouterModule.forRoot(routes), NgbModule],
   providers: [],
   bootstrap: [AppComponent],

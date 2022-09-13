@@ -3,28 +3,24 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ConvertService } from './convert.service';
 import { Observable } from 'rxjs';
 import { Reservation } from '../model/reservation';
-import { Terrain } from '../model/terrain';
+
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ReservationService {
-  [x: string]: any;
   static URL: string = 'http://localhost:8080/five/api/reservation';
+
 
   constructor(
     private httpClient: HttpClient,
     private convert: ConvertService) {}
 
 
-    // public getAll(): (Observable<any[]>) [] {
-    //   return [this.httpClient.get<Reservation[]>(ReservationService.URL),   this.httpClient.get<Terrain[]>(TerrainService.URL)];
-    // }
-
       public getAll(): Observable<Reservation[]> {
-         return this.httpClient.get<Reservation[]>(ReservationService.URL);
-       }
+        return this.httpClient.get<Reservation[]>(ReservationService.URL);
+      }
 
       public getById(id: number): Observable<Reservation> {
         return this.httpClient.get<Reservation>(`${ReservationService.URL}/${id}`);
@@ -36,7 +32,7 @@ export class ReservationService {
 
       public update(reservation: Reservation): Observable<Reservation> {
         return this.httpClient.put<Reservation>(
-          'http://localhost:8080/five/api/reservation/' + reservation.id,
+          ReservationService.URL + reservation.id,
           this.convert.reservationToJson(reservation)
         );
       }

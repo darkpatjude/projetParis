@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Reservation } from 'src/app/model/reservation';
 import { ReservationService } from 'src/app/services/reservation.service';
-
 
 @Component({
   selector: 'app-reservation-list',
@@ -11,21 +10,16 @@ import { ReservationService } from 'src/app/services/reservation.service';
   styleUrls: ['./reservation-list.component.css']
 })
 export class ReservationListComponent implements OnInit {
-  observableReservation: Observable<Reservation[]> | undefined;
+  observableReservation: Observable<Reservation[]>;
   message = '';
   showMessage = false;
-reservation: any;
-  router: any;
 
 
   constructor(
-    private reservationService: ReservationService,
-    private activatedRoute: ActivatedRoute,
-)
+    private reservationService: ReservationService)
+       {    this.observableReservation = this.reservationService.getAll();}
 
-     { this.observableReservation = this.reservationService.getAll();}
-
-  ngOnInit(): void {   this.showMessage = false;
+  ngOnInit(): void {  /* this.showMessage = false;
     this.activatedRoute.queryParams.subscribe((params) => {
       if (params['q']) {
         if (params['q'] == 'create') {
@@ -35,13 +29,8 @@ reservation: any;
         }
         this.showMessage = true;
       }
-    });
+    });*/
   }
-
-  editReservation(id:number|undefined):void{
-      this.router.navigateByUrl("reservation/edit/"+id)
-  }
-
   delete(id: number) {
     this.reservationService.deleteById(id).subscribe(() => {
       this.observableReservation = this.reservationService.getAll();

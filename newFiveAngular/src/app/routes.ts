@@ -1,3 +1,4 @@
+import { CarouselComponent } from './component/home/carousel/carousel.component';
 import { ReservationCreateComponent } from './component/reservation/reservation-create/reservation-create.component';
 import { ReservationListComponent } from './component/reservation/reservation-list/reservation-list.component';
 import { ReservationEditComponent } from './component/reservation/reservation-edit/reservation-edit.component';

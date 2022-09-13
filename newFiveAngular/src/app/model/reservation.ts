@@ -1,12 +1,11 @@
+import { TerrainReserve } from './terrainReserve';
 import { Time } from "@angular/common";
-import { Terrain } from "./terrain";
 
 export class Reservation {
-
   constructor(
     private _id?: number,
     private _prix?: number,
-    private _terrain?:Terrain,
+    private _terrainReserve?:TerrainReserve,
     private _date?: Date,
     private _heure?: Time,
   ) {}
@@ -19,20 +18,24 @@ export class Reservation {
     this._id = value;
   }
 
-  public get terrain(): Terrain| undefined {
-    return this._terrain;
+  public get terrainReserve(): TerrainReserve | undefined {
+    return this._terrainReserve;
   }
-
-  public set terrain(value: Terrain | undefined) {
-      this._terrain = value;
-    }
+  public set terrainReserve(value: TerrainReserve | undefined) {
+    this._terrainReserve = value;
+  }
 
   public set date(value: Date | undefined) {
     this._date= value;
   }
-
-  public set heure(value: Date | undefined){
-   this._heure;
+  public get date() {
+    return this._date;
+  }
+  public set heure(value: Time | undefined) {
+    this._heure= value;
+  }
+  public get heure(): Time| undefined {
+    return this._heure;
   }
 
   public set prix(value: number | undefined) {

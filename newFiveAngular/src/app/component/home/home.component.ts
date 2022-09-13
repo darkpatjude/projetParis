@@ -8,15 +8,15 @@ import { ClientService } from 'src/app/services/client.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  clients: Client[] = [];
-  constructor(private clientService: ClientService) {}
+ // clients: Client[] = [];
+  //constructor(private clientService: ClientService) {}
 
   ngOnInit(): void {
-    this.list();
+   // this.list();
   }
-  list() {
+ /* list() {
     this.clientService.getAll().subscribe((result) => {
       this.clients = result;
     });
-  }
+  }*/
 }
