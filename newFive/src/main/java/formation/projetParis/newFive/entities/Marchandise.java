@@ -1,11 +1,12 @@
 package formation.projetParis.newFive.entities;
 
+import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-@MappedSuperclass
-
+//@MappedSuperclass
+@Entity
 public abstract class Marchandise extends Article {
 
   

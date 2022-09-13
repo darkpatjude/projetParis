@@ -1,7 +1,7 @@
 package formation.projetParis.newFive.services;
 
 import java.time.LocalDate;
-
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,5 +51,10 @@ public class CommandeService {
 
 	public Commande getById(Long id) {
 		return commandeRepo.findByIdWithLignes(id).orElseThrow(CommandeException::new);
+	}
+	
+	//pas necessaire?
+	public List<Commande>getAll(){
+		return commandeRepo.findAll();
 	}
 }

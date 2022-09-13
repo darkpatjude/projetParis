@@ -1,5 +1,6 @@
 package formation.projetParis.newFive.restcontroller;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import formation.projetParis.newFive.entities.Client;
 import formation.projetParis.newFive.entities.Commande;
 import formation.projetParis.newFive.entities.JsonViews;
 import formation.projetParis.newFive.models.CommandeRestModel;
@@ -34,6 +36,15 @@ public class CommandeRestController {
 //		return commandeService.create(panier, client);
 //	}
 
+	
+		//pas necessaire?
+	  @GetMapping("")
+	    @JsonView(JsonViews.Base.class)
+	    public List<Commande> getAll() {
+	        return commandeService.getAll();
+	    }
+	
+	
 	@PostMapping("")
 	@JsonView(JsonViews.Commande.class)
 	public Commande create(@RequestBody CommandeRestModel commande) {

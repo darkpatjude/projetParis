@@ -1,6 +1,6 @@
 package formation.projetParis.newFive.entities;
 
-import java.sql.Time;
+import java.time.LocalTime;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Table(name="terrains")
-@SequenceGenerator(sequenceName = "seq_terrain", name = "seqTerrain", initialValue = 100, allocationSize = 1)
+@SequenceGenerator(sequenceName = "seq_terrain", name = "seqTerrain", initialValue = 1, allocationSize = 1)
 
 public class Terrain {
 	@JsonView(JsonViews.Base.class)
@@ -25,17 +25,17 @@ public class Terrain {
 	@JsonView(JsonViews.Base.class)
     private String nom;
 	@JsonView(JsonViews.Base.class)
-    private Time heureFermeture;
+    private LocalTime heureFermeture;
 	@JsonView(JsonViews.Base.class)
-    private Time heureOuverture;
-	@JsonView(JsonViews.Base.class)
-    @OneToOne(mappedBy = "terrainReserve")
+    private LocalTime heureOuverture;
+	//@JsonView(JsonViews.Base.class) //Infinite loop? :(
+    @OneToOne(mappedBy = "terrainReserve") //nom dans table reservation
     private Reservation reservation;
     
     public Terrain() {
     }
 
-	public Terrain(String nom, Long id_terrain, Time heureFermeture, Time heureOuverture) {
+	public Terrain(String nom, Long id_terrain, LocalTime heureFermeture, LocalTime heureOuverture) {
 		super();
 		this.nom = nom;
 		this.id = id_terrain;
@@ -57,6 +57,32 @@ public class Terrain {
 
 	public void setId(Long id_terrain) {
 		this.id = id_terrain;
+	}
+	
+	
+
+	public LocalTime getHeureFermeture() {
+		return heureFermeture;
+	}
+
+	public void setHeureFermeture(LocalTime heureFermeture) {
+		this.heureFermeture = heureFermeture;
+	}
+
+	public LocalTime getHeureOuverture() {
+		return heureOuverture;
+	}
+
+	public void setHeureOuverture(LocalTime heureOuverture) {
+		this.heureOuverture = heureOuverture;
+	}
+
+	public Reservation getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(Reservation reservation) {
+		this.reservation = reservation;
 	}
 
 	@Override

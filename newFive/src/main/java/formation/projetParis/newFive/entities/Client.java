@@ -34,7 +34,7 @@ public class Client extends Utilisateur {
 	@Column(name = "client_id")
     private Long id;
 	@OneToMany(mappedBy ="client")
-	@JsonView(JsonViews.ClientWithCommandes.class)
+	@JsonView(JsonViews.ClientWithCommandes.class) //uniqument s'affiche le json s'il y a de commandes a afficher??
     private Set<Commande> commandes;
 
     public Client() {

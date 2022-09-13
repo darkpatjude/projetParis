@@ -14,9 +14,11 @@ public class ReservationService {
 
 	@Autowired
 	private ReservationRepository reservationRepo;
+	
+	//import terrain??? pour l'ajouter dans le create
 
 
-	public Reservation create(Reservation reservation) {
+	public Reservation create(Reservation reservation) { //exception si no hay numero de terreno?
 
 		return reservationRepo.save(reservation);
 	}
