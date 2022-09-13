@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Admin } from '../model/admin';
 import { Client } from '../model/client';
+import { Reservation } from '../model/reservation';
 
 @Injectable({
   providedIn: 'root',
@@ -32,7 +33,7 @@ export class ConvertService {
 
   public adminToJson(admin: Admin): any {
     let obj = {
-      id: admin.id_admin,
+      id: admin.id,
       nom: admin.nom,
       email: admin.email,
       prenom: admin.prenom,
@@ -49,6 +50,16 @@ export class ConvertService {
         },
       });
     }
+    return obj;
+  }
+  public reservationToJson(reservation: Reservation): any {
+    let obj = {
+      id: reservation.id,
+      prix: reservation.prix,
+      terrainReserve: reservation.terrainReserve,
+      date: reservation.date,
+      heure: reservation.heure
+    };
     return obj;
   }
 }

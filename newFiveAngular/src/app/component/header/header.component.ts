@@ -12,8 +12,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  nouveauClient():void{
-      this.router.navigateByUrl("inscription")
-  }
+  //nouveauClient():void{      this.router.navigateByUrl("inscription")  }
 
 }

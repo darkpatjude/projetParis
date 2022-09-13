@@ -35,7 +35,7 @@ export class AdminService {
 
   public update(admin: Admin): Observable<Admin> {
     return this.httpClient.put<Admin>(
-      'http://localhost:8080/five/api/admin/' + admin.id_admin,
+      'http://localhost:8080/five/api/admin/' + admin.id,
       this.convert.adminToJson(admin)
     );
   }

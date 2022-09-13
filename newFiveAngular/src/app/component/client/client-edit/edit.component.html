@@ -1,8 +1,8 @@
 <h1>edition client</h1>
-<h2>id = {{client.id}}</h2>
+
 <div class="form-group">
   <label for="id">id:</label>
-  <input id="id" class="form-control" [(ngModel)]="client.id" />
+  <input id="id" class="form-control" [(ngModel)]="client.id" readonly/>
 </div>
 <div class="form-group">
   <label for="nom">nom:</label>
@@ -21,10 +21,8 @@
     <input
       id="client.telephone"
       class="form-control"
-      [(ngModel)]="client.telephone">
+      [(ngModel)]="client.telephone"/>
   </div>
-
-
 
    <div class="form-group">
     <label for="client.adresse.numero">numero:</label>

@@ -1,0 +1,37 @@
+<h1>edition admin</h1>
+
+
+<div class="form-group">
+  <label for="admin.prenom">prenom:</label>
+  <input id="admin.prenom" class="form-control" [(ngModel)]="admin.prenom" />
+  </div>
+  <div class="form-group">
+    <label for="admin.nom">nom:</label>
+    <input id="admin.nom" class="form-control" [(ngModel)]="admin.nom" />
+    </div>
+<div class="form-group">
+  <label for="admin.email">email:</label>
+  <input id="admin.email" class="form-control" [(ngModel)]="admin.email" />
+  </div>
+<div class="form-group">
+  <div class="form-group">
+    <label for="admin.mdp">Mot de passe:</label>
+    <input id="admin.mdp" class="form-control" [(ngModel)]="mdp" />
+    </div>
+  <div class="form-group">
+    <div class="form-group">
+      <label for="admin.mdp">Confirmation du mot de passe:</label>
+      <input id="admin.mdp" class="form-control" [(ngModel)]="mdpConf" />
+      </div>
+    <div class="form-group">
+
+
+  <div class="form-group">
+    <button class="btn btn-outline-success" (click)="save()">
+      S'enregistrer
+    </button>
+    <button class="btn btn-outline-warning" (click)="annuler()">
+      Annuler
+    </button>
+  </div>
+

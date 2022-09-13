@@ -10,6 +10,7 @@ import { ClientService } from 'src/app/services/client.service';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
+
   observableClients: Observable<Client[]>;
   message = '';
   showMessage = false;
@@ -25,7 +26,11 @@ export class ListComponent implements OnInit {
       this.observableClients = this.clientService.getAll();
     });
   }
+
   editClient(id:number|undefined):void{
     this.router.navigateByUrl("client/edit/"+id)
+}
+newClient():void{
+  this.router.navigateByUrl("inscription")
 }
 }
