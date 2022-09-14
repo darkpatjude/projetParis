@@ -27,7 +27,7 @@ public class BallonService {
 
 	public Ballon update(Ballon b) {
 		Ballon ballonEnBase = getById(b.getId());
-		ballonEnBase.setNom(b.getNom()); //quels params vont vaire l'update??
+		ballonEnBase.setNom(b.getNom());
 		ballonEnBase.setPrix(b.getPrix());
 		ballonEnBase.setStock(b.getStock());
 		ballonEnBase.setCouleur(b.getCouleur());

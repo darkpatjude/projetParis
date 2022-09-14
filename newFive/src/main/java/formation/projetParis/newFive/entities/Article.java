@@ -1,6 +1,5 @@
 package formation.projetParis.newFive.entities;
 
-
 import java.util.Objects;
 import java.util.Set;
 
@@ -20,16 +19,15 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-
+import antlr.collections.List;
 
 @Entity
-@Table(name="articles")
+@Table(name = "articles")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length =1)
+@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length = 1)
 @SequenceGenerator(sequenceName = "seq_article", name = "seqArticle", initialValue = 100, allocationSize = 100)
-@NamedQueries({
-	@NamedQuery(name = "Article.findByKey", query = "select a from Article a where a.id=:id"),
-	@NamedQuery(name = "Article.findByNomContaining", query = "select a from Article a where a.nom like :texte ")})
+@NamedQueries({ @NamedQuery(name = "Article.findByKey", query = "select a from Article a where a.id=:id"),
+		@NamedQuery(name = "Article.findByNomContaining", query = "select a from Article a where a.nom like :texte ") })
 
 public class Article {
 	@JsonView(JsonViews.Base.class)
@@ -37,15 +35,15 @@ public class Article {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqArticle")
 	private Long id;
 	@JsonView(JsonViews.Base.class)
-    private double prix;
-	 // @JsonView(JsonViews.LigneDeCommande.class)
-    @OneToMany(mappedBy = "id.article")
+	private double prix;
+	// @JsonView(JsonViews.LigneDeCommande.class)
+	@OneToMany(mappedBy = "id.article")
 	private Set<LigneDeCommande> lignes;
-    
-   // private Set<String> imageUrl;
-    
-    public Article() {
-    }
+
+	private Set<String> imageUrl;
+
+	public Article() {
+	}
 
 	public double getPrix() {
 		return prix;
@@ -88,14 +86,12 @@ public class Article {
 		this.lignes = lignes;
 	}
 
-//	public Set<String> getImageUrl() {
-//		return imageUrl;
-//	}
-//
-//	public void setImageUrl(Set<String> imageUrl) {
-//		this.imageUrl = imageUrl;
-//	}
-	
-    
+	public Set<String> getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(Set<String> imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 
 }
