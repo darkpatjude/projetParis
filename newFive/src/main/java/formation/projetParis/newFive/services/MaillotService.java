@@ -31,6 +31,8 @@ public class MaillotService {
 		maillotEnBase.setNom(m.getNom()); //quels params vont vaire l'update??
 		maillotEnBase.setPrix(m.getPrix());
 		maillotEnBase.setStock(m.getStock());
+		maillotEnBase.setTaille(m.getTaille());
+		maillotEnBase.setEquipe(m.getEquipe());
 		return maillotRepo.save(maillotEnBase);
 	}
 	

@@ -30,6 +30,8 @@ public class BallonService {
 		ballonEnBase.setNom(b.getNom()); //quels params vont vaire l'update??
 		ballonEnBase.setPrix(b.getPrix());
 		ballonEnBase.setStock(b.getStock());
+		ballonEnBase.setCouleur(b.getCouleur());
+		ballonEnBase.setTaille(b.getTaille());
 		return balRepo.save(ballonEnBase);
 	}
 	
