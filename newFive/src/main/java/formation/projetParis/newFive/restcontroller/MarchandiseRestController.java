@@ -92,7 +92,7 @@ public class MarchandiseRestController  {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 		ballon.setId(id);
-		return marchandiseService.update(ballon);
+		return ballonService.update(ballon);
 	}
 	
 	@PutMapping("/maillot/edit/{id}")
@@ -102,7 +102,7 @@ public class MarchandiseRestController  {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 		maillot.setId(id);
-		return marchandiseService.update(maillot);
+		return maillotService.update(maillot);
 	}
 
 	@DeleteMapping("/{id}")

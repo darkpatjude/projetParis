@@ -42,7 +42,7 @@ public class Article {
     @OneToMany(mappedBy = "id.article")
 	private Set<LigneDeCommande> lignes;
     
-    private Set<String> imageUrl;
+   // private Set<String> imageUrl;
     
     public Article() {
     }
@@ -88,13 +88,13 @@ public class Article {
 		this.lignes = lignes;
 	}
 
-	public Set<String> getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(Set<String> imageUrl) {
-		this.imageUrl = imageUrl;
-	}
+//	public Set<String> getImageUrl() {
+//		return imageUrl;
+//	}
+//
+//	public void setImageUrl(Set<String> imageUrl) {
+//		this.imageUrl = imageUrl;
+//	}
 	
     
 
