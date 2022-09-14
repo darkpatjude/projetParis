@@ -1,5 +1,6 @@
 package formation.projetParis.newFive.entities;
 
+import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 
@@ -14,6 +15,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
@@ -26,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 	@NamedQuery(name = "Client.findByIdWithCommandesDetails", query = "select c from Client c left join fetch c.commandes as commande left join fetch commande.lignes where c.id=:id"),
 	})
 
-public class Client extends Utilisateur {
+public class Client extends Utilisateur implements UserDetails{
 	
 	@JsonView(JsonViews.Base.class)
 	@Id
@@ -71,6 +75,48 @@ public class Client extends Utilisateur {
 			return false;
 		Client other = (Client) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return false;
 	}
     
 }

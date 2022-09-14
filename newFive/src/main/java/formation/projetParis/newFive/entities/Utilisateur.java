@@ -8,8 +8,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 
 @MappedSuperclass
-
-public abstract class Utilisateur {
+public abstract class Utilisateur{
 	@JsonView(JsonViews.Base.class)
     private String prenom;
 	@JsonView(JsonViews.Base.class)
@@ -86,6 +85,18 @@ public abstract class Utilisateur {
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
+
+
+	public String getMotDePasse() {
+		return motDePasse;
+	}
+
+
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
+	}
+	
+	
     
     
  
