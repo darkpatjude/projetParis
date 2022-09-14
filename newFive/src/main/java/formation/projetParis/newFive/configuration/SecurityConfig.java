@@ -1,13 +1,9 @@
 package formation.projetParis.newFive.configuration;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -15,38 +11,27 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig { // esta clase es para administrar la config de secu
 	
-	protected void configure(HttpSecurity http) throws Exception { //REGLES D'ACCES
+	@Bean
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 		
 		// @formatter:off
-		http.antMatcher("/api/**") //je sais que tout commence par api
+		http.antMatcher("/**")
 				.csrf().disable()//esto es indispensable para que la desconexión sea simplemente un url /logout
-				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-				.and()
 				.authorizeRequests()
-					.antMatchers(HttpMethod.GET,"/api/marchandise/**").permitAll() //n'importe qui va etre capabla de lister ce contenu. Tambien especificar si es en get o post. Default get, no es necesario escribir
-					 //anonymous es lo contrario a authenticated, on est obligés d'etre connectés
-					.anyRequest().authenticated()
+					.antMatchers(HttpMethod.GET,"/","/home").permitAll() //n'importe qui va etre capabla de lister ce contenu. Tambien especificar si es en get o post. Default get, no es necesario escribir
+					.antMatchers("/inscription","/login").anonymous() //anonymous es lo contrario a authenticated
+					.anyRequest().permitAll()  //solo lo que ya esta autenticado?
 					.and()
-					.httpBasic();
-					//solo lo que ya esta autenticado?
-
+					.formLogin()
+						.loginPage("/login")
+						.defaultSuccessUrl("/secure/home") //debemos hacer un controlador nosotros mismos ahora
+						.failureUrl("/login?error=")
+					.and()
+					.logout()
+						.logoutUrl("/logout")
+						.logoutSuccessUrl("/home"); //nos va a mandar a produit despues de desconectarse
 		// @formatter:on
-	}
-	
-	@Autowired
-	private UserDetailsService userDetailsService; //pusimos en comentario al utilisador en memoria y añadimos este autowire y la linea de auth.user...
-
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// utilisateur en memoire
-		// @formatter:off
-//		auth.inMemoryAuthentication()
-//			.withUser("admin").password("{noop}admin").roles("ADMINISTRATEUR") //noop hace que no se encode la cadena de caracteres "admin"
-//			.and()
-//			.withUser("user1").password("{noop}user1").roles("USER");
-		// @formatter:on
-		
-		auth.userDetailsService(userDetailsService);
-
+		return http.build();
 	}
 	
 	@Bean
