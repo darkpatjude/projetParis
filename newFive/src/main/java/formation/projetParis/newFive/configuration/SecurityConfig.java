@@ -23,9 +23,9 @@ public class SecurityConfig { // esta clase es para administrar la config de sec
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				.and()
 				.authorizeRequests()
-					.antMatchers(HttpMethod.GET,"/api/marchandise/**").permitAll() //n'importe qui va etre capabla de lister ce contenu. Tambien especificar si es en get o post. Default get, no es necesario escribir
+					.antMatchers(HttpMethod.GET,"/api/**").permitAll() //n'importe qui va etre capabla de lister ce contenu. Tambien especificar si es en get o post. Default get, no es necesario escribir
 					 //anonymous es lo contrario a authenticated, on est obligés d'etre connectés
-					.anyRequest().authenticated()
+					//.anyRequest().authenticated()
 					.and()
 					.httpBasic();
 					//solo lo que ya esta autenticado?
@@ -39,10 +39,10 @@ public class SecurityConfig { // esta clase es para administrar la config de sec
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// utilisateur en memoire
 		// @formatter:off
-//		auth.inMemoryAuthentication()
-//			.withUser("admin").password("{noop}admin").roles("ADMINISTRATEUR") //noop hace que no se encode la cadena de caracteres "admin"
-//			.and()
-//			.withUser("user1").password("{noop}user1").roles("USER");
+		auth.inMemoryAuthentication()
+			.withUser("admin").password("{noop}admin").roles("ADMIN") //noop hace que no se encode la cadena de caracteres "admin"
+			.and()
+			.withUser("user1").password("{noop}user1").roles("USER");
 		// @formatter:on
 		
 		auth.userDetailsService(userDetailsService);

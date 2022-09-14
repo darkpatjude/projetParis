@@ -1,14 +1,17 @@
 package formation.projetParis.newFive.entities;
 
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.MappedSuperclass;
+
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
 
 @MappedSuperclass
-public abstract class Utilisateur{
+public abstract class Utilisateur {
 	@JsonView(JsonViews.Base.class)
     private String prenom;
 	@JsonView(JsonViews.Base.class)
@@ -18,12 +21,15 @@ public abstract class Utilisateur{
 	@JsonView(JsonViews.Base.class)
     private String email;
 	@JsonView(JsonViews.Base.class)
-    private String password;
-	@JsonView(JsonViews.Base.class)
     private String telephone;
 	@JsonView(JsonViews.Base.class)
     @Embedded
 	private Adresse adresse;
+	
+	@Column(name="login",nullable=false,unique=true)
+	protected String login;
+	@Column(name="password",nullable=false, length=255)
+	private String password;
     
     public Utilisateur() {
     }
@@ -95,6 +101,18 @@ public abstract class Utilisateur{
 	public void setPassword(String motDePasse) {
 		this.password = motDePasse;
 	}
+
+
+	public String getLogin() {
+		return login;
+	}
+
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	
+	
 	
 	
     
