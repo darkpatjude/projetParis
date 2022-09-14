@@ -10,7 +10,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig { // esta clase es para administrar la config de secu
@@ -18,14 +17,14 @@ public class SecurityConfig { // esta clase es para administrar la config de sec
 	protected void configure(HttpSecurity http) throws Exception { //REGLES D'ACCES
 		
 		// @formatter:off
-		http.antMatcher("/api/**") //je sais que tout commence par api
+		http.antMatcher("/**") //je sais que tout commence par api
 				.csrf().disable()//esto es indispensable para que la desconexión sea simplemente un url /logout
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				.and()
 				.authorizeRequests()
-					.antMatchers(HttpMethod.GET,"/api/**").permitAll() //n'importe qui va etre capabla de lister ce contenu. Tambien especificar si es en get o post. Default get, no es necesario escribir
+					.antMatchers(HttpMethod.GET,"/").permitAll() //n'importe qui va etre capabla de lister ce contenu. Tambien especificar si es en get o post. Default get, no es necesario escribir
 					 //anonymous es lo contrario a authenticated, on est obligés d'etre connectés
-					//.anyRequest().authenticated()
+					.anyRequest().permitAll()
 					.and()
 					.httpBasic();
 					//solo lo que ya esta autenticado?

@@ -26,8 +26,10 @@ public abstract class Utilisateur {
     @Embedded
 	private Adresse adresse;
 	
+	@JsonView(JsonViews.Base.class)
 	@Column(name="login",nullable=false,unique=true)
 	protected String login;
+	@JsonView(JsonViews.Base.class)
 	@Column(name="password",nullable=false, length=255)
 	private String password;
     
