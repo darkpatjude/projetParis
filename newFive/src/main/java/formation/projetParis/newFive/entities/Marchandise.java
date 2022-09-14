@@ -1,5 +1,7 @@
 package formation.projetParis.newFive.entities;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
 
@@ -9,24 +11,25 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 public abstract class Marchandise extends Article {
 
-  
 //	@Id
 //	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqMarchandise")
 //    private Long id_marchandise;
 	@JsonView(JsonViews.Base.class)
-    private String nom;
+	private String nom;
 	@JsonView(JsonViews.Base.class)
-    private int stock;
+	private int stock;
 	@JsonView(JsonViews.Base.class)
 
-    private String description;
+	private String description;
+	@JsonView(JsonViews.Base.class)
+	private String imageUrl;
 
-    public Marchandise() {
-    }
-    
-	public Marchandise( String nom, int stock, String description) {
+	public Marchandise() {
+	}
+
+	public Marchandise(String nom, int stock, String description) {
 		super();
-		//this.id_marchandise = id_marchandise;
+		// this.id_marchandise = id_marchandise;
 		this.nom = nom;
 		this.stock = stock;
 		this.description = description;
@@ -56,13 +59,20 @@ public abstract class Marchandise extends Article {
 		this.stock = stock;
 	}
 
-
 	public String getDescription() {
 		return description;
 	}
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 //	@Override
@@ -81,6 +91,5 @@ public abstract class Marchandise extends Article {
 //		Marchandise other = (Marchandise) obj;
 //		return Objects.equals(id_marchandise, other.id_marchandise);
 //	}
-    
 
 }

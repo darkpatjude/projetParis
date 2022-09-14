@@ -32,6 +32,7 @@ public class MarchandiseService {
 		marchandiseEnBase.setPrix(marchandise.getPrix());
 		marchandiseEnBase.setStock(marchandise.getStock());
 		marchandiseEnBase.setDescription(marchandise.getDescription());
+		marchandiseEnBase.setImageUrl(marchandise.getImageUrl());
 
 
 		return marchandiseRepo.save(marchandiseEnBase);
