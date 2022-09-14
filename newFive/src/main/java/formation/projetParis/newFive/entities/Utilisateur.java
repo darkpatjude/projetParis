@@ -5,8 +5,6 @@ import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.MappedSuperclass;
 
-import org.springframework.security.core.userdetails.UserDetails;
-
 import com.fasterxml.jackson.annotation.JsonView;
 
 
@@ -93,7 +91,6 @@ public abstract class Utilisateur {
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
-
 
 	public String getPassword() {
 		return password;
