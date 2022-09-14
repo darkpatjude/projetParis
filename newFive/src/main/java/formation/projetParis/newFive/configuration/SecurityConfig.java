@@ -6,14 +6,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-public class SecurityConfig { // esta clase es para administrar la config de secu
+public class SecurityConfig extends WebSecurityConfigurerAdapter{ // esta clase es para administrar la config de secu
 
+	@Override
 	protected void configure(HttpSecurity http) throws Exception { // REGLES D'ACCES
 
 		// @formatter:off
@@ -22,8 +24,10 @@ public class SecurityConfig { // esta clase es para administrar la config de sec
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				.and()
 				.authorizeRequests()
-					.antMatchers(HttpMethod.GET,"/api/marchandise").permitAll() //n'importe qui va etre capabla de lister ce contenu. Tambien especificar si es en get o post. Default get, no es necesario escribir
-					.anyRequest().permitAll()
+					.antMatchers(HttpMethod.GET,"/api/marchandise/**").permitAll() //n'importe qui va etre capabla de lister ce contenu. Tambien especificar si es en get o post. Default get, no es necesario escribir
+					//.antMatchers("/api/admin").hasRole("ADMIN")
+					//.antMatchers("/api/client").hasRole("USER")
+					.anyRequest().authenticated()
 					.and()
 					.httpBasic();
 					//solo lo que ya esta autenticado?
@@ -35,6 +39,7 @@ public class SecurityConfig { // esta clase es para administrar la config de sec
 	private UserDetailsService userDetailsService; // pusimos en comentario al utilisador en memoria y añadimos este
 													// autowire y la linea de auth.user...
 
+	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService);
 

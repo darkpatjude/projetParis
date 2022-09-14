@@ -75,7 +75,6 @@ public class NewFiveApplicationTests {
 		client.setPassword(passwordEncoder.encode("Qwerty123@"));
 		client.setAdresse(new Adresse("15", "Chez Valentin", "93000", "Ville dans le 93"));
 		clientService.create(client);
-		assertNotNull(clientService.getById(client.getId()));
 
 		// admin
 		Admin admin1 = new Admin();
@@ -84,6 +83,14 @@ public class NewFiveApplicationTests {
 		admin1.setLogin("patjude");
 		admin1.setPassword(passwordEncoder.encode("Qwerty123@"));
 		adminService.create(admin1);
+		
+		//deuxieme admin
+		Admin admin2 = new Admin();
+		admin2.setNom("Olivier");
+		admin2.setPrenom("Gozlan");
+		admin2.setLogin("OLIVE");
+		admin2.setPassword(passwordEncoder.encode("Qwerty123@"));
+		adminService.create(admin2);
 
 		// merch
 		Ballon ballon1 = new Ballon();

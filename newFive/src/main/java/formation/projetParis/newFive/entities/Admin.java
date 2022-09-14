@@ -59,8 +59,10 @@ public class Admin extends Utilisateur implements UserDetails{
 		return Objects.equals(id, other.id);
 	}
 
-	@Override
+	
 	public Collection<? extends GrantedAuthority> getAuthorities() {
+		System.out.println("***********");
+		System.out.println(Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN")));
 		return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
 	}
 
