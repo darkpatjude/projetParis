@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import formation.projetParis.newFive.entities.Admin;
+import formation.projetParis.newFive.entities.Utilisateur;
 
 public interface AdminRepository extends JpaRepository<Admin, Long> {
 	
@@ -13,5 +14,7 @@ public interface AdminRepository extends JpaRepository<Admin, Long> {
 	
 	Optional<Admin> findByEmail(String email);
 	Optional<Admin> findByTelephone(String tel);
+	
+	Optional<Admin> findByLogin(String login);
 
 }

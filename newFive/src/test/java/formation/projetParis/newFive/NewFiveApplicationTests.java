@@ -8,6 +8,7 @@ import java.time.LocalTime;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +16,6 @@ import formation.projetParis.newFive.entities.Admin;
 import formation.projetParis.newFive.entities.Adresse;
 import formation.projetParis.newFive.entities.Ballon;
 import formation.projetParis.newFive.entities.Client;
-import formation.projetParis.newFive.entities.Commande;
 import formation.projetParis.newFive.entities.Maillot;
 import formation.projetParis.newFive.entities.Reservation;
 import formation.projetParis.newFive.entities.Terrain;
@@ -47,12 +47,17 @@ public class NewFiveApplicationTests {
 
 	private CommandeService comService;
 
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	@Test
 	@Commit
 	public void creationClientTest() {
 		Client client = new Client();
 		client.setPrenom("Julian");
 		client.setNom("assad");
+		client.setLogin("patjude1");
+		client.setPassword(passwordEncoder.encode("Qwerty123@"));
 		client.setAdresse(new Adresse("122", "Route de la reine", "92100", "Boulogne"));
 		clientService.create(client);
 		assertNotNull(clientService.getById(client.getId()));
@@ -66,6 +71,8 @@ public class NewFiveApplicationTests {
 		Client client = new Client();
 		client.setPrenom("valentin");
 		client.setNom("dumas");
+		client.setLogin("patjude2");
+		client.setPassword(passwordEncoder.encode("Qwerty123@"));
 		client.setAdresse(new Adresse("15", "Chez Valentin", "93000", "Ville dans le 93"));
 		clientService.create(client);
 		assertNotNull(clientService.getById(client.getId()));
@@ -74,7 +81,8 @@ public class NewFiveApplicationTests {
 		Admin admin1 = new Admin();
 		admin1.setNom("Coulibaly");
 		admin1.setPrenom("Mohamed");
-		admin1.setMotDePasse("Qwerty123@");
+		admin1.setLogin("patjude");
+		admin1.setPassword(passwordEncoder.encode("Qwerty123@"));
 		adminService.create(admin1);
 
 		// merch

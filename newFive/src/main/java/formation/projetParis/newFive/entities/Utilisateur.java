@@ -1,6 +1,7 @@
 package formation.projetParis.newFive.entities;
 
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.MappedSuperclass;
 
@@ -8,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 
 @MappedSuperclass
-public abstract class Utilisateur{
+public abstract class Utilisateur {
 	@JsonView(JsonViews.Base.class)
     private String prenom;
 	@JsonView(JsonViews.Base.class)
@@ -18,12 +19,17 @@ public abstract class Utilisateur{
 	@JsonView(JsonViews.Base.class)
     private String email;
 	@JsonView(JsonViews.Base.class)
-    private String motDePasse;
-	@JsonView(JsonViews.Base.class)
     private String telephone;
 	@JsonView(JsonViews.Base.class)
     @Embedded
 	private Adresse adresse;
+	
+	@JsonView(JsonViews.Base.class)
+	@Column(name="login",nullable=false,unique=true)
+	protected String login;
+	@JsonView(JsonViews.Base.class)
+	@Column(name="password",nullable=false, length=255)
+	private String password;
     
     public Utilisateur() {
     }
@@ -33,7 +39,7 @@ public abstract class Utilisateur{
 		this.prenom = prenom;
 		this.nom = nom;
 		this.email = email;
-		this.motDePasse = motDePasse;
+		this.password = motDePasse;
 		this.telephone = telephone;
 		this.adresse = adresse;
 	}
@@ -86,15 +92,26 @@ public abstract class Utilisateur{
 		this.adresse = adresse;
 	}
 
-
-	public String getMotDePasse() {
-		return motDePasse;
+	public String getPassword() {
+		return password;
 	}
 
 
-	public void setMotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
+	public void setPassword(String motDePasse) {
+		this.password = motDePasse;
 	}
+
+
+	public String getLogin() {
+		return login;
+	}
+
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	
+	
 	
 	
     
