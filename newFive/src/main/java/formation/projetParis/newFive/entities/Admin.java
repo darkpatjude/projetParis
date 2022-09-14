@@ -1,7 +1,5 @@
 package formation.projetParis.newFive.entities;
 
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -10,10 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -24,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 @SequenceGenerator(sequenceName = "seq_admin", name = "seqAdmin", initialValue = 100, allocationSize = 1)
 
 
-public class Admin extends Utilisateur implements UserDetails{
+public class Admin extends Utilisateur{
 
 	@JsonView(JsonViews.Base.class)
 	@Id
@@ -32,6 +26,7 @@ public class Admin extends Utilisateur implements UserDetails{
     private Long id;
 	
     public Admin() {
+    	setRole("ROLE_ADMIN");
     }
 	
 	public Long getId() {
@@ -60,39 +55,5 @@ public class Admin extends Utilisateur implements UserDetails{
 	}
 
 	
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		System.out.println("***********");
-		System.out.println(Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN")));
-		return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
-	}
-
-	@Override
-	public String getUsername() {
-		return login;
-	}
-
-	@Override
-	public boolean isAccountNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		return true;
-	}
-
-
-    
- 
 
 }

@@ -1,7 +1,5 @@
 package formation.projetParis.newFive.entities;
 
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 
@@ -16,10 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
@@ -33,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 																																			// clientrepository
 		@NamedQuery(name = "Client.findByIdWithCommandesDetails", query = "select c from Client c left join fetch c.commandes as commande left join fetch commande.lignes where c.id=:id"), })
 
-public class Client extends Utilisateur implements UserDetails {
+public class Client extends Utilisateur {
 
 	@JsonView(JsonViews.Base.class)
 	@Id
@@ -43,8 +37,10 @@ public class Client extends Utilisateur implements UserDetails {
 	@OneToMany(mappedBy = "client")
 	@JsonView(JsonViews.ClientWithCommandes.class) // uniqument s'affiche le json s'il y a de commandes a afficher??
 	private Set<Commande> commandes;
+	
 
 	public Client() {
+		setRole("ROLE_USER");
 	}
 
 	public Long getId() {
@@ -80,36 +76,5 @@ public class Client extends Utilisateur implements UserDetails {
 		return Objects.equals(id, other.id);
 	}
 
-	
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		System.out.println("***********");
-		System.out.println(Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")));
-		return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
-	}
-
-	@Override
-	public String getUsername() {
-		return login;
-	}
-
-	@Override
-	public boolean isAccountNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		return true;
-	}
 
 }

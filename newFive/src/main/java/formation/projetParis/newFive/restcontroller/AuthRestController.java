@@ -14,7 +14,7 @@ import formation.projetParis.newFive.entities.JsonViews;
 import formation.projetParis.newFive.entities.Utilisateur;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/userinfo")
 @CrossOrigin(origins = "*")
 public class AuthRestController {
 	
