@@ -18,7 +18,7 @@ public abstract class Utilisateur{
 	@JsonView(JsonViews.Base.class)
     private String email;
 	@JsonView(JsonViews.Base.class)
-    private String motDePasse;
+    private String password;
 	@JsonView(JsonViews.Base.class)
     private String telephone;
 	@JsonView(JsonViews.Base.class)
@@ -33,7 +33,7 @@ public abstract class Utilisateur{
 		this.prenom = prenom;
 		this.nom = nom;
 		this.email = email;
-		this.motDePasse = motDePasse;
+		this.password = motDePasse;
 		this.telephone = telephone;
 		this.adresse = adresse;
 	}
@@ -87,13 +87,13 @@ public abstract class Utilisateur{
 	}
 
 
-	public String getMotDePasse() {
-		return motDePasse;
+	public String getPassword() {
+		return password;
 	}
 
 
-	public void setMotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
+	public void setPassword(String motDePasse) {
+		this.password = motDePasse;
 	}
 	
 	

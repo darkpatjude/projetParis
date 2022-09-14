@@ -74,7 +74,7 @@ public class NewFiveApplicationTests {
 		Admin admin1 = new Admin();
 		admin1.setNom("Coulibaly");
 		admin1.setPrenom("Mohamed");
-		admin1.setMotDePasse("Qwerty123@");
+		admin1.setPassword("Qwerty123@");
 		adminService.create(admin1);
 
 		// merch
