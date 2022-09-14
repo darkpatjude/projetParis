@@ -3,6 +3,8 @@ import { Admin } from '../model/admin';
 import { Article } from '../model/article';
 import { Ballon } from '../model/ballon';
 import { Client } from '../model/client';
+import { Commande } from '../model/commande';
+import { LigneDeCommande } from '../model/ligne-de-commande';
 import { Maillot } from '../model/maillot';
 import { Marchandise } from '../model/marchandise';
 import { Reservation } from '../model/reservation';
@@ -82,9 +84,50 @@ export class ConvertService {
     let obj = {
       id: article.id,
       prix: article.prix,
+      
+      quantite: article.quantite,
     };
     return obj;
   }
+
+  public lignedeCommandeToJson(lignedeCommande: LigneDeCommande): any {
+    let obj = {
+      id: lignedeCommande.id,
+      quantite: lignedeCommande.quantite,
+    };
+    return obj;
+  }
+
+
+  public commandeToJson(commande: Commande): any {
+    let obj = {
+      id: commande.id,
+      client: commande.client,
+      prix: commande.prix,
+      date: commande.date,
+      lignes: commande.ligne
+    };
+    if (commande.ligne) {
+        Object.assign(obj, {
+         ligne: {
+         id: commande.ligne.id,
+         quantite: commande.ligne.quantite
+          },
+     });
+     if (commande.client) {
+      Object.assign(obj, {
+       client: {
+       id: commande.client.id,
+      nom: commande.client.nom,
+      email: commande.client.email,
+      prenom: commande.client.prenom,
+      telephone: commande.client.telephone,
+
+        },
+   });
+    return obj;
+  }}}
+
   public marchandiseToJson(marchandise: Marchandise): any {
     let obj = {
       prix: marchandise.prix,
