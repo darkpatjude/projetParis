@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 @SequenceGenerator(sequenceName = "seq_admin", name = "seqAdmin", initialValue = 100, allocationSize = 1)
 
 
-public class Admin extends Utilisateur {
+public class Admin extends Utilisateur{
 
 	@JsonView(JsonViews.Base.class)
 	@Id
@@ -26,6 +26,7 @@ public class Admin extends Utilisateur {
     private Long id;
 	
     public Admin() {
+    	setRole("ROLE_ADMIN");
     }
 	
 	public Long getId() {
@@ -52,7 +53,7 @@ public class Admin extends Utilisateur {
 		Admin other = (Admin) obj;
 		return Objects.equals(id, other.id);
 	}
-    
- 
+
+	
 
 }

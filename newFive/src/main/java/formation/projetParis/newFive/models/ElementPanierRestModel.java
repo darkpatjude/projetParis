@@ -14,7 +14,7 @@ public class ElementPanierRestModel {
 		return article;
 	}
 
-	public void setProduit(Article article) {
+	public void setArticle(Article article) {
 		this.article = article;
 	}
 

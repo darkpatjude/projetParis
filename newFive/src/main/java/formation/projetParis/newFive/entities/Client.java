@@ -17,28 +17,31 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
-@Table(name="clients")
+@Table(name = "clients")
 @SequenceGenerator(sequenceName = "seq_client", name = "seqClient", initialValue = 100, allocationSize = 1)
 
-
 @NamedQueries({
-	@NamedQuery(name = "Client.findByKeyWithCommandes", query = "select c from Client c left join fetch c.commandes where c.id=:id"), //@param id dans clientrepository
-	@NamedQuery(name = "Client.findByIdWithCommandesDetails", query = "select c from Client c left join fetch c.commandes as commande left join fetch commande.lignes where c.id=:id"),
-	})
+		@NamedQuery(name = "Client.findByKeyWithCommandes", query = "select c from Client c left join fetch c.commandes where c.id=:id"), // @param
+																																			// id
+																																			// dans
+																																			// clientrepository
+		@NamedQuery(name = "Client.findByIdWithCommandesDetails", query = "select c from Client c left join fetch c.commandes as commande left join fetch commande.lignes where c.id=:id"), })
 
 public class Client extends Utilisateur {
-	
+
 	@JsonView(JsonViews.Base.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqClient")
 	@Column(name = "client_id")
-    private Long id;
-	@OneToMany(mappedBy ="client")
-	@JsonView(JsonViews.ClientWithCommandes.class) //uniqument s'affiche le json s'il y a de commandes a afficher??
-    private Set<Commande> commandes;
+	private Long id;
+	@OneToMany(mappedBy = "client")
+	@JsonView(JsonViews.ClientWithCommandes.class) // uniqument s'affiche le json s'il y a de commandes a afficher??
+	private Set<Commande> commandes;
+	
 
-    public Client() {
-    }
+	public Client() {
+		setRole("ROLE_USER");
+	}
 
 	public Long getId() {
 		return id;
@@ -72,5 +75,6 @@ public class Client extends Utilisateur {
 		Client other = (Client) obj;
 		return Objects.equals(id, other.id);
 	}
-    
+
+
 }
