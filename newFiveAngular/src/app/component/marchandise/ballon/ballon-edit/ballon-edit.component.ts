@@ -11,7 +11,7 @@ import { BallonService } from 'src/app/services/ballon.service';
 export class BallonEditComponent implements OnInit {
 
   ballon: Ballon;
-  
+
   // @Output()
   // ballonEvent: EventEmitter<any> = new EventEmitter();
 
@@ -52,6 +52,6 @@ export class BallonEditComponent implements OnInit {
       });
     }
   }
- 
+
 
 }

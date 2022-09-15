@@ -1,12 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Article } from 'src/app/model/article';
 import { Maillot } from 'src/app/model/maillot';
-import { LigneDeCommandeService } from 'src/app/services/ligne-de-commande.service';
 import { MaillotService } from 'src/app/services/maillot.service';
 import { MarchandiseService } from 'src/app/services/marchandise.service';
-import { PanierService } from 'src/app/services/panier.service';
 
 @Component({
   selector: 'app-maillot-list',
@@ -20,12 +17,11 @@ export class MaillotListComponent implements OnInit {
   constructor(
     private marchandiseService: MarchandiseService,
     private maillotService: MaillotService,
-    private activatedRoute: ActivatedRoute,
-    private lignedecommandeService: LigneDeCommandeService
+    private activatedRoute: ActivatedRoute
   ) {
     this.observableMaillots = this.maillotService.getAllMaillots();
   }
-    
+
   @Output()
   event = new EventEmitter();
 
@@ -48,8 +44,4 @@ export class MaillotListComponent implements OnInit {
       this.observableMaillots = this.maillotService.getAllMaillots();
     });
   }
-
-  addtocart(maillot: Maillot){
-    this.lignedecommandeService.addtoCart(maillot);
-  }
-} 
+}

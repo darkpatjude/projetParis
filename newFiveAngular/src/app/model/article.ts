@@ -2,18 +2,17 @@
 export class Article {
 
     constructor(
-      
         private _id?: number,
         private _prix?: number,
         private _nom?: string
         ) {
-          
+
         }
 
-  public get id(): number | undefined {
+  public get id(): number|undefined {
     return this._id;
   }
-  public set id(value: number | undefined) {
+  public set id(value: number|undefined) {
     this._id = value;
   }
 
@@ -24,7 +23,6 @@ export class Article {
   public set prix(value: number | undefined) {
     this._prix = value;
   }
-
   public get nom(): string | undefined {
     return this._nom;
   }
@@ -32,4 +30,6 @@ export class Article {
   public set nom(value: string | undefined) {
     this._nom = value;
   }
+
+
 }

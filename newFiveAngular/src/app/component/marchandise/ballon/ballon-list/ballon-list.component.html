@@ -1,28 +1,31 @@
 <table class="table">
     <thead>
-      <th>id:</th>
       <th>nom:</th>
       <th>prix:</th>
       <th>description:</th>
       <th>stock:</th>
       <th>couleur:</th>
       <th>taille:</th>
+      <th>image</th>
     </thead>
     <tbody>
       <tr *ngFor="let a of observableBallons | async">
-        <td>{{ a.id }}</td>
-        <td>{{ a.nom }}</td>
+        <td>
+          <a routerLink="/marchandise/ballon/{{a.id}}" >
+            {{a.nom}}
+          </a>
+        </td>
         <td>{{ a.prix }}</td>
         <td>{{ a.description }}</td>
         <td>{{ a.stock}} </td>
         <td>{{ a.couleur }}</td>
         <td>{{ a.taille }}</td>
+       <td> <img src="{{a.imageUrl}}" alt="{{a.imageUrl}}"> {{ a.imageUrl }}</td>
 
-      
+
+
         <td>
-          <button class="btn btn-primary btn-sm" (click)="addToCart(a)">
-           ajouter panier
-          </button>
+
           <a
           routerLink="edit/{{ a.id }}"
           routerLink="active"

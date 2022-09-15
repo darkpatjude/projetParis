@@ -1,3 +1,6 @@
+import { map, Observable, tap } from 'rxjs';
+import { TerrainReserveService } from './../../../services/terrain-reserve.service';
+import { TerrainReserve } from './../../../model/terrainReserve';
 import { ReservationService } from 'src/app/services/reservation.service';
 import { Reservation } from 'src/app/model/reservation';
 import { Component, OnInit } from '@angular/core';
@@ -11,13 +14,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ReservationCreateComponent implements OnInit {
   reservation: Reservation;
   httpClient: any;
+  a=0;
+  nowDate=new Date();
+  public c=new TerrainReserve();
+
 
   constructor(
     private ar: ActivatedRoute,
     private reservationService : ReservationService,
+    private terrainReserveService:TerrainReserveService,
     private router: Router
   ) {
 this.reservation=new Reservation();
+this.reservation.terrainReserve=new TerrainReserve;
    }
 
   ngOnInit(): void {
@@ -26,20 +35,23 @@ this.reservation=new Reservation();
     this.router.navigateByUrl('/reservations');
   }
   save() {
-
     if(true){
-      this.reservationService.create(this.reservation).subscribe({
-        next: (result) => {
-          this.router.navigateByUrl('/reservation/edit/'+result.id);
-          //this.router.navigateByUrl('/client?q=create&id='+result.id)
-        },
-        error: (err) => {
-          console.log(err);
-        },
-      });}
-      else{
-        alert("Pas de disponibilité")
+    this.terrainReserveService.getById(this.a).subscribe(
+      value=>{this.reservation.terrainReserve=value;this.c=value,
+        console.log("depuis le subscribe, nom du terrain : "+this.c.nom)
+
+        this.reservationService.create(this.reservation).subscribe({
+          next: (result) => {
+            this.router.navigateByUrl('/reservation/edit/'+result.id);
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });})
+      }else{
+        alert("pas de disponibilité")
       }
 
-}
+      }
+
 }

@@ -8,6 +8,7 @@ import { LigneDeCommande } from '../model/ligne-de-commande';
 import { Maillot } from '../model/maillot';
 import { Marchandise } from '../model/marchandise';
 import { Reservation } from '../model/reservation';
+import { TerrainReserve } from '../model/terrainReserve';
 
 @Injectable({
   providedIn: 'root',
@@ -79,7 +80,7 @@ export class ConvertService {
     }
     return obj;
   }
-  
+
   public articleToJson(article: Article): any {
     let obj = {
       id: article.id,
@@ -129,6 +130,7 @@ export class ConvertService {
   public marchandiseToJson(marchandise: Marchandise): any {
     let obj = {
       prix: marchandise.prix,
+      imageUrl:marchandise.imageUrl,
       nom: marchandise.nom,
       stock: marchandise.stock,
       description: marchandise.description,
@@ -151,12 +153,12 @@ export class ConvertService {
     //   });
     // }
      return obj;
-  
-  }
 
+  }
   public ballonToJson(ballon: Ballon): any {
     let obj = {
       prix: ballon.prix,
+      imageUrl:ballon.imageUrl,
       nom: ballon.nom,
       stock: ballon.stock,
       description: ballon.description,
@@ -171,14 +173,27 @@ export class ConvertService {
       public maillotToJson(maillot: Maillot): any {
         let obj = {
           prix: maillot.prix,
+          imageUrl:maillot.imageUrl,
           nom: maillot.nom,
           stock: maillot.stock,
           description: maillot.description,
-          equipe: maillot.equipe, 
+          equipe: maillot.equipe,
           taille: maillot.taille,
           maillot: maillot,
           ballon: maillot.ballon
             };
             return obj;
           }
+
+
+public terrainReserveToJson(terrainReserve: TerrainReserve): any {
+  let obj = {
+    id: terrainReserve.id,
+    nom: terrainReserve.nom,
+    heureFermeture: terrainReserve.heureFermeture,
+    heureOuverture: terrainReserve.heureOuverture,
+  };
+  return obj;
+}
+
 }

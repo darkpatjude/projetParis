@@ -3,24 +3,32 @@ import { Ballon } from "./ballon";
 import { Maillot } from "./maillot";
 
 export class Marchandise extends Article{
- constructor( 
+ constructor(
     private _stock?: number,
     private _description?:string,
     private _ballon?:Ballon,
+    private _imageUrl?:string,
     private _maillot?:Maillot)
-    
+
     {
    super();
  }
 
-   
+ public get imageUrl(): string | undefined {
+  return this._imageUrl;
+}
+
+public set imageUrl(value: string | undefined) {
+  this._imageUrl = value;
+}
+
      public get description(): string | undefined {
         return this._description;
       }
       public set description(value: string | undefined) {
         this._description = value;
       }
-    
+
       public get stock(): number | undefined {
         return this._stock;
       }

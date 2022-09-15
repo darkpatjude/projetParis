@@ -15,13 +15,16 @@
       <td>{{ marchandise.prix }}</td>
       <td>{{ marchandise.description }}</td>
       <td>{{ marchandise.stock }}</td>
-      <td> <button class="btn btn-primary btn-sm" (click)="addtocart(marchandise)">
-          ajouter panier
-        </button>
+      <td>{{stat$|async}}</td>
+      <td *ngIf="oui">{{oui}} hello</td>
+
+      <td> <button (click)="view(marchandise.id!)"> View</button></td>
+      <td><button class="btn btn-primary btn-sm" (click)="addToCart(marchandise)">
+        ajouter panier
+       </button>
+      </td>
 
     </tr>
   </tbody>
 </table>
-<!-- 
-<a routerLink="/marchandise/ballon" routerLinkActive="active" class="btn btn-link">ajouter un ballon</a>
-<a routerLink="/marchandise/maillot" routerLinkActive="active" class="btn btn-link">ajouter un maillot</a> -->
+

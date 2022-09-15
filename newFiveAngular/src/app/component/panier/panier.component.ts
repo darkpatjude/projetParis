@@ -10,7 +10,7 @@ import { PanierService } from 'src/app/services/panier.service';
   styleUrls: ['./panier.component.css']
 })
 export class PanierComponent implements OnInit {
- 
+
   cartItems :Array<CartItem>= [];
 
   @Output()
@@ -20,14 +20,14 @@ export class PanierComponent implements OnInit {
 
   public grandTotal !: number;
   constructor(private panierService : PanierService) { }
- 
+
 
   ngOnInit(): void {
     this.panierService.getAsObservable()
     .subscribe(res=>{
       this.cartItems = res;
       this.calculateTotal();
-    }) 
+    })
   }
 
   calculateTotal(): void {
@@ -38,7 +38,7 @@ export class PanierComponent implements OnInit {
         this.grandTotal += (prix * quantite);
     });
 
-      
+
   }
 
   ajoutQuantiter(article: Article) {
@@ -48,14 +48,14 @@ export class PanierComponent implements OnInit {
   retraitQuantiter(article: Article) {
     this.panierService.reduceToCart(article);
   }
- 
+
   removeItem(article: Article){
     this.panierService.removeCartItem(article);
   }
 
   emptypanier(){
     this.panierService.removeAllCart();
-  } 
+  }
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////
 }

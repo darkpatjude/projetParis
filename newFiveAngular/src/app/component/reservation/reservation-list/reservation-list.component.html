@@ -11,7 +11,7 @@
     <tr *ngFor="let reservation of observableReservation | async">
       <td>{{ reservation.id }}</td>
       <td>{{ reservation.prix }}</td>
-      <td>{{ reservation.terrainReserve?.id}}</td>
+      <td>{{ reservation.terrainReserve.nom}}</td>
       <td>{{ reservation.date }}</td>
       <td>{{ reservation.heure}}</td>
       <td>
