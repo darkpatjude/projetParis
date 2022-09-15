@@ -49,7 +49,7 @@ public class AuthRestController {
 		if(br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		client.setPassword((passwordEncoder.encode(client.getPassword())));
+		client.setPassword((passwordEncoder.encode(client.getRealpassword())));
 		client.setRole("ROLE_USER");
 		return clientRepo.save(client);
 	}
