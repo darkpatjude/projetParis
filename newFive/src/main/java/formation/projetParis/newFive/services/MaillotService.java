@@ -33,6 +33,9 @@ public class MaillotService {
 		maillotEnBase.setStock(m.getStock());
 		maillotEnBase.setTaille(m.getTaille());
 		maillotEnBase.setEquipe(m.getEquipe());
+
+		maillotEnBase.setDescription(m.getDescription());
+		maillotEnBase.setImageUrl(m.getImageUrl());
 		return maillotRepo.save(maillotEnBase);
 	}
 	

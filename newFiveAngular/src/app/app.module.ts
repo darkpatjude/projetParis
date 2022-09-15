@@ -27,15 +27,18 @@ import { MaillotEditComponent } from './component/marchandise/maillot/maillot-ed
 import { MaillotListComponent } from './component/marchandise/maillot/maillot-list/maillot-list.component';
 import { MarchandiseEditComponent } from './component/marchandise/marchandise-edit/marchandise-edit.component';
 import { MarchandiseListComponent } from './component/marchandise/marchandise-list/marchandise-list.component';
-import { LoginComponent } from './component/login/login.component';
+import { SingleMaillotComponent } from './component/marchandise/maillot/single-maillot/single-maillot.component';
+import { SingleBallonComponent } from './component/marchandise/ballon/single-ballon/single-ballon.component';
 import { PanierComponent } from './component/panier/panier.component';
-import { LigneDeCommandeComponent } from './component/ligne-de-commande/ligne-de-commande.component';
+import { TerrainReserveComponent } from './component/terrain-reserve/terrain-reserve.component';
 import { CommandeComponent } from './component/commande/commande.component';
+import { LoginComponent } from './component/login/login.component';
+import { LigneDeCommandeComponent } from './component/ligne-de-commande/ligne-de-commande.component';
 import { CommandeDetailsComponent } from './component/commande/commande-details/commande-details.component';
 
 @NgModule({
   declarations: [HeaderComponent, AppComponent, HomeComponent, ListComponent, EditComponent, AdminEditComponent, AdminListComponent, InscriptionComponent, NewAdminComponent, ReservationEditComponent, ReservationListComponent, ReservationCreateComponent, CarouselComponent, Carousel2Component, BallonEditComponent, BallonListComponent,
-    MaillotListComponent, MaillotEditComponent, MarchandiseEditComponent,MarchandiseListComponent, FooterComponent, LoginComponent, PanierComponent, LigneDeCommandeComponent, CommandeComponent, CommandeDetailsComponent],
+    MaillotListComponent, MaillotEditComponent, MarchandiseEditComponent,MarchandiseListComponent, FooterComponent, SingleMaillotComponent,SingleBallonComponent, PanierComponent, TerrainReserveComponent, CommandeComponent, LoginComponent, LigneDeCommandeComponent, CommandeDetailsComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule,RouterModule.forRoot(routes), NgbModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],

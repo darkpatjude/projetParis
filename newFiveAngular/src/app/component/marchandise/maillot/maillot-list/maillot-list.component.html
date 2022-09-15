@@ -1,22 +1,28 @@
 <table class="table">
     <thead>
-      <th>id</th>
+
       <th>nom</th>
       <th>prix</th>
       <th>description:</th>
       <th>stock</th>
       <th>equipe</th>
       <th>taille</th>
+      <th>image</th>
     </thead>
     <tbody>
       <tr *ngFor="let a of observableMaillots | async">
-        <td>{{ a.id }}</td>
-        <td>{{ a.nom }}</td>
+
+        <td>
+          <a routerLink="/marchandise/maillot/{{a.id}}" >
+            {{a.nom}}
+          </a>
+        </td>
         <td>{{ a.prix }}</td>
         <td>{{ a.description }}</td>
         <td>{{ a.stock}} </td>
         <td>{{ a.equipe }}</td>
         <td>{{ a.taille }}</td>
+        <td> <img src="{{a.imageUrl}}" alt="{{a.imageUrl}}"> {{ a.imageUrl }}</td>
         <td>
           <a
             routerLink="edit/{{ a.id }}"
@@ -24,12 +30,7 @@
             class="btn btn-outline-primary"
             >editer</a
           >
-         
-        </td>
-        <td>
-        <button class="btn btn-primary btn-sm" (click)="addtocart(a)">
-          ajouter panier
-         </button>
+
         </td>
         <td>
           <button (click)="delete(a.id!)" class="btn btn-outline-danger">

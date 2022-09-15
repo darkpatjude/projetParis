@@ -4,22 +4,17 @@
   <input id="id" class="form-control" [(ngModel)]="reservation.id" readonly />
 </div>
 
-<div class="form-group">
-  <label for="prix">prix:</label>
-  <input
-    id="prix"
-    class="form-control"
-    [(ngModel)]="reservation.prix"
-    type="number"
-  />
-</div>
-<div class="form-group">
-  <label for="terrainReserve"> terrainReserve:</label>
-  <input
-    class="form-control"
-    [(ngModel)]="reservation.terrainReserve"
-    type="string"
-  >
+
+<div>
+  <label for="terrainReserve">Choisissez un terrain :</label>
+<select name="terrainReserve" id="terrainReserve" [(ngModel)]="reservation.terrainReserve.id">
+  <option value="1">--Please choose an option--</option>
+  <option value="1">Jaune</option>
+  <option value="2">Bleu</option>
+  <option value="3">Rouge</option>
+  <option value="4">Vert</option>
+</select>
+<h2> {{a}} -> {{b}}  terrain : id: {{reservation.terrainReserve.id}}  nom: {{reservation.terrainReserve.nom}}</h2>
 </div>
 <div class="form-group">
   <label for="date">date:</label>
@@ -39,13 +34,9 @@
     type="time"
   />
 </div>
+<div> Le prix d'une réservation est {{reservation.prix}}</div>
 <div class="form-group">
   <button class="btn btn-outline-success" (click)="save()">enregistrer</button>
-  <a
-    routerLink="/reservations"
-    routerLinkActive="active"
-    class="btn btn-outline-warning"
-    >annuler</a
-  >
+  <button class="btn btn-outline-success" (click)="annuler()" class="btn btn-outline-warning">Annuler</button>
 </div>
 

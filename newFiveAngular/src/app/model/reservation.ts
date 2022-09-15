@@ -4,8 +4,8 @@ import { Time } from "@angular/common";
 export class Reservation {
   constructor(
     private _id?: number,
-    private _prix?: number,
-    private _terrainReserve?:TerrainReserve,
+    private  _prix=10,
+    private _terrainReserve=new TerrainReserve,
     private _date?: Date,
     private _heure?: Time,
   ) {}
@@ -18,10 +18,10 @@ export class Reservation {
     this._id = value;
   }
 
-  public get terrainReserve(): TerrainReserve | undefined {
+  public get terrainReserve(): TerrainReserve {
     return this._terrainReserve;
   }
-  public set terrainReserve(value: TerrainReserve | undefined) {
+  public set terrainReserve(value: TerrainReserve) {
     this._terrainReserve = value;
   }
 
@@ -36,10 +36,6 @@ export class Reservation {
   }
   public get heure(): Time| undefined {
     return this._heure;
-  }
-
-  public set prix(value: number | undefined) {
-    this._prix = value;
   }
   public get prix(): number | undefined {
     return this._prix;

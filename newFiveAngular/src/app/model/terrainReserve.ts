@@ -7,8 +7,18 @@ export class TerrainReserve {
   private _nom?: string,
   private _heureFermeture?: Time,
   private _heureOuverture?:Time,
+  private _imageUrl?:string,
 
 ) {}
+
+
+public get imageUrl(): string | undefined {
+  return this._imageUrl;
+}
+
+public set imageUrl(value: string | undefined) {
+  this._imageUrl = value;
+}
 
 public get id(): number | undefined {
   return this._id;

@@ -32,6 +32,9 @@ public class BallonService {
 		ballonEnBase.setStock(b.getStock());
 		ballonEnBase.setCouleur(b.getCouleur());
 		ballonEnBase.setTaille(b.getTaille());
+		ballonEnBase.setDescription(b.getDescription());
+		ballonEnBase.setImageUrl(b.getImageUrl());
+
 		return balRepo.save(ballonEnBase);
 	}
 	

@@ -28,6 +28,7 @@ public class TerrainService {
 	public Terrain update(Terrain t) {
 		Terrain terrainEnBase = getById(t.getId());
 		terrainEnBase.setNom(t.getNom());
+		terrainEnBase.setImageUrl(t.getImageUrl());
 		terrainEnBase.setHeureOuverture(t.getHeureOuverture());
 		terrainEnBase.setHeureFermeture(t.getHeureFermeture());
 		return terrainRepo.save(terrainEnBase);

@@ -19,6 +19,9 @@ import { LoginComponent } from './component/login/login.component';
 import { PanierComponent } from './component/panier/panier.component';
 import { LigneDeCommandeComponent } from './component/ligne-de-commande/ligne-de-commande.component';
 import { CommandeComponent } from './component/commande/commande.component';
+import { TerrainReserveComponent } from './component/terrain-reserve/terrain-reserve.component';
+import { SingleMaillotComponent } from './component/marchandise/maillot/single-maillot/single-maillot.component';
+import { SingleBallonComponent } from './component/marchandise/ballon/single-ballon/single-ballon.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -42,6 +45,9 @@ export const routes: Routes = [
   { path: 'marchandise/maillot/edit/:id', component: MaillotEditComponent },
   { path: 'marchandise/ballon/edit/:id', component: BallonEditComponent },
   { path: 'marchandise/maillot/add', component: MaillotEditComponent },
+  { path: 'terrain/:id', component: TerrainReserveComponent },
+  { path: 'marchandise/maillot/:id', component: SingleMaillotComponent},
+  { path: 'marchandise/ballon/:id', component: SingleBallonComponent},
 
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },

@@ -1,0 +1,10 @@
+.face-card{
+  box-sizing: border-box;
+  width: 80%;
+  margin: 50px auto;
+  padding: 10px 30px;
+  box-shadow: lightgray 4px 4px 20px;
+
+}
+
+

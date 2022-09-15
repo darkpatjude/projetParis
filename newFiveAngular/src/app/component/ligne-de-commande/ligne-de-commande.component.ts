@@ -13,20 +13,20 @@ export class LigneDeCommandeComponent implements OnInit {
   article :any= [];
   @Output()
   quantiterEvent: EventEmitter<any> = new EventEmitter();
-    
+
  @Output()
 
   retirerEvent: EventEmitter<any> = new EventEmitter();
   public grandTotal !: number;
   constructor(private lignedecommandeService : LigneDeCommandeService) { }
- 
+
 
   ngOnInit(): void {
     this.lignedecommandeService.getArticles()
     .subscribe(res=>{
       this.article = res;
       this.grandTotal = this.lignedecommandeService.getTotalPrice();
-    }) 
+    })
   }
 
   ajoutQuantiter() {
@@ -38,12 +38,12 @@ export class LigneDeCommandeComponent implements OnInit {
     (this.article.quantite>0)?this.article.quantite--:this.article.quantite;
     this.retirerEvent.emit({ article: this.article, quantite: this.article.quantite });
   }
- 
+
   removeItem(article: Article){
     this.lignedecommandeService.removeCartItem(article);
   }
 
   emptylignedecommande(){
     this.lignedecommandeService.removeAllCart();
-  } 
+  }
 }

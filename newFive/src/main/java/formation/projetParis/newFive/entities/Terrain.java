@@ -25,6 +25,8 @@ public class Terrain {
 	@JsonView(JsonViews.Base.class)
     private String nom;
 	@JsonView(JsonViews.Base.class)
+	private String imageUrl;
+	@JsonView(JsonViews.Base.class)
     private LocalTime heureFermeture;
 	@JsonView(JsonViews.Base.class)
     private LocalTime heureOuverture;
@@ -101,6 +103,14 @@ public class Terrain {
 			return false;
 		Terrain other = (Terrain) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
     
 	

@@ -21,8 +21,8 @@ export class MarchandiseService {
     return this.httpClient.get<Marchandise[]>(MarchandiseService.URL);
   }
 
-  public getAllMaillots(): Observable<Maillot[]> {
-    return this.httpClient.get<Maillot[]>(`${MarchandiseService.URL}/maillot`);
+  public getAllMaillots(): Observable<Marchandise[]> {
+    return this.httpClient.get<Marchandise[]>(`${MarchandiseService.URL}/maillot`);
   }
 
   public getAllBallons(): Observable<Ballon[]> {
@@ -43,7 +43,6 @@ export class MarchandiseService {
       `${MarchandiseService.URL}/edit/${marchandise.id}`,
       this.convert.marchandiseToJson(marchandise)
     );
-    
   }
 
   public updateBallon(marchandise: Ballon): Observable<Ballon> {

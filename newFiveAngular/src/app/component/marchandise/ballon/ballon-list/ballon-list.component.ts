@@ -21,7 +21,7 @@ export class BallonListComponent implements OnInit {
   ) {
     this.observableBallons = this.ballonService.getAllBallons();
   }
-  
+
   @Output()
   event = new EventEmitter();
 
@@ -45,7 +45,5 @@ export class BallonListComponent implements OnInit {
     });
   }
 
-  addToCart(observableBallons: any): void {
-    this.event.emit(observableBallons);   
-  }
+
 }

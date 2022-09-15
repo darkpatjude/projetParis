@@ -1,0 +1,13 @@
+<div class="face-card" *ngIf="maillot$|async as maillot" Class="snapped">
+  <h2>  {{ maillot.nom |uppercase }}</h2>
+  <h3> l'équipe': {{ maillot.equipe}}</h3>
+  <h3 *ngIf="maillot.taille"> Taille: {{maillot.taille}}</h3>
+  <h2> description :  {{ maillot.description}}</h2>
+  <h2> Le prix: {{maillot.prix}} </h2>
+ <img src="{{maillot.imageUrl}}" alt="{{maillot.imageUrl}}">
+
+
+<button class="btn btn-primary btn-sm" (click)="addToCart(maillot)">
+  ajouter panier
+ </button>
+</div>
