@@ -2,10 +2,10 @@
 export class Article {
 
     constructor(
+      
         private _id?: number,
         private _prix?: number,
-        
-        private _quantite=1,
+        private _nom?: string
         ) {
           
         }
@@ -25,10 +25,11 @@ export class Article {
     this._prix = value;
   }
 
-  public get quantite(): number {
-    return this._quantite;
+  public get nom(): string | undefined {
+    return this._nom;
   }
-  public set quantite(value: number ) {
-    this._quantite=value;
+
+  public set nom(value: string | undefined) {
+    this._nom = value;
   }
 }

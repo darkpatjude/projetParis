@@ -1,6 +1,6 @@
 import { Article } from "./article";
 
-export class Panier {
+export class CartItem {
     constructor(
         private _article?: Article,
         private _quantite?: number
@@ -19,5 +19,9 @@ export class Panier {
       }
       public set quantite(value: number | undefined) {
         this._quantite = value;
+      }
+
+      public get total(): number {
+        return (this._quantite?this._quantite:0) * (this._article?.prix?this._article?.prix:0) ;
       }
 }

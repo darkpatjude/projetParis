@@ -15,20 +15,13 @@
       <td>{{ marchandise.prix }}</td>
       <td>{{ marchandise.description }}</td>
       <td>{{ marchandise.stock }}</td>
-     
-      
-      <td>
-        <button (click)="delete(marchandise.id!)" class="btn btn-outline-danger">
-          supprimer
+      <td> <button class="btn btn-primary btn-sm" (click)="addtocart(marchandise)">
+          ajouter panier
         </button>
-      </td>
+
     </tr>
   </tbody>
 </table>
-
-<a routerLink="/marchandise/ballon" routerLinkActive="active" class="btn btn-link"
-  >ajouter un ballon</a
->
-<a routerLink="/marchandise/maillot" routerLinkActive="active" class="btn btn-link"
-  >ajouter un maillot</a
->
+<!-- 
+<a routerLink="/marchandise/ballon" routerLinkActive="active" class="btn btn-link">ajouter un ballon</a>
+<a routerLink="/marchandise/maillot" routerLinkActive="active" class="btn btn-link">ajouter un maillot</a> -->

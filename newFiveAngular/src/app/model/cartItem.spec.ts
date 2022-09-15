@@ -1,7 +1,7 @@
-import { Panier } from './panier';
+import { CartItem } from './cartItem';
 
 describe('Panier', () => {
   it('should create an instance', () => {
-    expect(new Panier()).toBeTruthy();
+    expect(new CartItem()).toBeTruthy();
   });
 });

@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <th>id</th>
+    <th>prix</th>
+    <th>date</th>
+    <th>client</th>
+
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of observableCommandes | async">
+      <td>{{ c.id }}</td>
+      <td>{{ c.prix}}</td>
+      <td>{{ c.date}}</td>
+      <td>
+        <button class="btn btn-primary btn-sm">
+          voir details commande
+        </button>
+        <a routerLink="commande/{{ c.id }}" routerLink="active" class="btn btn-outline-primary">editer</a>
+
+      </td>
+
+    </tr>
+  </tbody>
+</table>

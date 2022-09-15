@@ -30,10 +30,12 @@ import { MarchandiseListComponent } from './component/marchandise/marchandise-li
 import { LoginComponent } from './component/login/login.component';
 import { PanierComponent } from './component/panier/panier.component';
 import { LigneDeCommandeComponent } from './component/ligne-de-commande/ligne-de-commande.component';
+import { CommandeComponent } from './component/commande/commande.component';
+import { CommandeDetailsComponent } from './component/commande/commande-details/commande-details.component';
 
 @NgModule({
   declarations: [HeaderComponent, AppComponent, HomeComponent, ListComponent, EditComponent, AdminEditComponent, AdminListComponent, InscriptionComponent, NewAdminComponent, ReservationEditComponent, ReservationListComponent, ReservationCreateComponent, CarouselComponent, Carousel2Component, BallonEditComponent, BallonListComponent,
-    MaillotListComponent, MaillotEditComponent, MarchandiseEditComponent,MarchandiseListComponent, FooterComponent, LoginComponent, PanierComponent, LigneDeCommandeComponent],
+    MaillotListComponent, MaillotEditComponent, MarchandiseEditComponent,MarchandiseListComponent, FooterComponent, LoginComponent, PanierComponent, LigneDeCommandeComponent, CommandeComponent, CommandeDetailsComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule,RouterModule.forRoot(routes), NgbModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],

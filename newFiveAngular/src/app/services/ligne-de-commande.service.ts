@@ -1,10 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Article } from '../model/article';
-import { Commande } from '../model/commande';
-import { CommandeService } from './commande.service';
-import { ConvertService } from './convert.service';
 
 @Injectable({
   providedIn: 'root'
