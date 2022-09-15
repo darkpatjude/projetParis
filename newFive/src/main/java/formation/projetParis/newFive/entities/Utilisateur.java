@@ -34,7 +34,7 @@ public abstract class Utilisateur implements UserDetails {
 	@JsonView(JsonViews.Base.class)
 	@Column(name = "login", nullable = false, unique = true)
 	private String login;
-	@JsonView(JsonViews.Base.class)
+	
 	@Column(name = "password", nullable = false, length = 255)
 	private String password;
 

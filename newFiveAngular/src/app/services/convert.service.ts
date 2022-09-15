@@ -20,9 +20,11 @@ export class ConvertService {
     let obj = {
       id: client.id,
       nom: client.nom,
+      login: client.login,
       email: client.email,
       prenom: client.prenom,
       telephone: client.telephone,
+      realpassword: client.realpassword,
     };
 
     if (client.adresse) {
@@ -65,7 +67,7 @@ export class ConvertService {
       prix: reservation.prix,
       terrainReserve: reservation.terrainReserve,
       date: reservation.date,
-      heure: reservation.heure
+      heure: reservation.heure,
     };
 
     if (reservation.terrainReserve) {
@@ -97,45 +99,45 @@ export class ConvertService {
     return obj;
   }
 
-
   public commandeToJson(commande: Commande): any {
     let obj = {
       id: commande.id,
       client: commande.client,
       prix: commande.prix,
       date: commande.date,
-      lignes: commande.ligne
+      lignes: commande.ligne,
     };
     if (commande.ligne) {
-        Object.assign(obj, {
-         ligne: {
-         id: commande.ligne.id,
-         quantite: commande.ligne.quantite
-          },
-     });
-     if (commande.client) {
       Object.assign(obj, {
-       client: {
-       id: commande.client.id,
-      nom: commande.client.nom,
-      email: commande.client.email,
-      prenom: commande.client.prenom,
-      telephone: commande.client.telephone,
-
+        ligne: {
+          id: commande.ligne.id,
+          quantite: commande.ligne.quantite,
         },
-   });
-    return obj;
-  }}}
+      });
+      if (commande.client) {
+        Object.assign(obj, {
+          client: {
+            id: commande.client.id,
+            nom: commande.client.nom,
+            email: commande.client.email,
+            prenom: commande.client.prenom,
+            telephone: commande.client.telephone,
+          },
+        });
+        return obj;
+      }
+    }
+  }
 
   public marchandiseToJson(marchandise: Marchandise): any {
     let obj = {
       prix: marchandise.prix,
-      imageUrl:marchandise.imageUrl,
+      imageUrl: marchandise.imageUrl,
       nom: marchandise.nom,
       stock: marchandise.stock,
       description: marchandise.description,
       maillot: marchandise.maillot,
-      ballon: marchandise.ballon
+      ballon: marchandise.ballon,
     };
     // if (marchandise.ballon) {
     //   Object.assign(obj, {
@@ -152,48 +154,45 @@ export class ConvertService {
     //     },
     //   });
     // }
-     return obj;
-
+    return obj;
   }
   public ballonToJson(ballon: Ballon): any {
     let obj = {
       prix: ballon.prix,
-      imageUrl:ballon.imageUrl,
+      imageUrl: ballon.imageUrl,
       nom: ballon.nom,
       stock: ballon.stock,
       description: ballon.description,
       couleur: ballon.couleur,
       taille: ballon.taille,
       ballon: ballon,
-      maillot: ballon.maillot
-        };
-        return obj;
-      }
+      maillot: ballon.maillot,
+    };
+    return obj;
+  }
 
-      public maillotToJson(maillot: Maillot): any {
-        let obj = {
-          prix: maillot.prix,
-          imageUrl:maillot.imageUrl,
-          nom: maillot.nom,
-          stock: maillot.stock,
-          description: maillot.description,
-          equipe: maillot.equipe,
-          taille: maillot.taille,
-          maillot: maillot,
-          ballon: maillot.ballon
-            };
-            return obj;
-          }
+  public maillotToJson(maillot: Maillot): any {
+    let obj = {
+      prix: maillot.prix,
+      imageUrl: maillot.imageUrl,
+      nom: maillot.nom,
+      stock: maillot.stock,
+      description: maillot.description,
+      equipe: maillot.equipe,
+      taille: maillot.taille,
+      maillot: maillot,
+      ballon: maillot.ballon,
+    };
+    return obj;
+  }
 
-
-public terrainReserveToJson(terrainReserve: TerrainReserve): any {
-  let obj = {
-    id: terrainReserve.id,
-    nom: terrainReserve.nom,
-    heureFermeture: terrainReserve.heureFermeture,
-    heureOuverture: terrainReserve.heureOuverture,
-  };
-  return obj;
-}
-
+  public terrainReserveToJson(terrainReserve: TerrainReserve): any {
+    let obj = {
+      id: terrainReserve.id,
+      nom: terrainReserve.nom,
+      heureFermeture: terrainReserve.heureFermeture,
+      heureOuverture: terrainReserve.heureOuverture,
+    };
+    return obj;
+  }
 }

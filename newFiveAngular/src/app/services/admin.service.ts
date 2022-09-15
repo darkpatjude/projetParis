@@ -1,14 +1,13 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { Admin } from "../model/admin";
-import { ConvertService } from "./convert.service";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Admin } from '../model/admin';
+import { ConvertService } from './convert.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AdminService {
-
   static URL: string = 'http://localhost:8080/five/api/admin';
 
   constructor(
@@ -17,9 +16,7 @@ export class AdminService {
   ) {}
 
   public getAll(): Observable<Admin[]> {
-    return this.httpClient.get<Admin[]>(
-      'http://localhost:8080/five/api/admin'
-    );
+    return this.httpClient.get<Admin[]>('http://localhost:8080/five/api/admin');
   }
   public deleteById(id: number): Observable<void> {
     return this.httpClient.delete<void>(

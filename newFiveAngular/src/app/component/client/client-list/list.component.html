@@ -4,6 +4,7 @@
       <th>id:</th>
       <th>prenom:</th>
       <th>nom:</th>
+      <th>login:</th>
       <th>email:</th>
       <th>telephone:</th>
       <th>adresse:</th>
@@ -13,10 +14,14 @@
     <tr *ngFor="let client of observableClients | async">
       <td>{{ client.id }}</td>
       <td>{{ client.prenom }}</td>
+      <td>{{ client.login }}</td>
       <td>{{ client.nom }}</td>
       <td>{{ client.email }}</td>
       <td>{{ client.telephone }}</td>
-      <td>{{ client.adresse?.numero }} {{ client.adresse?.rue }} {{ client.adresse?.codePostal }} {{ client.adresse?.ville }}</td>
+      <td>
+        {{ client.adresse?.numero }} {{ client.adresse?.rue }}
+        {{ client.adresse?.codePostal }} {{ client.adresse?.ville }}
+      </td>
       <td><button (click)="editClient(client.id)">edit</button></td>
       <td>
         <button (click)="delete(client.id!)" class="btn btn-outline-danger">
@@ -27,4 +32,3 @@
   </tbody>
 </table>
 <button (click)="newClient()">Nouveau Client</button>
-

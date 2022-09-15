@@ -7,7 +7,9 @@ export class Client {
     private _email?: string,
     private _telephone?: string,
     private _adresse?: Adresse,
-    private _id?: number
+    private _id?: number,
+    private _login?: string,
+    private _realpassword?: string
   ) {}
   public get prenom(): string | undefined {
     return this._prenom;
@@ -50,5 +52,19 @@ export class Client {
   }
   public set id(value: number | undefined) {
     this._id = value;
+  }
+
+  public get login(): string | undefined {
+    return this._login;
+  }
+  public set login(value: string | undefined) {
+    this._login = value;
+  }
+
+  public get realpassword(): string | undefined {
+    return this._realpassword;
+  }
+  public set realpassword(value: string | undefined) {
+    this._realpassword = value;
   }
 }
