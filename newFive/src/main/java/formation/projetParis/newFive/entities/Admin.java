@@ -1,6 +1,5 @@
 package formation.projetParis.newFive.entities;
 
-import java.util.Collection;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -9,9 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -22,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 @SequenceGenerator(sequenceName = "seq_admin", name = "seqAdmin", initialValue = 100, allocationSize = 1)
 
 
-public class Admin extends Utilisateur implements UserDetails{
+public class Admin extends Utilisateur{
 
 	@JsonView(JsonViews.Base.class)
 	@Id
@@ -30,6 +26,7 @@ public class Admin extends Utilisateur implements UserDetails{
     private Long id;
 	
     public Admin() {
+    	setRole("ROLE_ADMIN");
     }
 	
 	public Long getId() {
@@ -57,50 +54,6 @@ public class Admin extends Utilisateur implements UserDetails{
 		return Objects.equals(id, other.id);
 	}
 
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getPassword() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getUsername() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-    
- 
+	
 
 }
