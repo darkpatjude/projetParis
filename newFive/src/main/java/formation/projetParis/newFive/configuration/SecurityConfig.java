@@ -13,7 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter{ // esta clase es para administrar la config de secu
+public class SecurityConfig extends WebSecurityConfigurerAdapter { // esta clase es para administrar la config de secu
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception { // REGLES D'ACCES

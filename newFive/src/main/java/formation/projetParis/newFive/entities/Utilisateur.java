@@ -1,12 +1,13 @@
 package formation.projetParis.newFive.entities;
 
-
 import java.util.Arrays;
 import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
+import javax.validation.constraints.Pattern;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,36 +15,41 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-
 @MappedSuperclass
-public abstract class Utilisateur implements UserDetails{
+public abstract class Utilisateur implements UserDetails {
 	@JsonView(JsonViews.Base.class)
-    private String prenom;
+	private String prenom;
 	@JsonView(JsonViews.Base.class)
-    private String nom;
+	private String nom;
 	@JsonView(JsonViews.Base.class)
-    private Civilite civilite;
+	private Civilite civilite;
 	@JsonView(JsonViews.Base.class)
-    private String email;
+	private String email;
 	@JsonView(JsonViews.Base.class)
-    private String telephone;
+	private String telephone;
 	@JsonView(JsonViews.Base.class)
-    @Embedded
+	@Embedded
 	private Adresse adresse;
-	
+
 	@JsonView(JsonViews.Base.class)
-	@Column(name="login",nullable=false,unique=true)
+	@Column(name = "login", nullable = false, unique = true)
 	private String login;
 	@JsonView(JsonViews.Base.class)
-	@Column(name="password",nullable=false, length=255)
+	@Column(name = "password", nullable = false, length = 255)
 	private String password;
-	
+
+//	 ^$ concerne l'integralité de la chaine de caracteres et pas un morceau ^es el inicio y $ es la
+//	fin. . es un caracter quelconque .{4,} de longitud 4 hasta donde quieras(?=.*[A-Z]) indica al
+//	menos una mayuscula *indica repeticion 0-n veces primero analiza lo que sea que haya antes hasta tomber con une mayuscule
+	@Transient
+	@Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[*?.@!=+#]).{4,}$")
+	private String realpassword;
+
 	@JsonView(JsonViews.Base.class)
 	private String role;
-    
-    public Utilisateur() {
-    }
-    
+
+	public Utilisateur() {
+	}
 
 	public Utilisateur(String prenom, String nom, String email, String motDePasse, String telephone, Adresse adresse) {
 		this.prenom = prenom;
@@ -61,7 +67,7 @@ public abstract class Utilisateur implements UserDetails{
 	public void setCivilite(Civilite civilite) {
 		this.civilite = civilite;
 	}
-	
+
 	public String getPrenom() {
 		return prenom;
 	}
@@ -106,32 +112,35 @@ public abstract class Utilisateur implements UserDetails{
 		return password;
 	}
 
-
 	public void setPassword(String motDePasse) {
 		this.password = motDePasse;
 	}
+	
 
+	public String getRealpassword() {
+		return realpassword;
+	}
+
+	public void setRealpassword(String realpassword) {
+		this.realpassword = realpassword;
+	}
 
 	public String getLogin() {
 		return login;
 	}
 
-
 	public void setLogin(String login) {
 		this.login = login;
 	}
-
 
 	public String getRole() {
 		return role;
 	}
 
-
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
-	
+
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		System.out.println("*****GrantedAuthority dans la class Utilisateur******");
 		System.out.println(Arrays.asList(new SimpleGrantedAuthority(role)));
@@ -162,11 +171,5 @@ public abstract class Utilisateur implements UserDetails{
 	public boolean isEnabled() {
 		return true;
 	}
-	
-	
-	
-    
-    
- 
 
 }
