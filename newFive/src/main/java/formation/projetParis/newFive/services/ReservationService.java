@@ -14,13 +14,18 @@ public class ReservationService {
 
 	@Autowired
 	private ReservationRepository reservationRepo;
-	
-	//import terrain??? pour l'ajouter dans le create
 
+	// import terrain??? pour l'ajouter dans le create
 
-	public Reservation create(Reservation reservation) { //exception si no hay numero de terreno?
+	public Reservation create(Reservation reservation) { // exception si no hay numero de terreno?
+		if (reservationRepo.findByDate(reservation.getDate()).isEmpty()
+				&& reservationRepo.findByHeure(reservation.getHeure()).isEmpty()) {
+			return reservationRepo.save(reservation);
+		} else {
 
-		return reservationRepo.save(reservation);
+			return reservation;
+		}
+
 	}
 
 	public Reservation getById(Long id) {

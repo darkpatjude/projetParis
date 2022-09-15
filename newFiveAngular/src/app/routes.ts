@@ -65,10 +65,9 @@ export const routes: Routes = [
   { path: 'marchandise/maillot/add', component: MaillotEditComponent ,
   canActivate: [AuthGuardService] },
   { path: 'terrain/:id', component: TerrainReserveComponent },
-  { path: 'marchandise/maillot/:id', component: SingleMaillotComponent},
-  { path: 'marchandise/ballon/:id', component: SingleBallonComponent},
+  { path: 'marchandise/maillot/:id', component: SingleMaillotComponent },
+  { path: 'marchandise/ballon/:id', component: SingleBallonComponent },
 
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-
 ];

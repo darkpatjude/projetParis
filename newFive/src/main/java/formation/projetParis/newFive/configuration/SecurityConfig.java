@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { // esta clase
 					.antMatchers(HttpMethod.GET,"/api/marchandise/**").permitAll() //n'importe qui va etre capabla de lister ce contenu. Tambien especificar si es en get o post. Default get, no es necesario escribir
 					.antMatchers("/api/auth/inscription").anonymous()
 					.antMatchers("/api/auth/check/**").anonymous()
-					.antMatchers("/api/admin").hasRole("ADMIN")
+					//.antMatchers("/api/admin").hasRole("ADMIN")
 					//.antMatchers("/api/client").hasRole("USER")
 					.anyRequest().permitAll()
 					.and()
