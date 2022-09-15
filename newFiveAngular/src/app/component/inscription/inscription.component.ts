@@ -87,6 +87,7 @@ export class InscriptionComponent implements OnInit {
   //       }
 
   // }
+
   submit() {
     let utilisateur = {
       login: this.form.get('loginCtrl')?.value,
@@ -94,7 +95,7 @@ export class InscriptionComponent implements OnInit {
     };
     this.inscriptionService.inscription(utilisateur).subscribe({
       next: (result) => {
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/login');
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);

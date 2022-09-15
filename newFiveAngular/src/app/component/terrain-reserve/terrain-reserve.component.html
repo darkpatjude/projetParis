@@ -1,1 +1,5 @@
-<p>terrain-reserve works!</p>
+<div class="face-card" *ngIf="terrainReserve$|async as terrain" Class="snapped">
+  <h2>  le terrain numéro : {{ terrain.id }}</h2>
+  <h3> la couleur: {{ terrain.nom}}</h3>
+ <img src="{{terrain.imageUrl}}" alt="{{terrain.imageUrl}}">
+</div>

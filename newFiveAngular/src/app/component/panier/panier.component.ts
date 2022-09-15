@@ -1,3 +1,6 @@
+import { Router } from '@angular/router';
+import { CommandeService } from './../../services/commande.service';
+import { Commande } from './../../model/commande';
 import { Component,EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Article } from 'src/app/model/article';
@@ -12,6 +15,7 @@ import { PanierService } from 'src/app/services/panier.service';
 export class PanierComponent implements OnInit {
 
   cartItems :Array<CartItem>= [];
+  commande: Commande;
 
   @Output()
   quantiterEvent: EventEmitter<any> = new EventEmitter();
@@ -19,7 +23,11 @@ export class PanierComponent implements OnInit {
 
 
   public grandTotal !: number;
-  constructor(private panierService : PanierService) { }
+  constructor(private panierService : PanierService,
+      private commandeService:CommandeService, private router:Router
+    ) {
+    this.commande=new Commande();
+   }
 
 
   ngOnInit(): void {
@@ -56,6 +64,18 @@ export class PanierComponent implements OnInit {
   emptypanier(){
     this.panierService.removeAllCart();
   }
+  commander(){
+    this.commandeService.create(this.commande).subscribe({
+      next: (result) => {
+        //this.router.navigateByUrl('/commande');
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
 
-  ///////////////////////////////////////////////////////////////////////////////////////////////////
-}
+
+  }
+
+

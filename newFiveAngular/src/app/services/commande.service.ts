@@ -21,7 +21,7 @@ export class CommandeService {
     return this.httpClient.get<Commande[]>(CommandeService.URL);
   }
 
- 
+
   public getById(id: number): Observable<Commande> {
     return this.httpClient.get<Commande>(`${CommandeService.URL}/${id}`);
   }
@@ -37,7 +37,7 @@ export class CommandeService {
   //   );
   // }
 
- 
+
   public create(commande: Commande): Observable<Commande> {
     return this.httpClient.post<Commande>(
       CommandeService.URL,

@@ -1,0 +1,17 @@
+<table class="table">
+  <thead>
+    <th>Terrain</th>
+    <th>nom</th>
+    <th>couleur</th>
+    <th>image</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let a of listTerrain$ | async">
+      <td><a routerLink="/terrain/{{a.id}}" routerLinkActive="active" > voir le terrain</a></td>
+      <td>Terrain {{ a.nom }}</td>
+      <td>{{ a.nom |uppercase}} </td>
+     <td> <img src="{{a.imageUrl}}" alt="{{a.imageUrl}}" style="width:80px"></td>
+
+    </tr>
+  </tbody>
+</table>

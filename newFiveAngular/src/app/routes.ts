@@ -1,3 +1,4 @@
+import { TerrainListComponent } from './component/terrain-reserve/terrain-list/terrain-list.component';
 import { CarouselComponent } from './component/home/carousel/carousel.component';
 import { ReservationCreateComponent } from './component/reservation/reservation-create/reservation-create.component';
 import { ReservationListComponent } from './component/reservation/reservation-list/reservation-list.component';
@@ -24,6 +25,7 @@ import { SingleMaillotComponent } from './component/marchandise/maillot/single-m
 import { SingleBallonComponent } from './component/marchandise/ballon/single-ballon/single-ballon.component';
 
 export const routes: Routes = [
+  { path: 'terrains', component: TerrainListComponent },
   { path: 'home', component: HomeComponent },
   { path: 'inscription', component: InscriptionComponent },
   { path: 'clients', component: ListComponent },

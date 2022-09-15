@@ -1,3 +1,6 @@
+<div class="card">
+  <h5 class="card-title">Mon Panier</h5>
+</div>
 <ng-container *ngIf="cartItems.length !=0">
   <div class="container">
       <div class="card-table">
@@ -17,16 +20,24 @@
                           <td>{{item.article?.id}}</td>
                           <td>{{item.article?.nom}}</td>
                           <td >{{item.article?.prix}}€</td>
-                          <td >{{item.quantite}}</td>
+                          <td *ngIf="item.article?.nom==='reservation'" >1</td>
+                          <td *ngIf="item.article?.nom!=='reservation'" >{{item.quantite}}</td>
                           <td>{{item.total}}€</td>
-                          <td>
-                              <button (click)="ajoutQuantiter(item.article!)" class="btn btn-primary">ajouter</button>
+                          <td *ngIf="item.article?.nom==='reservation'" >
+                              <button (click)="ajoutQuantiter(item.article!)" disabled class="btn btn-primary">ajouter</button>
                           </td>
-                          <div *ngIf="item.quantite! >1">
-                          <td>
+                          <td *ngIf="item.article?.nom!=='reservation'" >
+                            <button (click)="ajoutQuantiter(item.article!)" class="btn btn-primary">ajouter</button>
+                        </td>
+
+
+                          <td *ngIf="item.quantite! >1" >
                               <button (click)="retraitQuantiter(item.article!)" class="btn btn-danger">retirer</button>
                           </td>
-                          </div>
+                          <td *ngIf="item.quantite! ==1" >
+                            <button (click)="retraitQuantiter(item.article!)" disabled class="btn btn-danger">retirer</button>
+                        </td>
+
 
                           <td>
                               <button (click)="removeItem(item.article!)" class="btn btn-danger">supprimer</button>
@@ -34,7 +45,7 @@
                       </tr>
                       <tr>
                           <td><button routerLink="/marchandise" class="btn btn-primary">Continuer mon shopping</button></td>
-
+                          <button (click)="commander()" class="btn btn-primary">Commander</button>
                           <td><strong>Total : ${{grandTotal}}</strong></td>
                       </tr>
                   </tbody>
@@ -47,12 +58,10 @@
 
 <ng-container *ngIf="cartItems.length ==0">
   <div class="container">
-      <div class="card">
-          <h5 class="card-title">My Cart</h5>
-      </div>
+
       <div class="center">
-          <h4>Your cart is empty!</h4>
-          <h6>Add item to it now</h6>
+          <h4>Votre panier est vide !</h4>
+          <h6>Ajoutez un article</h6>
           <button routerLink="/marchandise" class="btn btn-primary">Shop Now</button>
       </div>
   </div>

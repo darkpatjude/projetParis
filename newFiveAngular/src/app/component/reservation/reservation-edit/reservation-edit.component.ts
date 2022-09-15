@@ -15,7 +15,6 @@ export class ReservationEditComponent implements OnInit {
   reservation: Reservation;
   observableFournisseur: Observable<Reservation[]>;
   a=1;
-  b=this.a*2
 
   constructor(
     private reservationService: ReservationService,
@@ -41,6 +40,27 @@ export class ReservationEditComponent implements OnInit {
 
   annuler(){
     this.router.navigateByUrl('/reservations');}
+
+    save() {
+      if(true){
+      this.terrainReserveService.getById(this.a).subscribe(
+        value=>{this.reservation.terrainReserve=value;
+
+          this.reservationService.create(this.reservation).subscribe({
+            next: (result) => {
+              this.router.navigateByUrl('/reservations');
+            },
+            error: (err) => {
+              console.log(err);
+            },
+          });})
+        }else{
+          alert("pas de disponibilité")
+        }
+
+        }
+
+    /*
 
   save() {
      this.terrainReserveService.getById(this.a).subscribe(
@@ -69,4 +89,5 @@ export class ReservationEditComponent implements OnInit {
       });
     }
   }
+  */
 }

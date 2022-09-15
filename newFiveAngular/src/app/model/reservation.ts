@@ -1,22 +1,20 @@
+import { Article } from './article';
 import { TerrainReserve } from './terrainReserve';
 import { Time } from "@angular/common";
 
-export class Reservation {
+export class Reservation extends Article{
   constructor(
-    private _id?: number,
-    private  _prix=10,
+
+
     private _terrainReserve=new TerrainReserve,
     private _date?: Date,
     private _heure?: Time,
-  ) {}
 
-  public get id(): number | undefined {
-    return this._id;
+  ) {
+    super()
+
   }
 
-  public set id(value: number | undefined) {
-    this._id = value;
-  }
 
   public get terrainReserve(): TerrainReserve {
     return this._terrainReserve;
@@ -37,7 +35,5 @@ export class Reservation {
   public get heure(): Time| undefined {
     return this._heure;
   }
-  public get prix(): number | undefined {
-    return this._prix;
-  }
+
 }

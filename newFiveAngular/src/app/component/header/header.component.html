@@ -1,28 +1,25 @@
 <header class="header">
   <h1> FiveFoot</h1> <img id="1" src='assets/imagefive/logo_five.png' class="five" style="width:150px">
-  <nav>
+<nav>
+  <ng-container *ngIf="logged">
+  <a routerLink="home" routerLinkActive="active" > Home</a>
 
-    <ng-container *ngIf="logged">
-      <a routerLink="home" routerLinkActive="active"> Home</a>
+  <a routerLink="clients" routerLinkActive="active" > Clients </a>
+  <a routerLink="admins" routerLinkActive="active" > Admins </a>
+  <a routerLink="reservations" routerLinkActive="active" > Reservations</a>
+  <a routerLink="terrains" routerLinkActive="active" > Terrains </a>
+  <a routerLink="/marchandise" routerLinkActive="active" class="btn btn-link">Boutique</a  >
+<a routerLink="panier" routerLinkActive="active" class="btn btn-link">panier</a>
+  <a routerLink="commande" routerLinkActive="active" class="btn btn-link">mes commandes</a>
+<button (click)="logout()" class="btn btn-link">deconnexion</button>
+</ng-container>
+<ng-container *ngIf="!logged">
 
-      <a routerLink="clients" routerLinkActive="active"> Clients </a>
-      <a routerLink="admins" routerLinkActive="active"> Admins </a>
-      <a routerLink="reservations" routerLinkActive="active"> Reservations</a>
-      <a routerLink="inscription" routerLinkActive="active"> S'inscrire </a>
+  <a routerLink="login" routerLinkActive="active" class="btn btn-link">login</a>
+  <a routerLink="inscription" routerLinkActive="active"> S'inscrire </a>
 
-      <a routerLink="/marchandise" routerLinkActive="active" class="btn btn-link">Boutique</a>
-      <a routerLink="panier" routerLinkActive="active" class="btn btn-link">panier</a>
-
-      <a routerLink="commande" routerLinkActive="active" class="btn btn-link">mes commandes</a>
-
-      <a routerLink="login" routerLinkActive="active" class="btn btn-link">login</a>
-      <button (click)="logout()" class="btn btn-link">deconnexion</button>
-    </ng-container>
-
-    <a routerLink="login" routerLinkActive="active" class="btn btn-link">login</a>
-    <a routerLink="inscription" routerLinkActive="active"> S'inscrire </a>
-    <a routerLink="/marchandise/ballon" routerLinkActive="active" class="btn btn-link">Ballon</a>
-    <a routerLink="/marchandise/maillot" routerLinkActive="active" class="btn btn-link">Maillot</a>
-
-  </nav>
+</ng-container>
+<a routerLink="/marchandise/ballon" routerLinkActive="active" class="btn btn-link">Ballon</a>
+<a routerLink="/marchandise/maillot" routerLinkActive="active" class="btn btn-link">Maillot</a>
+</nav>
 </header>
