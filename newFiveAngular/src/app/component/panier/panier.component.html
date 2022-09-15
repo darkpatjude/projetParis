@@ -1,4 +1,4 @@
-<ng-container *ngIf="article.length !=0">
+<ng-container *ngIf="cartItems.length !=0">
     <div class="container">
         <div class="card-table">
             <div class="cart-article">
@@ -9,23 +9,27 @@
                             <th>Nom article</th>
                             <th>Prix</th>
                             <th>Quantite</th>
+                            <th>Total Article</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let a of article">
-                            <td>{{a.id}}</td>
-                            <td>{{a.nom}}</td>
-                            <td >{{a.prix}}</td>
-                            <td >{{a.quantite}}</td>
-                            <td >{{a.total}}</td>
+                        <tr *ngFor="let item of cartItems">
+                            <td>{{item.article?.id}}</td>
+                            <td>{{item.article?.nom}}</td>
+                            <td >{{item.article?.prix}}€</td>
+                            <td >{{item.quantite}}</td>
+                            <td>{{item.total}}€</td>
                             <td>
-                                <button (click)="ajoutQuantiter()" class="btn btn-primary">ajouter</button>
+                                <button (click)="ajoutQuantiter(item.article!)" class="btn btn-primary">ajouter</button>
                             </td>
+                            <div *ngIf="item.quantite! >1">
                             <td>
-                                <button (click)="retraitQuantiter()" class="btn btn-danger">retirer</button>
+                                <button (click)="retraitQuantiter(item.article!)" class="btn btn-danger">retirer</button>
                             </td>
+                            </div>
+                        
                             <td>
-                                <button (click)="removeItem(a)" class="btn btn-danger">supprimer</button>
+                                <button (click)="removeItem(item.article!)" class="btn btn-danger">supprimer</button>
                             </td>
                         </tr>
                         <tr>
@@ -41,7 +45,7 @@
 </ng-container>
 
 
-<ng-container *ngIf="article.length ==0">
+<ng-container *ngIf="cartItems.length ==0">
     <div class="container">
         <div class="card">
             <h5 class="card-title">My Cart</h5>

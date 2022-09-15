@@ -3,7 +3,7 @@ import { Ballon } from "./ballon";
 import { Maillot } from "./maillot";
 
 export class Marchandise extends Article{
- constructor( private _nom?: string,
+ constructor( 
     private _stock?: number,
     private _description?:string,
     private _ballon?:Ballon,
@@ -13,13 +13,7 @@ export class Marchandise extends Article{
    super();
  }
 
-    public get nom(): string | undefined {
-        return this._nom;
-      }
-    
-      public set nom(value: string | undefined) {
-        this._nom = value;
-      }
+   
      public get description(): string | undefined {
         return this._description;
       }

@@ -3,13 +3,13 @@ import { LigneDeCommande } from "./ligne-de-commande";
 
 export class Commande {
 
-   constructor( private _id?: number,
+  constructor(private _id?: number,
     private _date?: Date,
-    private _prix?:number,
-    private _client?:Client,
-    private _ligne?:LigneDeCommande
+    private _prix?: number,
+    private _client?: Client,
+    private _ligne?: LigneDeCommande
   ) {
-   
+
   }
   public get id(): number | undefined {
     return this._id;

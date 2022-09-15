@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Marchandise } from 'src/app/model/marchandise';
 import { MarchandiseService } from 'src/app/services/marchandise.service';
+import { PanierService } from 'src/app/services/panier.service';
 
 @Component({
   selector: 'app-marchandise-list',
@@ -15,7 +16,9 @@ export class MarchandiseListComponent implements OnInit {
   showMessage = false;
   constructor(
     private marchandiseService: MarchandiseService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    
+    private panierService: PanierService,
   ) {
     this.observableMarchandises = this.marchandiseService.getAll();
   }
@@ -39,6 +42,8 @@ export class MarchandiseListComponent implements OnInit {
       this.observableMarchandises = this.marchandiseService.getAll();
     });
   }
-
+  addtocart(marchandise: Marchandise){
+    this.panierService.addtoCart(marchandise);
+  }
 
 }

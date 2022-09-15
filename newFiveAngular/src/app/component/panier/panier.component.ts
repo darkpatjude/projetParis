@@ -1,6 +1,7 @@
 import { Component,EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Article } from 'src/app/model/article';
-import { Panier } from 'src/app/model/panier';
+import { CartItem } from 'src/app/model/cartItem';
 import { PanierService } from 'src/app/services/panier.service';
 
 @Component({
@@ -9,35 +10,43 @@ import { PanierService } from 'src/app/services/panier.service';
   styleUrls: ['./panier.component.css']
 })
 export class PanierComponent implements OnInit {
-  
-  @Input()
-  article :any= [];
+ 
+  cartItems :Array<CartItem>= [];
+
   @Output()
   quantiterEvent: EventEmitter<any> = new EventEmitter();
-    
- @Output()
-
   retirerEvent: EventEmitter<any> = new EventEmitter();
+
+
   public grandTotal !: number;
   constructor(private panierService : PanierService) { }
  
 
   ngOnInit(): void {
-    this.panierService.getArticles()
+    this.panierService.getAsObservable()
     .subscribe(res=>{
-      this.article = res;
-      this.grandTotal = this.panierService.getTotalPrice();
+      this.cartItems = res;
+      this.calculateTotal();
     }) 
   }
 
-  ajoutQuantiter() {
-    this.article.quantite++;
-    this.quantiterEvent.emit({ article: this.article, quantite: this.article.quantite });
+  calculateTotal(): void {
+    this.grandTotal = 0;
+    this.cartItems.forEach((cartItem)=>{
+        let quantite = cartItem.quantite || 0;
+        let prix = cartItem.article?.prix || 0;
+        this.grandTotal += (prix * quantite);
+    });
+
+      
   }
 
-  retraitQuantiter() {
-    (this.article.quantite>0)?this.article.quantite--:this.article.quantite;
-    this.retirerEvent.emit({ article: this.article, quantite: this.article.quantite });
+  ajoutQuantiter(article: Article) {
+    this.panierService.addtoCart(article);
+  }
+
+  retraitQuantiter(article: Article) {
+    this.panierService.reduceToCart(article);
   }
  
   removeItem(article: Article){
@@ -47,4 +56,6 @@ export class PanierComponent implements OnInit {
   emptypanier(){
     this.panierService.removeAllCart();
   } 
+
+  ///////////////////////////////////////////////////////////////////////////////////////////////////
 }

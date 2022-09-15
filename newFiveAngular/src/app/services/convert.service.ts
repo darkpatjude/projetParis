@@ -84,8 +84,6 @@ export class ConvertService {
     let obj = {
       id: article.id,
       prix: article.prix,
-      
-      quantite: article.quantite,
     };
     return obj;
   }
