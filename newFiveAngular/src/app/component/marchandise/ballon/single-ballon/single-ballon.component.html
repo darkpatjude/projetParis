@@ -1,14 +1,11 @@
-<div class="face-card" *ngIf="ballon$|async as ballon" Class="snapped">
-  <h2>  {{ ballon.nom |uppercase }}</h2>
-  <h3> la couleur: {{ ballon.couleur}}</h3>
-  <h3 *ngIf="ballon.taille"> Taille: {{ballon.taille}}</h3>
-  <h2> description :  {{ ballon.description}}</h2>
-  <h2> Le prix : {{ ballon.prix}} </h2>
- <img src="{{ballon.imageUrl}}" alt="{{ballon.imageUrl}}">
- <button class="btn btn-primary btn-sm" (click)="addToCart(ballon)">
-  ajouter panier
- </button>
+<div class="face-card" *ngIf="ballon$ | async as ballon" Class="snapped">
+  <h2>{{ ballon.nom | uppercase }}</h2>
+  <h3>La couleur: {{ ballon.couleur }}</h3>
+  <h3 *ngIf="ballon.taille">Taille: {{ ballon.taille }}</h3>
+  <h2>Description : {{ ballon.description }}</h2>
+  <h2>Le prix : {{ ballon.prix }}</h2>
+  <img src="{{ ballon.imageUrl }}" alt="{{ ballon.imageUrl }}" />
+  <button class="btn btn-primary btn-sm" (click)="addToCart(ballon)">
+    Ajouter au panier
+  </button>
 </div>
-
-
-

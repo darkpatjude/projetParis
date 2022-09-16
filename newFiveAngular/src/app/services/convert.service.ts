@@ -124,9 +124,9 @@ export class ConvertService {
             telephone: commande.client.telephone,
           },
         });
-        return obj;
       }
     }
+    return obj;
   }
 
   public marchandiseToJson(marchandise: Marchandise): any {

@@ -32,10 +32,10 @@ public class CommandeService {
 			commande.setDate(LocalDate.now());
 		}
 		commandeRepo.save(commande);
-		commande.getLignes().forEach(ligne -> {
-			ligne.getId().setCommande(commande);
-		});
-		lCRepo.saveAll(commande.getLignes());
+//		commande.getLignes().forEach(ligne -> {
+//			ligne.getId().setCommande(commande);
+//		});
+//		lCRepo.saveAll(commande.getLignes());
 		return commande;
 	}
 

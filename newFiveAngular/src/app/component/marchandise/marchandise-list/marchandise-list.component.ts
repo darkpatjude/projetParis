@@ -11,23 +11,24 @@ import { PanierService } from 'src/app/services/panier.service';
 @Component({
   selector: 'app-marchandise-list',
   templateUrl: './marchandise-list.component.html',
-  styleUrls: ['./marchandise-list.component.css']
+  styleUrls: ['./marchandise-list.component.css'],
 })
 export class MarchandiseListComponent implements OnInit {
   observableMarchandises: Observable<Marchandise[]>;
   message = '';
   showMessage = false;
-  oui!:boolean
-  stat$!:Observable<string>;
+  public showMyMessage = false;
+  oui!: boolean;
+  stat$!: Observable<string>;
   @Output()
   event = new EventEmitter();
   constructor(
     private marchandiseService: MarchandiseService,
     private maillotService: MaillotService,
-    private ballonService:BallonService,
+    private ballonService: BallonService,
     private activatedRoute: ActivatedRoute,
-    private router:Router,
-    private panierService: PanierService,
+    private router: Router,
+    private panierService: PanierService
   ) {
     this.observableMarchandises = this.marchandiseService.getAll();
   }
@@ -46,17 +47,40 @@ export class MarchandiseListComponent implements OnInit {
     });
   }
 
-  view(id:number){
-
-    this.ballonService.getBallonById(id).pipe(
-      map(value=>{if(value){this.router.navigateByUrl(`/marchandise/ballon/${id}`)}else{{this.router.navigateByUrl(`/marchandise/ballon/${id}`)}}})
-    ).subscribe()
-    this.maillotService.getMaillotById(id).pipe(
-      map(value=>{if(value){this.router.navigateByUrl(`/marchandise/maillot/${id}`)}})
-    ).subscribe()
+  view(id: number) {
+    this.ballonService
+      .getBallonById(id)
+      .pipe(
+        map((value) => {
+          if (value) {
+            this.router.navigateByUrl(`/marchandise/ballon/${id}`);
+          } else {
+            {
+              this.router.navigateByUrl(`/marchandise/ballon/${id}`);
+            }
+          }
+        })
+      )
+      .subscribe();
+    this.maillotService
+      .getMaillotById(id)
+      .pipe(
+        map((value) => {
+          if (value) {
+            this.router.navigateByUrl(`/marchandise/maillot/${id}`);
+          }
+        })
+      )
+      .subscribe();
   }
   addToCart(marchandise: Marchandise) {
     this.panierService.addtoCart(marchandise);
-   // this.router.navigateByUrl("/panier")
+    setTimeout(() => {
+      this.showMyMessage = true;
+    }, 200);
+    setTimeout(() => {
+      this.showMyMessage = false;
+    }, 3000);
+    // this.router.navigateByUrl("/panier")
   }
 }

@@ -16,6 +16,8 @@ import formation.projetParis.newFive.entities.Admin;
 import formation.projetParis.newFive.entities.Adresse;
 import formation.projetParis.newFive.entities.Ballon;
 import formation.projetParis.newFive.entities.Client;
+import formation.projetParis.newFive.entities.Commande;
+import formation.projetParis.newFive.entities.LigneDeCommande;
 import formation.projetParis.newFive.entities.Maillot;
 import formation.projetParis.newFive.entities.Reservation;
 import formation.projetParis.newFive.entities.Terrain;
@@ -45,6 +47,7 @@ public class NewFiveApplicationTests {
 	@Autowired
 	private MarchandiseService merchService;
 
+	@Autowired
 	private CommandeService comService;
 
 	@Autowired
@@ -114,9 +117,9 @@ public class NewFiveApplicationTests {
 
 		// terrain
 		Terrain terrain1 = new Terrain(); // effacer set id? et ptet d'autres getters setters
-		terrain1.setNom("pelouse");
-		terrain1.setHeureOuverture(LocalTime.of(19, 30));
-		terrain1.setHeureFermeture(LocalTime.of(7, 0));
+		terrain1.setNom("Jaune");
+		terrain1.setHeureOuverture(LocalTime.of(23, 0));
+		terrain1.setHeureFermeture(LocalTime.of(8, 0));
 		terrainService.create(terrain1);
 
 		// reservation
@@ -134,13 +137,61 @@ public class NewFiveApplicationTests {
 		reservService.create(reservation2);
 
 		// non terminé
-//		//commande
-//		Commande commandeClient =new Commande();
-//		commandeClient.setClient(client);
-//		commandeClient.setDate(LocalDate.now());
-//		//commandeClient.setLignes();
-//		comService.create(commandeClient);
+		//commande
+		
 
+		Commande commandeClient =new Commande();
+		commandeClient.setClient(client);
+		commandeClient.setDate(LocalDate.now());
+		commandeClient.setPrix(30);
+		commandeClient.setClient(client);
+		comService.create(commandeClient);
+
+	}
+	
+	@Test
+	@Commit
+	public void creationTerrainsTest() {
+		Terrain terrain1 = new Terrain(); // effacer set id? et ptet d'autres getters setters
+		terrain1.setNom("Bleu");
+		terrain1.setHeureOuverture(LocalTime.of(23, 0));
+		terrain1.setHeureFermeture(LocalTime.of(8, 0));
+		terrainService.create(terrain1);
+		
+		Terrain terrain2 = new Terrain(); // effacer set id? et ptet d'autres getters setters
+		terrain2.setNom("Rouge");
+		terrain2.setHeureOuverture(LocalTime.of(23, 0));
+		terrain2.setHeureFermeture(LocalTime.of(8, 0));
+		terrainService.create(terrain2);
+		
+		Terrain terrain3 = new Terrain(); // effacer set id? et ptet d'autres getters setters
+		terrain3.setNom("Vert");
+		terrain3.setHeureOuverture(LocalTime.of(23, 0));
+		terrain3.setHeureFermeture(LocalTime.of(8, 0));
+		terrainService.create(terrain3);
+	}
+	
+	@Test
+	@Commit
+	public void creationMarchandise() {
+		Ballon ballon1 = new Ballon();
+		ballon1.setCouleur("Noir");
+		ballon1.setNom("Ballon super max");
+		ballon1.setDescription("Ballon très joli");
+		ballon1.setPrix(50);
+		ballon1.setStock(33);
+		ballon1.setTaille("Adulte");
+
+		Maillot maillot1 = new Maillot();
+		maillot1.setNom("Maillot Manchester City");
+		maillot1.setTaille("Medium");
+		maillot1.setDescription("Maillot Visite Manchester City 2022");
+		maillot1.setEquipe("Manchester City");
+		maillot1.setPrix(150);
+		maillot1.setStock(50);
+
+		merchService.create(maillot1);
+		merchService.create(ballon1);
 	}
 
 }

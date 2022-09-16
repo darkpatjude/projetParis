@@ -1,27 +1,28 @@
 <h1>Nouvelle réservation</h1>
-<h2> Réservez : </h2>
-<div class="form-group">
+<h2>Réservez :</h2>
+<!-- <div class="form-group">
   <label for="id">id:</label>
   <input id="id" class="form-control" [(ngModel)]="reservation.id" readonly />
-</div>
+</div> -->
 
 <div>
   <label for="terrainReserve">Choisissez un terrain :</label>
-<select name="terrainReserve" id="terrainReserve" [(ngModel)]="a">
-  <option value="1">Jaune</option>
-  <option value="2">Bleu</option>
-  <option value="3">Rouge</option>
-  <option value="4">Vert</option>
-</select>
-<p *ngIf="a>0">
-  <button routerLink="/terrain/{{a}}"> voir le terrain</button>
-</p>
+  <select name="terrainReserve" id="terrainReserve" [(ngModel)]="a">
+    <option value="1">Jaune</option>
+    <option value="2">Bleu</option>
+    <option value="3">Rouge</option>
+    <option value="4">Vert</option>
+  </select>
+  <p *ngIf="a > 0">
+    <button routerLink="/terrain/{{ a }}">Voir le terrain</button>
+  </p>
 </div>
 
 <div class="form-group">
-  <label for="date">date:</label>
+  <label for="date">Date:</label>
   <input
-    id="date" min="2022-09-16"
+    id="date"
+    min="2022-09-16"
     class="form-control"
     [(ngModel)]="reservation.date"
     type="date"
@@ -29,29 +30,40 @@
 </div>
 <div>
   <label for="heure">Choisissez un créneau :</label>
-<select class="form-group" name="heure" id="heure" [(ngModel)]="reservation.heure">
-  <option value="08:00:00">08:00 à 09:00</option>
-  <option value="09:00:00">09:00 à 10:00</option>
-  <option value="10:00:00">10:00 à 11:00</option>
-  <option value="11:00:00">11:00 à 12:00</option>
-  <option value="12:00:00">12:00 à 13:00</option>
-  <option value="13:00:00">13:00 à 14:00</option>
-  <option value="14:00:00">14:00 à 15:00</option>
-  <option value="15:00:00">15:00 à 16:00</option>
-  <option value="16:00:00">16:00 à 17:00</option>
-  <option value="17:00:00">17:00 à 18:00</option>
-  <option value="18:00:00">18:00 à 19:00</option>
-  <option value="19:00:00">19:00 à 20:00</option>
-  <option value="20:00:00">20:00 à 21:00</option>
-  <option value="21:00:00">21:00 à 22:00</option>
-  <option value="22:00:00">22:00 à 23:00</option>
-</select>
+  <select
+    class="form-group"
+    name="heure"
+    id="heure"
+    [(ngModel)]="reservation.heure"
+  >
+    <option value="08:00:00">08:00 à 09:00</option>
+    <option value="09:00:00">09:00 à 10:00</option>
+    <option value="10:00:00">10:00 à 11:00</option>
+    <option value="11:00:00">11:00 à 12:00</option>
+    <option value="12:00:00">12:00 à 13:00</option>
+    <option value="13:00:00">13:00 à 14:00</option>
+    <option value="14:00:00">14:00 à 15:00</option>
+    <option value="15:00:00">15:00 à 16:00</option>
+    <option value="16:00:00">16:00 à 17:00</option>
+    <option value="17:00:00">17:00 à 18:00</option>
+    <option value="18:00:00">18:00 à 19:00</option>
+    <option value="19:00:00">19:00 à 20:00</option>
+    <option value="20:00:00">20:00 à 21:00</option>
+    <option value="21:00:00">21:00 à 22:00</option>
+    <option value="22:00:00">22:00 à 23:00</option>
+  </select>
 </div>
-<div> Le prix d'une réservation est {{reservation.prix}}</div>
+<div>Le prix d'une réservation est {{ reservation.prix }}</div>
 
 <div class="form-group">
-  <button class="btn btn-outline-success" (click)="save()">enregistrer</button>
-  <button class="btn btn-outline-success" (click)="annuler()" class="btn btn-outline-warning">Annuler</button>
+  <button class="btn btn-outline-success" (click)="save()">Enregistrer</button>
+  <button
+    class="btn btn-outline-success"
+    (click)="annuler()"
+    class="btn btn-outline-warning"
+  >
+    Annuler
+  </button>
 </div>
 
-<app-carousel style="width:50%"></app-carousel>
+<app-carousel style="width: 50%"></app-carousel>

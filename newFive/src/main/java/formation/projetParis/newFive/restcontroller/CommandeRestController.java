@@ -45,15 +45,15 @@ public class CommandeRestController {
 	    }
 	
 	
-	@PostMapping("")
-	@JsonView(JsonViews.Commande.class)
-	public Commande create(@RequestBody CommandeRestModel commande) {
-		return commandeService.create(
-				commande.getPanier().stream().collect(Collectors.toMap(e -> e.getArticle(), e -> e.getQuantite())),
-				commande.getClient());
-	}
+//	@PostMapping("")
+//	@JsonView(JsonViews.Commande.class)
+//	public Commande create(@RequestBody CommandeRestModel commande) {
+//		return commandeService.create(
+//				commande.getPanier().stream().collect(Collectors.toMap(e -> e.getArticle(), e -> e.getQuantite())),
+//				commande.getClient());
+//	}
 
-	@PostMapping("/commande")
+	@PostMapping("")
 	@JsonView(JsonViews.Commande.class)
 	public Commande create(@RequestBody Commande commande) {
 		return commandeService.create(commande);

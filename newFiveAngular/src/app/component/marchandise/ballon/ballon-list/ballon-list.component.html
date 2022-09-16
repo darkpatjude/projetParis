@@ -1,47 +1,52 @@
 <table class="table">
-    <thead>
-      <th>nom:</th>
-      <th>prix:</th>
-      <th>description:</th>
-      <th>stock:</th>
-      <th>couleur:</th>
-      <th>taille:</th>
-      <th>image</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let a of observableBallons | async">
-        <td>
-          <a routerLink="/marchandise/ballon/{{a.id}}" >
-            {{a.nom}}
-          </a>
-        </td>
-        <td>{{ a.prix }}</td>
-        <td>{{ a.description }}</td>
-        <td>{{ a.stock}} </td>
-        <td>{{ a.couleur }}</td>
-        <td>{{ a.taille }}</td>
-       <td> <img style="width:100px" src="{{a.imageUrl}}" alt="{{a.imageUrl}}"></td>
+  <thead>
+    <th>Nom:</th>
+    <th>Prix:</th>
+    <th>description:</th>
+    <th>Stock:</th>
+    <th>Couleur:</th>
+    <th>Taille:</th>
+    <th>Image</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let a of observableBallons | async">
+      <td>
+        <a routerLink="/marchandise/ballon/{{ a.id }}">
+          {{ a.nom }}
+        </a>
+      </td>
+      <td>{{ a.prix }}</td>
+      <td>{{ a.description }}</td>
+      <td>{{ a.stock }}</td>
+      <td>{{ a.couleur }}</td>
+      <td>{{ a.taille }}</td>
+      <td>
+        <img
+          style="width: 100px"
+          src="{{ a.imageUrl }}"
+          alt="{{ a.imageUrl }}"
+        />
+      </td>
 
-
-
-        <td>
-
-          <a
+      <td>
+        <a
           routerLink="edit/{{ a.id }}"
           routerLink="active"
           class="btn btn-outline-primary"
-            >editer</a
-          >
-        </td>
-        <td>
-          <button (click)="delete(a.id!)" class="btn btn-outline-danger">
-            supprimer
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <a routerLink="/marchandise/ballon/add" routerLinkActive="active" class="btn btn-link"
-  >ajouter un nouveau ballon</a
+          >Editer</a
+        >
+      </td>
+      <td>
+        <button (click)="delete(a.id!)" class="btn btn-outline-danger">
+          Supprimer
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<a
+  routerLink="/marchandise/ballon/add"
+  routerLinkActive="active"
+  class="btn btn-link"
+  >Ajouter un nouveau ballon</a
 >
-

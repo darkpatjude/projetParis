@@ -1,36 +1,40 @@
-
 <table class="table">
   <thead>
-    <th>id:</th>
-    <th>prix:</th>
-    <th>terrainReserve:</th>
-    <th>date:</th>
-    <th>heure:</th>
+    <th>Id:</th>
+    <th>Prix:</th>
+    <th>TerrainReserve:</th>
+    <th>Date:</th>
+    <th>Heure:</th>
   </thead>
   <tbody>
     <tr *ngFor="let reservation of observableReservation | async">
       <td>{{ reservation.id }}</td>
       <td>{{ reservation.prix }}</td>
-      <td>{{ reservation.terrainReserve.nom}}</td>
+      <td>{{ reservation.terrainReserve.nom }}</td>
       <td>{{ reservation.date }}</td>
-      <td>{{ reservation.heure}}</td>
+      <td>{{ reservation.heure }}</td>
       <td>
         <a
           routerLink="/reservation/edit/{{ reservation.id }}"
           routerLink="active"
           class="btn btn-outline-primary"
-          >editer</a
+          >Editer</a
         >
       </td>
       <td>
-        <button (click)="delete(reservation.id!)" class="btn btn-outline-danger">
-          supprimer
+        <button
+          (click)="delete(reservation.id!)"
+          class="btn btn-outline-danger"
+        >
+          Supprimer
         </button>
       </td>
     </tr>
   </tbody>
 </table>
-<a routerLink="/reservation/create" routerLinkActive="active" class="btn btn-link"
-  >nouvelle reservation</a
+<a
+  routerLink="/reservation/create"
+  routerLinkActive="active"
+  class="btn btn-link"
+  >Nouvelle reservation</a
 >
-

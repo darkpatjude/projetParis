@@ -1,17 +1,24 @@
-
-<ngb-carousel #carousel [interval]="2000">
-  <ng-template ngbSlide *ngFor="let img of images; index as i">
-    <div class="carousel-caption">
-      <h3>{{i + 1}}</h3>
-    </div>
-  <!--  <a href="https://www.google.fr/?q=Number+{{1}}" target="_blank" rel="nofollow noopener noreferrer">
+<div class="alert alert-light" role="alert">
+  <h2>Offres du moment:</h2>
+  <ngb-carousel #carousel [interval]="4000">
+    <ng-template ngbSlide *ngFor="let img of images; index as i">
+      <div class="carousel-caption">
+        <!-- <h3>{{ i + 1 }}</h3> -->
+      </div>
+      <!--  <a href="https://www.google.fr/?q=Number+{{1}}" target="_blank" rel="nofollow noopener noreferrer">
       <div class="picsum-img-wrapper">
         <img [src]="img" alt="Mon image {{i + 1}}" style="height: 500px; display: block; margin: 0px auto;">
       </div>
     </a>
   -->
-    <div class="picsum-img-wrapper">
-      <img [src]="img" alt="Mon image {{i + 1}}" style="height: 500px; display: block; margin: 0px auto;">
-    </div>
-  </ng-template>
-</ngb-carousel>
+      <div class="picsum-img-wrapper">
+        <a routerLink="/marchandise" routerLinkActive="active">
+          <img
+            [src]="img"
+            alt="Mon image {{ i + 1 }}"
+            style="height: 300px; display: block; margin: 0px auto"
+        /></a>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>

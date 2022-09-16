@@ -1,45 +1,51 @@
 <table class="table">
-    <thead>
-
-      <th>nom</th>
-      <th>prix</th>
-      <th>description:</th>
-      <th>stock</th>
-      <th>equipe</th>
-      <th>taille</th>
-      <th>image</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let a of observableMaillots | async">
-
-        <td>
-          <a routerLink="/marchandise/maillot/{{a.id}}" >
-            {{a.nom}}
-          </a>
-        </td>
-        <td>{{ a.prix }}</td>
-        <td>{{ a.description }}</td>
-        <td>{{ a.stock}} </td>
-        <td>{{ a.equipe }}</td>
-        <td>{{ a.taille }}</td>
-        <td> <img style="width:100px" src="{{a.imageUrl}}" alt="{{a.imageUrl}}"></td>
-        <td>
-          <a
-            routerLink="edit/{{ a.id }}"
-            routerLink="active"
-            class="btn btn-outline-primary"
-            >editer</a
-          >
-
-        </td>
-        <td>
-          <button (click)="delete(a.id!)" class="btn btn-outline-danger">
-            supprimer
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <a routerLink="/marchandise/maillot/add" routerLinkActive="active" class="btn btn-link"
-    >ajouter un nouveau maillot</a
-  >
+  <thead>
+    <th>Nom</th>
+    <th>Prix</th>
+    <th>Description:</th>
+    <th>Stock</th>
+    <th>Equipe</th>
+    <th>Taille</th>
+    <th>Image</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let a of observableMaillots | async">
+      <td>
+        <a routerLink="/marchandise/maillot/{{ a.id }}">
+          {{ a.nom }}
+        </a>
+      </td>
+      <td>{{ a.prix }}</td>
+      <td>{{ a.description }}</td>
+      <td>{{ a.stock }}</td>
+      <td>{{ a.equipe }}</td>
+      <td>{{ a.taille }}</td>
+      <td>
+        <img
+          style="width: 100px"
+          src="{{ a.imageUrl }}"
+          alt="{{ a.imageUrl }}"
+        />
+      </td>
+      <td>
+        <a
+          routerLink="edit/{{ a.id }}"
+          routerLink="active"
+          class="btn btn-outline-primary"
+          >Editer</a
+        >
+      </td>
+      <td>
+        <button (click)="delete(a.id!)" class="btn btn-outline-danger">
+          Supprimer
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<a
+  routerLink="/marchandise/maillot/add"
+  routerLinkActive="active"
+  class="btn btn-link"
+  >Ajouter un nouveau maillot</a
+>

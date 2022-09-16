@@ -1,16 +1,12 @@
-
-
-
-<h2> Liste de nos articles : </h2>
+<h2>Liste de nos articles :</h2>
 <div *ngIf="showMessage" class="alert alert-info">{{ message }}</div>
 <table class="table">
   <thead>
-    <th>id:</th>
-    <th>nom:</th>
-    <th>prix:</th>
-    <th>description:</th>
-    <th>stock:</th>
-
+    <th>Id:</th>
+    <th>Nom:</th>
+    <th>Prix:</th>
+    <th>Description:</th>
+    <!-- <th>Stock:</th> -->
   </thead>
   <tbody>
     <tr *ngFor="let marchandise of observableMarchandises | async">
@@ -18,18 +14,19 @@
       <td>{{ marchandise.nom }}</td>
       <td>{{ marchandise.prix }}</td>
       <td>{{ marchandise.description }}</td>
-      <td>{{ marchandise.stock }}</td>
-      <td>{{stat$|async}}</td>
-      <td *ngIf="oui">{{oui}} hello</td>
+      <!-- <td>{{ marchandise.stock }}</td> -->
+      <td>{{ stat$ | async }}</td>
+      <td *ngIf="oui">{{ oui }} Hello</td>
 
-      <td> <button (click)="view(marchandise.id!)"> View</button></td>
-      <td><button class="btn btn-primary btn-sm" (click)="addToCart(marchandise)">
-        ajouter panier
-       </button>
+      <td><button (click)="view(marchandise.id!)">View</button></td>
+      <td>
+        <button class="btn btn-primary btn-sm" (click)="addToCart(marchandise)">
+          Ajouter panier
+        </button>
       </td>
-
     </tr>
   </tbody>
 </table>
+<p class="alert alert-success" *ngIf="showMyMessage">Ajouté au panier!</p>
 
 <app-carousel2></app-carousel2>

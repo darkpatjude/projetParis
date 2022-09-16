@@ -1,13 +1,18 @@
-<h1> Liste des admins</h1>
+<div *ngIf="user">
+  <h1>Bienvenu(e) de retour: {{ user.login }}</h1>
+  <h4>Account de type: {{ user.role }}</h4>
+</div>
+<h1>Liste des admins</h1>
+
 <table class="table">
   <thead>
     <tr>
-      <th>id:</th>
-      <th>prenom:</th>
-      <th>nom:</th>
-      <th>email:</th>
-      <th>telephone:</th>
-      <th>adresse:</th>
+      <th>Id:</th>
+      <th>Prenom:</th>
+      <th>Nom:</th>
+      <th>Email:</th>
+      <th>Telephone:</th>
+      <th>Adresse:</th>
     </tr>
   </thead>
   <tbody>
@@ -17,15 +22,18 @@
       <td>{{ admin.nom }}</td>
       <td>{{ admin.email }}</td>
       <td>{{ admin.telephone }}</td>
-      <td>{{ admin.adresse?.numero }} {{ admin.adresse?.rue }} {{ admin.adresse?.codePostal }} {{ admin.adresse?.ville }}</td>
-      <td><button (click)="editAdmin(admin.id)">edit</button></td>
       <td>
-        <td>
-          <button (click)="delete(admin.id!)" class="btn btn-outline-danger">
-            supprimer
-          </button>
-        </td>
+        {{ admin.adresse?.numero }} {{ admin.adresse?.rue }}
+        {{ admin.adresse?.codePostal }} {{ admin.adresse?.ville }}
+      </td>
+      <td><button (click)="editAdmin(admin.id)">Editer</button></td>
+      <td></td>
+      <td>
+        <button (click)="delete(admin.id!)" class="btn btn-outline-danger">
+          Supprimer
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
-<button (click)="newAdmin()">Nouveau Client</button>
+<button (click)="newAdmin()">Nouveau Administrateur</button>

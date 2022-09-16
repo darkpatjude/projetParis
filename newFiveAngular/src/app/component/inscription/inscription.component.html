@@ -1,15 +1,15 @@
 <fieldset>
   <form (ngSubmit)="submit()" [formGroup]="form">
     <div class="form-group">
-      <label for="login">login:</label>
+      <label for="login">Login:</label>
       <input id="login" class="form-control" formControlName="loginCtrl" />
       <div *ngIf="form.get('loginCtrl')?.hasError('notUnique')">
-        *login deja utilisé
+        *Login deja utilisé
       </div>
     </div>
     <ng-container formGroupName="passwordGroup">
       <div class="form-group">
-        <label for="password">mot de passe: </label>
+        <label for="password">Mot de passe: </label>
         <input
           class="form-control"
           id="password"
@@ -22,11 +22,12 @@
             form.get('passwordGroup.passwordCtrl')?.invalid
           "
         >
-          mot de passe invalide
+          Mot de passe invalide (Une majuscule, une minuscule, une longueur de 4
+          caractères dont au moin un special parmi: * ? . @ ! = + # )
         </div>
       </div>
       <div class="form-group">
-        <label for="confirmation">resaisir le mot de passe: </label>
+        <label for="confirmation">Resaisir le mot de passe: </label>
         <input
           type="password"
           id="confirmation"
@@ -40,7 +41,7 @@
             form.get('passwordGroup')?.invalid
           "
         >
-          ne correspond pas au mot de passe
+          Ne correspond pas au même mot de passe
         </div>
       </div>
     </ng-container>
@@ -50,13 +51,13 @@
         class="btn btn-outline-primary"
         [disabled]="form.invalid"
       >
-        enregistrer
+        Enregistrer
       </button>
       <a
         routerLink="/home"
         routerLinkActive="active"
         class="btn btn-outline-warning"
-        >annuler</a
+        >Annuler</a
       >
     </div>
   </form>
